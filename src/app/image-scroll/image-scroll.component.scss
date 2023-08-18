@@ -32,15 +32,15 @@
   scroll-behavior: smooth;
 }
 
-.media-scroller--with-groups {
-  grid-auto-columns: 80%;
-}
+// .media-scroller--with-groups {
+//   grid-auto-columns: 80%;
+// }
 
-.media-group {
-  display: grid;
-  gap: var(--_spacer);
-  grid-auto-flow: column;
-}
+// .media-group {
+//   display: grid;
+//   gap: var(--_spacer);
+//   grid-auto-flow: column;
+// }
 
 .media-element {
   display: grid;

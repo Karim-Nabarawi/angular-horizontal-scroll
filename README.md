@@ -1,27 +1,39 @@
-# AngularHorizontalScrollContainer
+# Angular Image Scroller Component
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+This Angular component provides a scrolling gallery of images with navigation buttons.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Clone the repository or copy the relevant files into your Angular project.
+2. Install the necessary dependencies:
+   ```bash
+   npm install
+   ```
 
-## Code scaffolding
+# Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Import the ImageScrollComponent in your module or standalone component:
+   ```typescript
+   import { ImageScrollComponent } from "./image-scroll/image-scroll.component";
+   ```
+2. Add the `ImageScrollComponent` to your template and include your content within the `ng-content` tags:
+   ```html
+   <app-image-scroll>
+     <div class="media-element">
+       <!-- Your image content here -->
+     </div>
+     <!-- Add more media elements as needed -->
+   </app-image-scroll>
+   ```
+3. Customize the component's behavior and appearance by adjusting the provided CSS and TypeScript files.
 
-## Build
+# Component Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+You can customize the appearance and behavior of the image scroller by adjusting the provided CSS and TypeScript files:
 
-## Running unit tests
+- `image-scroll.component.scss`: Modify the styles for the scroller, buttons, and individual media elements.
+- `image-scroll.component.ts`: Adjust the scroll behavior and other component logic.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Contributing
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Contributions are welcome! If you find any issues or would like to add new features, feel free to open a pull request.
