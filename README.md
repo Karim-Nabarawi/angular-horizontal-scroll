@@ -6,6 +6,7 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
 1. Clone the repository or copy the relevant files into your Angular project.
 2. Install the necessary dependencies:
+
    ```bash
    npm install
    ```
@@ -13,10 +14,13 @@ This Angular component provides a scrolling gallery of images with navigation bu
 # Usage
 
 1. Import the ImageScrollComponent in your module or standalone component:
+
    ```typescript
    import { ImageScrollComponent } from "./image-scroll/image-scroll.component";
    ```
+
 2. Add the `ImageScrollComponent` to your template and include your content within the `ng-content` tags:
+
    ```html
    <app-image-scroll>
      <div class="media-element">
@@ -25,6 +29,7 @@ This Angular component provides a scrolling gallery of images with navigation bu
      <!-- Add more media elements as needed -->
    </app-image-scroll>
    ```
+
 3. Customize the component's behavior and appearance by adjusting the provided CSS and TypeScript files.
 
 # Component Features
