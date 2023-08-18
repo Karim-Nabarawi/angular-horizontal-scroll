@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class ImageScrollComponent {
   @ViewChild('widgetsContent') widgetsContent!: ElementRef;
 
-  scrollAmount = 200;
+  @Input() scrollAmount = 150;
 
   scrollLeft() {
     this.widgetsContent.nativeElement.scrollLeft -= this.scrollAmount;
