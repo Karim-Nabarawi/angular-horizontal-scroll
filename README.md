@@ -39,6 +39,12 @@ You can customize the appearance and behavior of the image scroller by adjusting
 - `image-scroll.component.scss`: Modify the styles for the scroller, buttons, and individual media elements.
 - `image-scroll.component.ts`: Adjust the scroll behavior and other component logic.
 
+# Component Params
+
+| Input Parameter | Type   | Description                             |
+| --------------- | ------ | --------------------------------------- |
+| `scrollAmount`  | number | Control the scroll button scroll amount |
+
 # Contributing
 
 Contributions are welcome! If you find any issues or would like to add new features, feel free to open a pull request.
