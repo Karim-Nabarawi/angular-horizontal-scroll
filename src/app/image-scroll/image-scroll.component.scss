@@ -20,7 +20,7 @@
 }
 
 .media-scroller {
-  --_spacer: 1rem;
+  --_spacer: 16px;
   display: grid;
   gap: var(--_spacer);
   grid-auto-flow: column;
@@ -31,16 +31,6 @@
   overscroll-behavior-inline: contain;
   scroll-behavior: smooth;
 }
-
-// .media-scroller--with-groups {
-//   grid-auto-columns: 80%;
-// }
-
-// .media-group {
-//   display: grid;
-//   gap: var(--_spacer);
-//   grid-auto-flow: column;
-// }
 
 .media-element {
   display: grid;

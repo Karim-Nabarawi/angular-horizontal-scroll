@@ -11,13 +11,21 @@ import { CommonModule } from '@angular/common';
 export class ImageScrollComponent {
   @ViewChild('widgetsContent') widgetsContent!: ElementRef;
 
-  @Input() scrollAmount = 150;
+  @Input() scrollAmount = 0;
+  @Input() scrollGap = 16;
 
   scrollLeft() {
-    this.widgetsContent.nativeElement.scrollLeft -= this.scrollAmount;
+    this.widgetsContent.nativeElement.scrollLeft -= this.getScrollAmount();
   }
 
   scrollRight() {
-    this.widgetsContent.nativeElement.scrollLeft += this.scrollAmount;
+    this.widgetsContent.nativeElement.scrollLeft += this.getScrollAmount();
+  }
+
+  getScrollAmount() {
+    return this.scrollAmount === 0
+      ? this.widgetsContent.nativeElement.firstChild.offsetWidth +
+          this.scrollGap
+      : this.scrollAmount;
   }
 }
