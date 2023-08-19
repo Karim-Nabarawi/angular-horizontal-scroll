@@ -5,6 +5,7 @@ import {
   ElementRef,
   Input,
   ViewChild,
+  HostListener
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -54,4 +55,9 @@ export class ImageScrollComponent implements AfterViewInit {
         element.offsetWidth < element.scrollWidth;
     }
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.checkOverflow();
+  };
 }
