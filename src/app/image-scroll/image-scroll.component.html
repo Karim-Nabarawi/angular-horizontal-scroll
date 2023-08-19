@@ -1,5 +1,5 @@
 <div class="scroll-container">
-  <div class="custom-slider-buttons">
+  <div class="custom-slider-buttons" *ngIf="hasOverflow">
     <button class="arrow" (click)="scrollLeft()">
       <img
         src="https://cdn-icons-png.flaticon.com/512/3031/3031716.png"

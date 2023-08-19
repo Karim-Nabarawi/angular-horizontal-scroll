@@ -1,4 +1,11 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Input,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,11 +15,20 @@ import { CommonModule } from '@angular/common';
   templateUrl: './image-scroll.component.html',
   styleUrls: ['./image-scroll.component.scss'],
 })
-export class ImageScrollComponent {
-  @ViewChild('widgetsContent') widgetsContent!: ElementRef;
+export class ImageScrollComponent implements AfterViewInit {
+  @ViewChild('widgetsContent', { static: false }) widgetsContent!: ElementRef;
 
   @Input() scrollAmount = 0;
   @Input() scrollGap = 16;
+
+  hasOverflow = false;
+
+  constructor(private cdRef: ChangeDetectorRef) {}
+
+  ngAfterViewInit() {
+    this.checkOverflow();
+    this.cdRef.detectChanges();
+  }
 
   scrollLeft() {
     this.widgetsContent.nativeElement.scrollLeft -= this.getScrollAmount();
@@ -20,6 +36,7 @@ export class ImageScrollComponent {
 
   scrollRight() {
     this.widgetsContent.nativeElement.scrollLeft += this.getScrollAmount();
+    this.checkOverflow();
   }
 
   getScrollAmount() {
@@ -27,5 +44,14 @@ export class ImageScrollComponent {
       ? this.widgetsContent.nativeElement.firstChild.offsetWidth +
           this.scrollGap
       : this.scrollAmount;
+  }
+
+  checkOverflow() {
+    if (this.widgetsContent) {
+      const element = this.widgetsContent.nativeElement;
+      this.hasOverflow =
+        element.offsetHeight < element.scrollHeight ||
+        element.offsetWidth < element.scrollWidth;
+    }
   }
 }
