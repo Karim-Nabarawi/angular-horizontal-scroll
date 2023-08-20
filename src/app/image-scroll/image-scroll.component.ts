@@ -22,6 +22,7 @@ export class ImageScrollComponent implements AfterViewInit {
   @Input() scrollGap = 16;
 
   hasOverflow = false;
+  overflowValue: 'left' | 'mid' | 'right' = 'left';
 
   constructor(private cdRef: ChangeDetectorRef) {}
 
@@ -36,7 +37,22 @@ export class ImageScrollComponent implements AfterViewInit {
 
   scrollRight() {
     this.widgetsContent.nativeElement.scrollLeft += this.getScrollAmount();
-    this.checkOverflow();
+  }
+
+  onScroll(event: Event): void {
+    this.updateOverflowValue();
+  }
+
+  updateOverflowValue() {
+    const scrollAmount = this.widgetsContent.nativeElement.scrollLeft;
+    const maxScrollAmount = this.widgetsContent.nativeElement.scrollLeftMax;
+    if (scrollAmount === 0) {
+      this.overflowValue = 'left';
+    } else if (scrollAmount === maxScrollAmount) {
+      this.overflowValue = 'right';
+    } else {
+      this.overflowValue = 'mid';
+    }
   }
 
   getScrollAmount() {

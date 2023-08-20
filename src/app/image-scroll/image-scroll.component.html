@@ -1,23 +1,38 @@
 <div class="scroll-container">
-  <div class="custom-slider-buttons" *ngIf="hasOverflow">
-    <button class="arrow" (click)="scrollLeft()">
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/3031/3031716.png"
-        alt=""
-        style="transform: rotate(180deg)"
-      />
-    </button>
-    <button class="arrow" (click)="scrollRight()">
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/3031/3031716.png"
-        alt=""
-      />
-    </button>
+  <div class="slider-buttons" *ngIf="hasOverflow">
+    <div
+      [ngClass]="{
+        'hide-button': overflowValue === 'left',
+        'show-button': overflowValue !== 'left'
+      }"
+    >
+      <button class="arrow scroll-button" (click)="scrollLeft()">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3031/3031716.png"
+          alt=""
+          style="transform: rotate(180deg)"
+        />
+      </button>
+    </div>
+    <div
+      [ngClass]="{
+        'hide-button': overflowValue === 'right',
+        'show-button': overflowValue !== 'right'
+      }"
+    >
+      <button class="arrow scroll-button" (click)="scrollRight()">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3031/3031716.png"
+          alt=""
+        />
+      </button>
+    </div>
   </div>
 
   <div
     #widgetsContent
     class="media-scroller media-scroller--with-groups snaps-inline"
+    (scroll)="onScroll($event)"
   >
     <ng-content></ng-content>
   </div>
