@@ -22,6 +22,7 @@ export class ImageScrollComponent implements AfterViewInit {
 
   @Input() scrollAmount = 0;
   @Input() headerTitleTemplate: string | TemplateRef<void> = '';
+  @Input() scrollButtonTemplate!: TemplateRef<void>;
   @Input() scrollButtonPosition: 'center' | 'top right' = 'center';
   @Input() marginLeftFirstElement: number = 16;
   @Input() showScrollbar: boolean = false;
