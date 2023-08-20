@@ -23,10 +23,7 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
    ```html
    <app-image-scroll>
-     <div class="media-element">
-       <!-- Your image content here -->
-     </div>
-     <!-- Add more media elements as needed -->
+     <!-- Your content here -->
    </app-image-scroll>
    ```
 
