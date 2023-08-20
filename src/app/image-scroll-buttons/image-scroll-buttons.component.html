@@ -1,0 +1,36 @@
+<div
+  [ngClass]="{
+    'left-button': position === 'center',
+    'hide-button': buttonDisplay === 'left',
+    'show-button': buttonDisplay !== 'left'
+  }"
+>
+  <button
+    class="scroll-button center-button"
+    (click)="scrollLeft()"
+    style="transform: scaleX(-1)"
+  >
+    <!-- <img
+      src="https://cdn-icons-png.flaticon.com/512/3031/3031716.png"
+      alt=""
+      style="transform: rotate(180deg)"
+    /> -->
+    <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"></path>
+    </svg>
+  </button>
+</div>
+<div
+  [ngClass]="{
+    'right-button': position === 'center',
+    'hide-button': buttonDisplay === 'right',
+    'show-button': buttonDisplay !== 'right'
+  }"
+>
+  <button class="scroll-button center-button" (click)="scrollRight()">
+    <!-- <img src="https://cdn-icons-png.flaticon.com/512/3031/3031716.png" alt="" /> -->
+    <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"></path>
+    </svg>
+  </button>
+</div>

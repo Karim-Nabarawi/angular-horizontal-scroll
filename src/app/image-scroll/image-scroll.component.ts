@@ -4,14 +4,16 @@ import {
   Component,
   ElementRef,
   Input,
+  TemplateRef,
   ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ImageScrollButtonsComponent } from '../image-scroll-buttons/image-scroll-buttons.component';
 
 @Component({
   selector: 'app-image-scroll',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ImageScrollButtonsComponent],
   templateUrl: './image-scroll.component.html',
   styleUrls: ['./image-scroll.component.scss'],
 })
@@ -22,7 +24,8 @@ export class ImageScrollComponent implements AfterViewInit {
   @Input() scrollGap = 16;
 
   hasOverflow = false;
-  overflowValue: 'left' | 'mid' | 'right' = 'left';
+  overflowValue: 'left' | 'both' | 'right' = 'left';
+  @Input() headerTitleTemplate: string | TemplateRef<void> = '';
 
   constructor(private cdRef: ChangeDetectorRef) {}
 
@@ -31,12 +34,13 @@ export class ImageScrollComponent implements AfterViewInit {
     this.cdRef.detectChanges();
   }
 
-  scrollLeft() {
-    this.widgetsContent.nativeElement.scrollLeft -= this.getScrollAmount();
+  // Check if the contentTemplate is a string or TemplateRef
+  get isStringTemplate(): boolean {
+    return typeof this.headerTitleTemplate === 'string';
   }
 
-  scrollRight() {
-    this.widgetsContent.nativeElement.scrollLeft += this.getScrollAmount();
+  get headerTemplate(): TemplateRef<void> {
+    return this.headerTitleTemplate as TemplateRef<void>;
   }
 
   onScroll(event: Event): void {
@@ -51,11 +55,11 @@ export class ImageScrollComponent implements AfterViewInit {
     } else if (scrollAmount === maxScrollAmount) {
       this.overflowValue = 'right';
     } else {
-      this.overflowValue = 'mid';
+      this.overflowValue = 'both';
     }
   }
 
-  getScrollAmount() {
+  get getScrollAmount(): number {
     return this.scrollAmount === 0
       ? this.widgetsContent.nativeElement.firstChild.offsetWidth +
           this.scrollGap
