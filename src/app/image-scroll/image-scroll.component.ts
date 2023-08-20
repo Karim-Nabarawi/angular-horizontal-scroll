@@ -22,10 +22,11 @@ export class ImageScrollComponent implements AfterViewInit {
 
   @Input() scrollAmount = 0;
   @Input() scrollGap = 16;
+  @Input() headerTitleTemplate: string | TemplateRef<void> = '';
+  @Input() scrollButtonPosition: 'center' | 'top right' = 'center';
 
   hasOverflow = false;
   overflowValue: 'left' | 'both' | 'right' = 'left';
-  @Input() headerTitleTemplate: string | TemplateRef<void> = '';
 
   constructor(private cdRef: ChangeDetectorRef) {}
 
