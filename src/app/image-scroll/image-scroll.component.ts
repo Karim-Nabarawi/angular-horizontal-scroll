@@ -23,6 +23,8 @@ export class ImageScrollComponent implements AfterViewInit {
   @Input() scrollAmount = 0;
   @Input() headerTitleTemplate: string | TemplateRef<void> = '';
   @Input() scrollButtonPosition: 'center' | 'top right' = 'center';
+  @Input() marginLeftFirstElement: number = 16;
+  @Input() showScrollbar: boolean = false;
 
   hasOverflow = false;
   overflowValue: 'left' | 'both' | 'right' = 'left';
@@ -71,6 +73,9 @@ export class ImageScrollComponent implements AfterViewInit {
       this.hasOverflow =
         element.offsetHeight < element.scrollHeight ||
         element.offsetWidth < element.scrollWidth;
+      this.widgetsContent.nativeElement.firstChild.style[
+        'margin-left'
+      ] = `${this.marginLeftFirstElement}px`;
     }
   }
 }

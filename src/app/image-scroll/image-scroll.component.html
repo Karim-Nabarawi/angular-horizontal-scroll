@@ -21,7 +21,8 @@
   <div class="scroll-wrapper">
     <div
       #widgetsContent
-      class="media-scroller media-scroller--with-groups snaps-inline"
+      class="media-scroller"
+      [ngClass]="{ 'hide-scrollbar': !showScrollbar }"
       (scroll)="onScroll($event)"
     >
       <ng-content></ng-content>
