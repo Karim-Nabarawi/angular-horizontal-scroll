@@ -43,7 +43,7 @@ You can customize the appearance and behavior of the image scroller by adjusting
 
 | Input Parameter          | Type                           | Default  | Description                                                                                                 |
 | ------------------------ | ------------------------------ | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `scrollAmount`           | number                         | 0        | Control the scroll button scroll amount. Set to `0` for automatic calculation using the first element width |
+| `scrollAmount`           | 'auto' \| 'full' \| number     | 'auto'   | Control the scroll button scroll amount. Set to `0` for automatic calculation using the first element width |
 | `headerTitleTemplate`    | string \| TemplateRef<void>    | ''       | The title for the container                                                                                 |
 | `marginLeftFirstElement` | number                         | 16       | The margin left to the first element                                                                        |
 | `scrollButtonPosition`   | 'center' \| 'top right'        | 'center' | The placement of scrolls buttons                                                                            |

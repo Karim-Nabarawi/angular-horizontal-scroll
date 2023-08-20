@@ -20,7 +20,7 @@ import { ImageScrollButtonsComponent } from '../image-scroll-buttons/image-scrol
 export class ImageScrollComponent implements AfterViewInit {
   @ViewChild('widgetsContent', { static: false }) widgetsContent!: ElementRef;
 
-  @Input() scrollAmount = 0;
+  @Input() scrollAmount: number | 'auto' | 'full' = 'auto';
   @Input() headerTitleTemplate: string | TemplateRef<void> = '';
   @Input() scrollButtonTemplate!: TemplateRef<void>;
   @Input() scrollButtonPosition: 'center' | 'top right' = 'center';
@@ -63,12 +63,19 @@ export class ImageScrollComponent implements AfterViewInit {
   }
 
   get getScrollAmount(): number {
-    return this.scrollAmount === 0
-      ? this.widgetsContent.nativeElement.childNodes[1].offsetLeft
-      : this.scrollAmount;
+    if (this.scrollAmount === 'auto') {
+      return this.widgetsContent.nativeElement.childNodes[1].offsetLeft;
+    } else if (this.scrollAmount === 'full') {
+      return (
+        this.widgetsContent.nativeElement.offsetWidth -
+        this.widgetsContent.nativeElement.childNodes[1].offsetLeft
+      );
+    }
+    return this.scrollAmount;
   }
 
   checkOverflow() {
+    console.log(this.widgetsContent.nativeElement);
     if (this.widgetsContent) {
       const element = this.widgetsContent.nativeElement;
       this.hasOverflow =
