@@ -11,7 +11,7 @@
       *ngSwitchCase="true"
       [ngTemplateOutlet]="buttonTemplateOut"
       [ngTemplateOutletContext]="{
-        $implicit: scrollLeft(),
+        $implicit: -1,
         style: 'transform: scaleX(-1)'
       }"
     >
@@ -21,25 +21,12 @@
       *ngSwitchDefault
       [ngTemplateOutlet]="defaultButtonTemplate"
       [ngTemplateOutletContext]="{
-        $implicit: scrollLeft(),
+        $implicit: -1,
         style: 'transform: scaleX(-1)'
       }"
     >
     </ng-container>
   </div>
-  <!-- Check the type of contentTemplate
-  <ng-container *ngIf="!scrollButtonTemplate; else buttonTemplateOutletLeft">
-    <button
-      class="center-button scroll-button"
-      (click)="scrollLeft()"
-      style="transform: scaleX(-1)"
-    >
-
-      <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"></path>
-      </svg>
-    </button>
-  </ng-container> -->
 </div>
 
 <div
@@ -50,24 +37,33 @@
     'show-button': buttonDisplay !== 'right'
   }"
 >
-  <!-- Check the type of contentTemplate -->
-  <ng-container *ngIf="!scrollButtonTemplate; else buttonTemplateOutletRight">
-    <button class="center-button scroll-button" (click)="scrollRight()">
-      <!-- <img src="https://cdn-icons-png.flaticon.com/512/3031/3031716.png" alt="" /> -->
-      <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"></path>
-      </svg>
-    </button>
-  </ng-container>
-  <ng-template #buttonTemplateOutletRight>
-    <div (click)="scrollRight()">
-      <ng-container *ngTemplateOutlet="scrollButtonTemplate"></ng-container>
-    </div>
-  </ng-template>
+  <div [ngSwitch]="scrollButtonTemplate">
+    <ng-container
+      *ngSwitchCase="true"
+      [ngTemplateOutlet]="buttonTemplateOut"
+      [ngTemplateOutletContext]="{
+        $implicit: 1,
+      }"
+    >
+    </ng-container>
+
+    <ng-container
+      *ngSwitchDefault
+      [ngTemplateOutlet]="defaultButtonTemplate"
+      [ngTemplateOutletContext]="{
+        $implicit: 1,
+      }"
+    >
+    </ng-container>
+  </div>
 </div>
 
-<ng-template #defaultButtonTemplate let-click let-style="style">
-  <button class="center-button scroll-button" (click)="click()" [style]="style">
+<ng-template #defaultButtonTemplate let-direction let-style="style">
+  <button
+    class="center-button scroll-button"
+    (click)="scroll(direction)"
+    [style]="style"
+  >
     <!-- <img src="https://cdn-icons-png.flaticon.com/512/3031/3031716.png" alt="" /> -->
     <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"></path>
@@ -75,8 +71,8 @@
   </button>
 </ng-template>
 
-<ng-template #buttonTemplateOut let-click let-style="style">
-  <div (click)="click()" [style]="style">
+<ng-template #buttonTemplateOut let-direction let-style="style">
+  <div (click)="scroll(direction)" [style]="style">
     <ng-container *ngTemplateOutlet="scrollButtonTemplate"></ng-container>
   </div>
 </ng-template>
