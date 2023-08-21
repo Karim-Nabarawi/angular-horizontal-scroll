@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, TemplateRef } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -17,12 +17,7 @@ export class ImageScrollButtonsComponent {
 
   @Input() scrollButtonTemplate!: TemplateRef<void>;
 
-  scrollLeft() {
-    this.widgetsContent.scrollLeft -= this.scrollAmount;
-    console.log(this.scrollButtonTemplate);
-  }
-
-  scrollRight() {
-    this.widgetsContent.scrollLeft += this.scrollAmount;
+  scroll(direction: 1 | -1) {
+    this.widgetsContent.scrollLeft += this.scrollAmount * direction;
   }
 }
