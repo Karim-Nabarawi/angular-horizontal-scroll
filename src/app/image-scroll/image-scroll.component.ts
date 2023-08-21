@@ -6,6 +6,7 @@ import {
   Input,
   TemplateRef,
   ViewChild,
+  HostListener
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageScrollButtonsComponent } from '../image-scroll-buttons/image-scroll-buttons.component';
@@ -86,4 +87,9 @@ export class ImageScrollComponent implements AfterViewInit {
       ] = `${this.marginLeftFirstElement}px`;
     }
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.checkOverflow();
+  };
 }
