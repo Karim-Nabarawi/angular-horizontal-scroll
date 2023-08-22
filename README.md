@@ -36,16 +36,27 @@ You can customize the appearance and behavior of the image scroller by adjusting
 - `image-scroll.component.scss`: Modify the styles for the scroller, buttons, and individual media elements.
 - `image-scroll.component.ts`: Adjust the scroll behavior and other component logic.
 
-# Component Parameters
+# API
 
-| Input Parameter          | Type                           | Default  | Description                                                                                                 |
-| ------------------------ | ------------------------------ | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `scrollAmount`           | 'auto' \| 'full' \| number     | 'auto'   | Control the scroll button scroll amount. Set to `0` for automatic calculation using the first element width |
-| `headerTitleTemplate`    | string \| TemplateRef<void>    | ""       | The title for the container                                                                                 |
-| `marginLeftFirstElement` | number                         | 16       | The margin left to the first element                                                                        |
-| `scrollButtonPosition`   | 'center' \| 'top right'        | 'center' | The placement of scrolls buttons                                                                            |
-| `showScrollbar`          | boolean                        | false    | Option to show scrollbar                                                                                    |
-| `scrollButtonTemplate`   | TemplateRef<void> \| undefined | -        | Custom scroll button                                                                                        |
+## Component Parameters
+
+| Property                 | Type                               | Default  | Description                                                                                                 |
+| ------------------------ | ---------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
+| `scrollAmount`           | 'auto' \| 'full' \| number         | 'auto'   | Control the scroll button scroll amount. Set to `0` for automatic calculation using the first element width |
+| `headerTitleTemplate`    | string \| TemplateRef<void>        | ""       | The title for the container                                                                                 |
+| `marginLeftFirstElement` | number                             | 16       | The margin left to the first element                                                                        |
+| `scrollButtonPosition`   | 'center' \| 'top right'            | 'center' | The placement of scrolls buttons                                                                            |
+| `showScrollbar`          | boolean                            | false    | Option to show scrollbar                                                                                    |
+| `scrollButtonTemplate`   | TemplateRef<void> \| undefined     | -        | Custom scroll button                                                                                        |
+| `customStyles`           | [IScrollBtnStyles](#custom-styles) | -        | Style for component                                                                                         |
+
+## Custom Styles
+
+| Property     | Type   | Default              | Description                            |
+| ------------ | ------ | -------------------- | -------------------------------------- |
+| `btnBgColor` | string | 'rgba(0, 0, 0, 0.3)' | Set the background color of the button |
+| `arrowColor` | string | 'rgb(255, 255, 255)' | Set the color of the arrow             |
+| `btnScale`   | number | 1                    | Set the scale of the button            |
 
 # Contributing
 
