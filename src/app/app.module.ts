@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ImageScrollComponent } from './image-scroll/image-scroll.component';
+import { AngularVerticalScrollModule } from 'angular-vertical-scroll';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, ImageScrollComponent],
+  imports: [BrowserModule, ImageScrollComponent, AngularVerticalScrollModule],
   providers: [],
   bootstrap: [AppComponent],
 })

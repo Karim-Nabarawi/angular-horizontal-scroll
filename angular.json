@@ -99,6 +99,39 @@
           }
         }
       }
+    },
+    "angular-vertical-scroll": {
+      "projectType": "library",
+      "root": "projects/angular-vertical-scroll",
+      "sourceRoot": "projects/angular-vertical-scroll/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/angular-vertical-scroll/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-vertical-scroll/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angular-vertical-scroll/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/angular-vertical-scroll/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }
