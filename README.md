@@ -40,15 +40,15 @@ You can customize the appearance and behavior of the image scroller by adjusting
 
 ## Component Parameters
 
-| Property                 | Type                               | Default  | Description                                                                                                 |
-| ------------------------ | ---------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `scrollAmount`           | 'auto' \| 'full' \| number         | 'auto'   | Control the scroll button scroll amount. Set to `0` for automatic calculation using the first element width |
-| `headerTitleTemplate`    | string \| TemplateRef<void>        | ""       | The title for the container                                                                                 |
-| `marginLeftFirstElement` | number                             | 16       | The margin left to the first element                                                                        |
-| `scrollButtonPosition`   | 'center' \| 'top right'            | 'center' | The placement of scrolls buttons                                                                            |
-| `showScrollbar`          | boolean                            | false    | Option to show scrollbar                                                                                    |
-| `scrollButtonTemplate`   | TemplateRef<void> \| undefined     | -        | Custom scroll button                                                                                        |
-| `customStyles`           | [IScrollBtnStyles](#custom-styles) | -        | Style for component                                                                                         |
+| Property                 | Type                               | Default  | Description                          |
+| ------------------------ | ---------------------------------- | -------- | ------------------------------------ |
+| `scrollAmount`           | 'auto' \| 'full' \| number         | 'auto'   | Control the scroll amount.           |
+| `headerTitleTemplate`    | string \| TemplateRef<void>        | ""       | The title for the container          |
+| `marginLeftFirstElement` | number                             | 16       | The margin left to the first element |
+| `scrollButtonPosition`   | 'center' \| 'top right'            | 'center' | The placement of scrolls buttons     |
+| `showScrollbar`          | boolean                            | false    | Option to show scrollbar             |
+| `scrollButtonTemplate`   | TemplateRef<void> \| undefined     | -        | Custom scroll button                 |
+| `customStyles`           | [IScrollBtnStyles](#custom-styles) | -        | Style for component                  |
 
 ## Custom Styles
 
