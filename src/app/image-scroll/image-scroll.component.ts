@@ -10,6 +10,10 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageScrollButtonsComponent } from '../image-scroll-buttons/image-scroll-buttons.component';
+import {
+  IScrollBtnStyles,
+  IscrollBtnDefault,
+} from 'src/shared/interface/button.interface';
 
 @Component({
   selector: 'app-image-scroll',
@@ -27,6 +31,19 @@ export class ImageScrollComponent implements AfterViewInit {
   @Input() scrollButtonPosition: 'center' | 'top right' = 'center';
   @Input() marginLeftFirstElement: number = 16;
   @Input() showScrollbar: boolean = false;
+
+  @Input() set customStyles(value: Partial<IScrollBtnStyles>) {
+    this.buttonStyles = {
+      ...IscrollBtnDefault,
+      ...value,
+    };
+  }
+
+  buttonStyles: IScrollBtnStyles = {
+    btnBgColor: 'rgba(0, 0, 0, 0.3)',
+    arrowColor: 'rgb(255, 255, 255)',
+    btnScale: 1,
+  };
 
   hasOverflow = false;
   overflowValue: 'left' | 'both' | 'right' = 'left';

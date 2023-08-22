@@ -1,7 +1,7 @@
 <div
   class="button-wrapper"
   [ngClass]="{
-    'left-button': position === 'center',
+    'left-button center-position': position === 'center',
     'hide-button': buttonDisplay === 'left',
     'show-button': buttonDisplay !== 'left'
   }"
@@ -32,7 +32,7 @@
 <div
   class="button-wrapper"
   [ngClass]="{
-    'right-button': position === 'center',
+    'right-button center-position': position === 'center',
     'hide-button': buttonDisplay === 'right',
     'show-button': buttonDisplay !== 'right'
   }"
@@ -59,12 +59,7 @@
 </div>
 
 <ng-template #defaultButtonTemplate let-direction let-style="style">
-  <button
-    class="center-button scroll-button"
-    (click)="scroll(direction)"
-    [style]="style"
-  >
-    <!-- <img src="https://cdn-icons-png.flaticon.com/512/3031/3031716.png" alt="" /> -->
+  <button class="default-button" (click)="scroll(direction)" [style]="style">
     <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"></path>
     </svg>
