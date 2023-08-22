@@ -8,33 +8,26 @@ This Angular component provides a scrolling gallery of images with navigation bu
 2. Install the necessary dependencies:
 
    ```bash
-   npm install
+   npm install angular-vertical-scroll
    ```
 
 # Usage
 
-1. Import the ImageScrollComponent in your module or standalone component:
+1. Import the AngularVerticalScrollModule in your module or standalone component:
 
    ```typescript
-   import { ImageScrollComponent } from "./image-scroll/image-scroll.component";
+   import { AngularVerticalScrollModule } from "angular-vertical-scroll";
    ```
 
-2. Add the `ImageScrollComponent` to your template and include your content within the `app-image-scroll` tags:
+2. Include your content within the `vertical-scroll` tags:
 
    ```html
-   <app-image-scroll>
+   <vertical-scroll>
      <!-- Your content here -->
-   </app-image-scroll>
+   </vertical-scroll>
    ```
 
 3. Customize the component's behavior and appearance by adjusting the provided CSS and TypeScript files.
-
-# Component Features
-
-You can customize the appearance and behavior of the image scroller by adjusting the provided CSS and TypeScript files:
-
-- `image-scroll.component.scss`: Modify the styles for the scroller, buttons, and individual media elements.
-- `image-scroll.component.ts`: Adjust the scroll behavior and other component logic.
 
 # API
 
