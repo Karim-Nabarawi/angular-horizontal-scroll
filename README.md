@@ -53,10 +53,10 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
 ### Main Styles
 
-| Property                 | Type   | Default | Description                                 |
-| ------------------------ | ------ | ------- | ------------------------------------------- |
-| `elementsGap`            | number | 16      | Set gap between elements                    |
-| `firstElementLeftMargin` | number | 16      | set `margin-left` for first element in `px` |
+| Property                 | Type   | Default | Description                                     |
+| ------------------------ | ------ | ------- | ----------------------------------------------- |
+| `elementsGap`            | number | 16      | Set the gap between elements                    |
+| `firstElementLeftMargin` | number | 16      | set `margin-left` for the first element in `px` |
 
 ### Button Styles
 
