@@ -39,24 +39,23 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
 ## Component Parameters
 
-| Property                 | Type                            | Default  | Description                          |
-| ------------------------ | ------------------------------- | -------- | ------------------------------------ |
-| `customStyles`           | [custom styles](#custom-styles) | -        | Style for component                  |
-| `headerTitleTemplate`    | string \| TemplateRef<void>     | ""       | The title for the container          |
-| `marginLeftFirstElement` | number                          | 16       | The margin left to the first element |
-| `scrollAmount`           | 'auto' \| 'full' \| number      | 'auto'   | Control the scroll amount.           |
-| `scrollButtonPosition`   | 'center' \| 'top right'         | 'center' | The placement of scrolls buttons     |
-| `scrollButtonTemplate`   | TemplateRef<void> \| undefined  | -        | Custom scroll button                 |
-| `showScrollbar`          | boolean                         | false    | Option to show scrollbar             |
+| Property               | Type                            | Default  | Description                      |
+| ---------------------- | ------------------------------- | -------- | -------------------------------- |
+| `customStyles`         | [custom styles](#custom-styles) | -        | Style for component              |
+| `headerTitleTemplate`  | string \| TemplateRef<void>     | ""       | The title for the container      |
+| `scrollAmount`         | 'auto' \| 'full' \| number      | 'auto'   | Control the scroll amount.       |
+| `scrollButtonPosition` | 'center' \| 'top right'         | 'center' | The placement of scrolls buttons |
+| `scrollButtonTemplate` | TemplateRef<void> \| undefined  | -        | Custom scroll button             |
+| `showScrollbar`        | boolean                         | false    | Option to show scrollbar         |
 
 ## Custom Styles
 
 ### Main Styles
 
-| Property                 | Type   | Default | Description                                 |
-| ------------------------ | ------ | ------- | ------------------------------------------- |
-| `elementsGap`            | number | 16      | Set gap between elements                    |
-| `firstElementLeftMargin` | number | 16      | set `margin-left` for first element in `px` |
+| Property                 | Type   | Default | Description                                     |
+| ------------------------ | ------ | ------- | ----------------------------------------------- |
+| `elementsGap`            | number | 16      | Set the gap between elements                    |
+| `firstElementLeftMargin` | number | 16      | set `margin-left` for the first element in `px` |
 
 ### Button Styles
 
