@@ -13,10 +13,16 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
 # Usage
 
-1. Import the AngularVerticalScrollModule in your module or standalone component:
+1. Import the `AngularVerticalScrollModule` or `AngularVerticalScrollComponent` in your module or standalone component:
 
    ```typescript
    import { AngularVerticalScrollModule } from "angular-vertical-scroll";
+   ```
+
+   or
+
+   ```typescript
+   import { AngularVerticalScrollComponent } from "angular-vertical-scroll";
    ```
 
 2. Include your content within the `vertical-scroll` tags:
@@ -37,11 +43,11 @@ This Angular component provides a scrolling gallery of images with navigation bu
 | ------------------------ | ------------------------------- | -------- | ------------------------------------ |
 | `customStyles`           | [custom styles](#custom-styles) | -        | Style for component                  |
 | `headerTitleTemplate`    | string \| TemplateRef<void>     | ""       | The title for the container          |
-| `scrollAmount`           | 'auto' \| 'full' \| number      | 'auto'   | Control the scroll amount.           |
 | `marginLeftFirstElement` | number                          | 16       | The margin left to the first element |
+| `scrollAmount`           | 'auto' \| 'full' \| number      | 'auto'   | Control the scroll amount.           |
 | `scrollButtonPosition`   | 'center' \| 'top right'         | 'center' | The placement of scrolls buttons     |
-| `showScrollbar`          | boolean                         | false    | Option to show scrollbar             |
 | `scrollButtonTemplate`   | TemplateRef<void> \| undefined  | -        | Custom scroll button                 |
+| `showScrollbar`          | boolean                         | false    | Option to show scrollbar             |
 
 ## Custom Styles
 

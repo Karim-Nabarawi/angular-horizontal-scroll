@@ -43,11 +43,11 @@ This Angular component provides a scrolling gallery of images with navigation bu
 | ------------------------ | ------------------------------- | -------- | ------------------------------------ |
 | `customStyles`           | [custom styles](#custom-styles) | -        | Style for component                  |
 | `headerTitleTemplate`    | string \| TemplateRef<void>     | ""       | The title for the container          |
-| `scrollAmount`           | 'auto' \| 'full' \| number      | 'auto'   | Control the scroll amount.           |
 | `marginLeftFirstElement` | number                          | 16       | The margin left to the first element |
+| `scrollAmount`           | 'auto' \| 'full' \| number      | 'auto'   | Control the scroll amount.           |
 | `scrollButtonPosition`   | 'center' \| 'top right'         | 'center' | The placement of scrolls buttons     |
-| `showScrollbar`          | boolean                         | false    | Option to show scrollbar             |
 | `scrollButtonTemplate`   | TemplateRef<void> \| undefined  | -        | Custom scroll button                 |
+| `showScrollbar`          | boolean                         | false    | Option to show scrollbar             |
 
 ## Custom Styles
 
