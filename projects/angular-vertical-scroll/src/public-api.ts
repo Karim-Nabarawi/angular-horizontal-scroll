@@ -5,3 +5,4 @@
 export * from './lib/angular-vertical-scroll.service';
 export * from './lib/angular-vertical-scroll.component';
 export * from './lib/angular-vertical-scroll.module';
+export * from './shared/interface/';
