@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-horizontal-scroll-container';
+  title = 'angular-horizontal-scroll-example';
 }

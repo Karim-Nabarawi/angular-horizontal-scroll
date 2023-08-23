@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-horizontal-scroll-container:build:production"
+              "browserTarget": "angular-horizontal-scroll-example:build:production"
             },
             "development": {
-              "browserTarget": "angular-horizontal-scroll-container:build:development"
+              "browserTarget": "angular-horizontal-scroll-example:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-horizontal-scroll-container:build"
+            "browserTarget": "angular-horizontal-scroll-example:build"
           }
         },
         "test": {
