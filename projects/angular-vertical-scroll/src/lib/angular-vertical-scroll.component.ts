@@ -38,6 +38,11 @@ export class AngularVerticalScrollComponent {
       ...IMainStylesDefault,
       ...value,
     };
+
+    //default firstElementLeftMargin to be same as elements gap when not set for equal spacing
+    this.mainStyles.firstElementLeftMargin = value.firstElementLeftMargin
+      ? value.firstElementLeftMargin
+      : this.mainStyles.elementsGap;
   }
 
   mainStyles: IMainStyles = IMainStylesDefault;
