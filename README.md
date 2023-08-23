@@ -13,10 +13,14 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
 # Usage
 
-1. Import the AngularVerticalScrollModule in your module or standalone component:
+1. Import the `AngularVerticalScrollModule` or `AngularVerticalScrollComponent` in your module or standalone component:
 
    ```typescript
    import { AngularVerticalScrollModule } from "angular-vertical-scroll";
+   ```
+
+   ```typescript
+   import { AngularVerticalScrollComponent } from "angular-vertical-scroll";
    ```
 
 2. Include your content within the `vertical-scroll` tags:
