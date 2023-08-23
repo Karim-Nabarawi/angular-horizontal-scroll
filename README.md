@@ -19,6 +19,8 @@ This Angular component provides a scrolling gallery of images with navigation bu
    import { AngularVerticalScrollModule } from "angular-vertical-scroll";
    ```
 
+   or
+
    ```typescript
    import { AngularVerticalScrollComponent } from "angular-vertical-scroll";
    ```
