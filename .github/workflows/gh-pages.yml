@@ -37,6 +37,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
@@ -45,6 +48,14 @@ jobs:
 
       - name: test articat download
         run: ls -R
+
+      - name: List Files
+        run: |
+          # Change this to the actual folder path you want to list files for
+          folder_path="dist/horizontal-scroll-example"
+
+          # Use ls command to list files in the specified folder
+          ls -la "$folder_path"
 
       - name: Deploy to GitHub Pages
         if: success()
