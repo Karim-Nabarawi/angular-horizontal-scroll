@@ -4,7 +4,7 @@
   "compilerOptions": {
     "paths": {
       "angular-vertical-scroll": [
-        "dist/angular-vertical-scroll"
+        "projects/angular-vertical-scroll/src/public-api"
       ]
     },
     "baseUrl": "./",
@@ -24,10 +24,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
