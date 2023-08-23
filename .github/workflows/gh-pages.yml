@@ -42,6 +42,9 @@ jobs:
         with:
           name: production-files
 
+      - name: test articat download
+        run: ls -R
+
       - name: Deploy to GitHub Pages
         if: success()
         uses: JamesIves/github-pages-deploy-action@v4
