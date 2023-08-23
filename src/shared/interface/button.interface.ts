@@ -4,7 +4,7 @@ export interface IScrollBtnStyles {
   btnScale: number;
 }
 
-export const IscrollBtnDefault: IScrollBtnStyles = {
+export const IScrollBtnStylesDefault: IScrollBtnStyles = {
   btnBgColor: 'rgba(0, 0, 0, 0.3)',
   arrowColor: 'rgb(255, 255, 255)',
   btnScale: 1,

@@ -39,7 +39,11 @@ This Angular component provides a scrolling gallery of images with navigation bu
    </vertical-scroll>
    ```
 
-3. Customize the component's behavior and appearance by adjusting the provided CSS and TypeScript files.
+3. Customize the component's appearance by adjusting the `customStyles` API.
+
+   ```typescript
+   import { IMainStyles } from "angular-vertical-scroll";
+   ```
 
 # API
 

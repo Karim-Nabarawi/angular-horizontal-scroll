@@ -2,7 +2,7 @@ import { Component, HostBinding, Input, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   IScrollBtnStyles,
-  IscrollBtnDefault,
+  IScrollBtnStylesDefault,
 } from '../../shared/interface/button.interface';
 
 @Component({
@@ -22,7 +22,7 @@ export class ImageScrollButtonsComponent {
   @Input() scrollButtonTemplate!: TemplateRef<void>;
 
   // button styles
-  @Input() btnStyles: IScrollBtnStyles = IscrollBtnDefault;
+  @Input() btnStyles: IScrollBtnStyles = IScrollBtnStylesDefault;
 
   @HostBinding('style.--default-btn-bg-color') get btnBgColor() {
     return this.btnStyles.btnBgColor;
