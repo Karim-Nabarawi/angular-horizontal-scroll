@@ -1,30 +1,37 @@
 name: GitHub Pages
-"on":
+
+on:
   push:
     branches:
       - main
       - add-github-pages
+
 jobs:
-  build:
-    name: Build
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "18"
+
       - name: Install dependencies
         run: npm install
-  deploy:
-    - name: Deploy
-      run: npm run build
-    - name: Deploy
-      if: success()
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: ./dist/angular-horizontal-scroll-example
+
+      # - name: Run tests
+      #   run: npm run test:headless
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        if: success()
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/angular-horizontal-scroll-example
 # name: GitHub Pages
 
 # on:
