@@ -27,6 +27,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v3
+        with:
+          name: production-files
+          path: dist/angular-horizontal-scroll-example
+
       - name: Deploy
         if: success()
         uses: JamesIves/github-pages-deploy-action@v4
