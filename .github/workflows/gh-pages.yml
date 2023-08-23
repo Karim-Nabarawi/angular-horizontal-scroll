@@ -29,8 +29,6 @@ jobs:
 
       - name: Deploy
         if: success()
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist/angular-horizontal-scroll-example
-          enable_jekyll: true
+          folder: dist/angular-horizontal-scroll-example
