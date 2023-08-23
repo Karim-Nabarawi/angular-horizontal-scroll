@@ -13,7 +13,7 @@
       [scrollAmount]="getScrollAmount"
       [buttonDisplay]="overflowValue"
       [scrollButtonTemplate]="scrollButtonTemplate"
-      [btnStyles]="buttonStyles"
+      [btnStyles]="mainStyles"
       position="top right"
       class="scroll-buttons"
       *ngIf="hasOverflow && scrollButtonPosition === 'top right'"
@@ -35,7 +35,7 @@
       [scrollAmount]="getScrollAmount"
       [buttonDisplay]="overflowValue"
       [scrollButtonTemplate]="scrollButtonTemplate"
-      [btnStyles]="buttonStyles"
+      [btnStyles]="mainStyles"
       position="center"
       *ngIf="hasOverflow && scrollButtonPosition === 'center'"
     ></app-image-scroll-buttons>

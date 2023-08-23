@@ -3,16 +3,19 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
+  HostBinding,
   HostListener,
   Input,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import {
-  IScrollBtnStyles,
-  IscrollBtnDefault,
-} from '../shared/interface/button.interface';
+
 import { ImageScrollButtonsComponent } from '../components/scroll-buttons/scroll-buttons.component';
+import {
+  IMainStyles,
+  IMainStylesDefault,
+} from '../shared/interface/main.interface';
+import { IScrollBtnStyles } from '../shared/interface/button.interface';
 
 @Component({
   selector: 'vertical-scroll',
@@ -28,30 +31,33 @@ export class AngularVerticalScrollComponent {
   @Input() headerTitleTemplate: string | TemplateRef<void> = '';
   @Input() scrollButtonTemplate!: TemplateRef<void>;
   @Input() scrollButtonPosition: 'center' | 'top right' = 'center';
-  @Input() marginLeftFirstElement: number = 16;
   @Input() showScrollbar: boolean = false;
 
-  @Input() set customStyles(value: Partial<IScrollBtnStyles>) {
-    this.buttonStyles = {
-      ...IscrollBtnDefault,
+  @Input() set customStyles(value: Partial<IMainStyles>) {
+    this.mainStyles = {
+      ...IMainStylesDefault,
       ...value,
     };
   }
 
-  buttonStyles: IScrollBtnStyles = {
-    btnBgColor: 'rgba(0, 0, 0, 0.3)',
-    arrowColor: 'rgb(255, 255, 255)',
-    btnScale: 1,
-  };
+  mainStyles: IMainStyles = IMainStylesDefault;
 
   hasOverflow = false;
   overflowValue: 'left' | 'both' | 'right' = 'left';
+
+  @HostBinding('style.--default-elements-gap') get elementsGap() {
+    return `${this.mainStyles.elementsGap}px`;
+  }
 
   constructor(private cdRef: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
     this.checkOverflow();
     this.cdRef.detectChanges();
+  }
+
+  get buttonStyles(): IScrollBtnStyles {
+    return this.mainStyles as IScrollBtnStyles;
   }
 
   // Check if the contentTemplate is a string or TemplateRef
@@ -68,9 +74,10 @@ export class AngularVerticalScrollComponent {
   }
 
   updateOverflowValue() {
-    const scrollAmount = this.widgetsContent.nativeElement.scrollLeft;
-    const maxScrollAmount = this.widgetsContent.nativeElement.scrollLeftMax;
-    if (scrollAmount === 0) {
+    const elemnt = this.widgetsContent.nativeElement;
+    const scrollAmount = elemnt.scrollLeft + elemnt.offsetWidth;
+    const maxScrollAmount = elemnt.scrollWidth;
+    if (elemnt.scrollLeft === 0) {
       this.overflowValue = 'left';
     } else if (scrollAmount === maxScrollAmount) {
       this.overflowValue = 'right';
@@ -81,7 +88,10 @@ export class AngularVerticalScrollComponent {
 
   get getScrollAmount(): number {
     if (this.scrollAmount === 'auto') {
-      return this.widgetsContent.nativeElement.childNodes[1].offsetLeft;
+      return (
+        this.widgetsContent.nativeElement.childNodes[1].offsetLeft -
+        this.mainStyles.firstElementLeftMargin
+      );
     } else if (this.scrollAmount === 'full') {
       return (
         this.widgetsContent.nativeElement.offsetWidth -
@@ -99,7 +109,7 @@ export class AngularVerticalScrollComponent {
         element.offsetWidth < element.scrollWidth;
       this.widgetsContent.nativeElement.firstChild.style[
         'margin-left'
-      ] = `${this.marginLeftFirstElement}px`;
+      ] = `${this.mainStyles.firstElementLeftMargin}px`;
     }
   }
 

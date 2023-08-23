@@ -33,22 +33,31 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
 ## Component Parameters
 
-| Property                 | Type                               | Default  | Description                          |
-| ------------------------ | ---------------------------------- | -------- | ------------------------------------ |
-| `scrollAmount`           | 'auto' \| 'full' \| number         | 'auto'   | Control the scroll amount.           |
-| `headerTitleTemplate`    | string \| TemplateRef<void>        | ""       | The title for the container          |
-| `marginLeftFirstElement` | number                             | 16       | The margin left to the first element |
-| `scrollButtonPosition`   | 'center' \| 'top right'            | 'center' | The placement of scrolls buttons     |
-| `showScrollbar`          | boolean                            | false    | Option to show scrollbar             |
-| `scrollButtonTemplate`   | TemplateRef<void> \| undefined     | -        | Custom scroll button                 |
-| `customStyles`           | [IScrollBtnStyles](#custom-styles) | -        | Style for component                  |
+| Property                 | Type                            | Default  | Description                          |
+| ------------------------ | ------------------------------- | -------- | ------------------------------------ |
+| `customStyles`           | [custom styles](#custom-styles) | -        | Style for component                  |
+| `headerTitleTemplate`    | string \| TemplateRef<void>     | ""       | The title for the container          |
+| `scrollAmount`           | 'auto' \| 'full' \| number      | 'auto'   | Control the scroll amount.           |
+| `marginLeftFirstElement` | number                          | 16       | The margin left to the first element |
+| `scrollButtonPosition`   | 'center' \| 'top right'         | 'center' | The placement of scrolls buttons     |
+| `showScrollbar`          | boolean                         | false    | Option to show scrollbar             |
+| `scrollButtonTemplate`   | TemplateRef<void> \| undefined  | -        | Custom scroll button                 |
 
 ## Custom Styles
 
+### Main Styles
+
+| Property                 | Type   | Default | Description                                 |
+| ------------------------ | ------ | ------- | ------------------------------------------- |
+| `elementsGap`            | number | 16      | Set gap between elements                    |
+| `firstElementLeftMargin` | number | 16      | set `margin-left` for first element in `px` |
+
+### Button Styles
+
 | Property     | Type   | Default              | Description                            |
 | ------------ | ------ | -------------------- | -------------------------------------- |
-| `btnBgColor` | string | 'rgba(0, 0, 0, 0.3)' | Set the background color of the button |
 | `arrowColor` | string | 'rgb(255, 255, 255)' | Set the color of the arrow             |
+| `btnBgColor` | string | 'rgba(0, 0, 0, 0.3)' | Set the background color of the button |
 | `btnScale`   | number | 1                    | Set the scale of the button            |
 
 # Contributing

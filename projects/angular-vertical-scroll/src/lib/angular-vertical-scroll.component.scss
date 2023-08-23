@@ -1,3 +1,7 @@
+:host {
+  --default-elements-gap: 16px;
+}
+
 .scroll-wrapper {
   position: relative;
 }
@@ -7,7 +11,6 @@
   align-items: center;
   justify-content: space-between;
   padding-left: 20px;
-  margin-bottom: 20px;
 }
 
 .scroll-buttons {
@@ -19,9 +22,9 @@
 
 .media-scroller {
   display: flex;
-  gap: var(--_spacer);
+  gap: var(--default-elements-gap);
 
-  padding: 0 0 var(--_spacer);
+  padding: 0 0 16px;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scroll-behavior: smooth;
@@ -50,5 +53,9 @@
 }
 
 .hide-scrollbar {
-  scrollbar-width: none;
+  scrollbar-width: none !important;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
