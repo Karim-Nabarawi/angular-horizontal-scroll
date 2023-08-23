@@ -46,16 +46,16 @@ jobs:
           name: production-files
           path: dist/horizontal-scroll-example
 
-      - name: test articat download
-        run: ls -R
+      # - name: test articat download
+      #   run: ls -R
 
-      - name: List Files
-        run: |
-          # Change this to the actual folder path you want to list files for
-          folder_path="dist/horizontal-scroll-example"
+      # - name: List Files
+      #   run: |
+      #     # Change this to the actual folder path you want to list files for
+      #     folder_path="dist/horizontal-scroll-example"
 
-          # Use ls command to list files in the specified folder
-          ls -la "$folder_path"
+      #     # Use ls command to list files in the specified folder
+      #     ls -la "$folder_path"
 
       - name: Deploy to GitHub Pages
         if: success()
