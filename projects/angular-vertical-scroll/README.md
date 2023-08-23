@@ -2,6 +2,10 @@
 
 This Angular component provides a scrolling gallery of images with navigation buttons.
 
+# Demo
+
+[Live Example](https://karim-nabarawi.github.io/angular-horizontal-scroll/)
+
 ## Getting Started
 
 1. Clone the repository or copy the relevant files into your Angular project.
@@ -15,11 +19,13 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
 1. Import the `AngularVerticalScrollModule` or `AngularVerticalScrollComponent` in your module or standalone component:
 
+   **Module:**
+
    ```typescript
    import { AngularVerticalScrollModule } from "angular-vertical-scroll";
    ```
 
-   or
+   **Standalone:**
 
    ```typescript
    import { AngularVerticalScrollComponent } from "angular-vertical-scroll";
