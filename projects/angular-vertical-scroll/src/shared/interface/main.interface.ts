@@ -1,4 +1,4 @@
-import { IScrollBtnStyles, IscrollBtnDefault } from './button.interface';
+import { IScrollBtnStyles, IScrollBtnStylesDefault } from './button.interface';
 /**
  * @description
  * Represents the main styles for the vertical scroll component.
@@ -19,7 +19,7 @@ export interface IMainStyles extends IScrollBtnStyles {
 }
 
 export const IMainStylesDefault: IMainStyles = {
-  ...IscrollBtnDefault,
+  ...IScrollBtnStylesDefault,
   elementsGap: 16,
   firstElementLeftMargin: 16,
 };

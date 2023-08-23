@@ -2,7 +2,7 @@
  * @description
  * Represents the button styles for the vertical scroll component.
  *
- * @see {@link IscrollBtnDefault} for the default style values.
+ * @see {@link IScrollBtnStylesDefault} for the default style values.
  */
 
 export interface IScrollBtnStyles {
@@ -22,7 +22,7 @@ export interface IScrollBtnStyles {
   btnScale: number;
 }
 
-export const IscrollBtnDefault: IScrollBtnStyles = {
+export const IScrollBtnStylesDefault: IScrollBtnStyles = {
   btnBgColor: 'rgba(0, 0, 0, 0.3)',
   arrowColor: 'rgb(255, 255, 255)',
   btnScale: 1,
