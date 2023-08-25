@@ -4,8 +4,11 @@
     <ng-container *ngIf="isStringTemplate; else templateOutlet">
       <h1>{{ headerTitleTemplate }}</h1>
     </ng-container>
+
     <ng-template #templateOutlet>
-      <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+      <div>
+        <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+      </div>
     </ng-template>
 
     <app-image-scroll-buttons

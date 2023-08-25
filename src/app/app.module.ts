@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { AngularVerticalScrollComponent } from 'angular-vertical-scroll';
+import { AngularHorizontalScrollComponent } from 'angular-horizontal-scroll';
+import { CustomStylesExmapleComponent } from './custom-styles-exmaple/custom-styles-exmaple.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AngularVerticalScrollComponent],
+  imports: [
+    BrowserModule,
+    AngularHorizontalScrollComponent,
+    CustomStylesExmapleComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,12 +1,12 @@
 <div
-  class="button-wrapper"
+  class="btn-wrapper"
   [ngClass]="{
-    'left-button center-position': position === 'center',
-    'hide-button': buttonDisplay === 'left',
-    'show-button': buttonDisplay !== 'left'
+    'left-btn center-position': position === 'center',
+    'hide-btn': buttonDisplay === 'left',
+    'show-btn': buttonDisplay !== 'left'
   }"
 >
-  <div [ngSwitch]="scrollButtonTemplate">
+  <div [ngSwitch]="scrollButtonTemplate !== undefined">
     <ng-container
       *ngSwitchCase="true"
       [ngTemplateOutlet]="buttonTemplateOut"
@@ -30,14 +30,14 @@
 </div>
 
 <div
-  class="button-wrapper"
+  class="btn-wrapper"
   [ngClass]="{
-    'right-button center-position': position === 'center',
-    'hide-button': buttonDisplay === 'right',
-    'show-button': buttonDisplay !== 'right'
+    'right-btn center-position': position === 'center',
+    'hide-btn': buttonDisplay === 'right',
+    'show-btn': buttonDisplay !== 'right'
   }"
 >
-  <div [ngSwitch]="scrollButtonTemplate">
+  <div [ngSwitch]="scrollButtonTemplate !== undefined">
     <ng-container
       *ngSwitchCase="true"
       [ngTemplateOutlet]="buttonTemplateOut"
@@ -59,7 +59,11 @@
 </div>
 
 <ng-template #defaultButtonTemplate let-direction let-style="style">
-  <button class="default-button" (click)="scroll(direction)" [style]="style">
+  <button
+    class="default-btn scroll-btn"
+    (click)="scroll(direction)"
+    [style]="style"
+  >
     <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"></path>
     </svg>
@@ -67,7 +71,7 @@
 </ng-template>
 
 <ng-template #buttonTemplateOut let-direction let-style="style">
-  <div (click)="scroll(direction)" [style]="style">
+  <div class="scroll-btn" (click)="scroll(direction)" [style]="style">
     <ng-container *ngTemplateOutlet="scrollButtonTemplate"></ng-container>
   </div>
 </ng-template>

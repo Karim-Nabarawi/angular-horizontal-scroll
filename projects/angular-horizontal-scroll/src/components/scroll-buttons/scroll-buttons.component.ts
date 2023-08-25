@@ -30,11 +30,12 @@ export class ImageScrollButtonsComponent {
   @HostBinding('style.--default-arrow-color') get arrowColor() {
     return this.btnStyles.arrowColor;
   }
-  @HostBinding('style.--default-btn-scale') get btnScale() {
-    return this.btnStyles.btnScale;
+  @HostBinding('style.--default-btn-size') get btnSize() {
+    return `${this.btnStyles.btnSize}px`;
   }
 
   scroll(direction: 1 | -1) {
+    console.log(direction);
     this.widgetsContent.scrollLeft += this.scrollAmount * direction;
   }
 }

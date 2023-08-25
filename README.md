@@ -12,37 +12,37 @@ This Angular component provides a scrolling gallery of images with navigation bu
 2. Install the necessary dependencies:
 
    ```bash
-   npm install angular-vertical-scroll
+   npm install angular-horizontal-scroll
    ```
 
 # Usage
 
-1. Import the `AngularVerticalScrollModule` or `AngularVerticalScrollComponent` in your module or standalone component:
+1. Import the `AngularHorizontalScrollModule` or `AngularHorizontalScrollComponent` in your module or standalone component:
 
    **Module:**
 
    ```typescript
-   import { AngularVerticalScrollModule } from "angular-vertical-scroll";
+   import { AngularHorizontalScrollModule } from "angular-horizontal-scroll";
    ```
 
    **Standalone:**
 
    ```typescript
-   import { AngularVerticalScrollComponent } from "angular-vertical-scroll";
+   import { AngularHorizontalScrollComponent } from "angular-horizontal-scroll";
    ```
 
-2. Include your content within the `vertical-scroll` tags:
+2. Include your content within the `horizontal-scroll` tags:
 
    ```html
-   <vertical-scroll>
+   <horizontal-scroll>
      <!-- Your content here -->
-   </vertical-scroll>
+   </horizontal-scroll>
    ```
 
 3. Customize the component's appearance by adjusting the `customStyles` API.
 
    ```typescript
-   import { IMainStyles } from "angular-vertical-scroll";
+   import { IMainStyles } from "angular-horizontal-scroll";
    ```
 
 # API
@@ -62,18 +62,19 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
 ### Main Styles
 
-| Property                 | Type   | Default | Description                                     |
-| ------------------------ | ------ | ------- | ----------------------------------------------- |
-| `elementsGap`            | number | 16      | Set the gap between elements                    |
-| `firstElementLeftMargin` | number | 16      | set `margin-left` for the first element in `px` |
+| Property                 | Type   | Default | Description                                                          |
+| ------------------------ | ------ | ------- | -------------------------------------------------------------------- |
+| `elementsGap`            | number | 16      | Set the gap between elements within the component in `px`            |
+| `firstAndLastElementGap` | number | 16      | set the gap between the first and last element and container in `px` |
+| `containerGap`           | number | 16      | Set the gap between header and container in `px`                     |
 
 ### Button Styles
 
-| Property     | Type   | Default              | Description                            |
-| ------------ | ------ | -------------------- | -------------------------------------- |
-| `arrowColor` | string | 'rgb(255, 255, 255)' | Set the color of the arrow             |
-| `btnBgColor` | string | 'rgba(0, 0, 0, 0.3)' | Set the background color of the button |
-| `btnScale`   | number | 1                    | Set the scale of the button            |
+| Property     | Type   | Default     | Description                            |
+| ------------ | ------ | ----------- | -------------------------------------- |
+| `arrowColor` | string | '#fff'      | Set the color of the arrow             |
+| `btnBgColor` | string | '#0000004d' | Set the background color of the button |
+| `btnSize`    | number | 16          | Set the size of the button in `px`     |
 
 # Contributing
 

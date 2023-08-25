@@ -24,13 +24,13 @@ describe('ImageScrollButtonsComponent', () => {
 
   it('should return correct button styles', () => {
     const expectedStyles: IScrollBtnStyles = {
-      btnBgColor: 'rgba(0, 0, 0, 0.3)',
-      arrowColor: 'rgb(255, 255, 255)',
-      btnScale: 1,
+      btnBgColor: '#0000004d',
+      arrowColor: '#fff',
+      btnSize: 1,
     };
 
     expect(component.btnBgColor).toEqual(expectedStyles.btnBgColor);
     expect(component.arrowColor).toEqual(expectedStyles.arrowColor);
-    expect(component.btnScale).toEqual(expectedStyles.btnScale);
+    expect(component.btnSize).toEqual(expectedStyles.btnSize);
   });
 });

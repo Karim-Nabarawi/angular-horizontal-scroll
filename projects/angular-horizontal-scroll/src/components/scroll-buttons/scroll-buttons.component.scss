@@ -1,15 +1,16 @@
 :host {
-  --default-btn-bg-color: rgba(0, 0, 0, 0.3);
-  --default-arrow-color: rgb(255, 255, 255);
-  --default-btn-scale: 1;
+  --default-btn-bg-color: #0000004d;
+  --default-arrow-color: #fff;
+  --default-btn-size: 16px;
 }
 
-.button-wrapper {
+.btn-wrapper {
   z-index: 1000;
-  scale: var(--default-btn-scale) !important;
+  cursor: pointer;
+  user-select: none;
 }
 
-.default-button {
+.default-btn {
   all: unset;
   background-color: var(--default-btn-bg-color) !important;
   display: inline-flex;
@@ -37,8 +38,8 @@
 
   svg {
     user-select: none;
-    width: 1em;
-    height: 1em;
+    width: var(--default-btn-size) !important;
+    height: var(--default-btn-size) !important;
     display: inline-block;
     fill: var(--default-arrow-color) !important;
     flex-shrink: 0;
@@ -55,20 +56,20 @@
   place-content: center;
 }
 
-.right-button {
+.right-btn {
   right: 0;
 }
 
-.left-button {
+.left-btn {
   left: 0;
 }
 
-.show-button {
+.show-btn {
   opacity: 1;
   transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.hide-button {
+.hide-btn {
   opacity: 0;
   transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   visibility: hidden;

@@ -1,5 +1,13 @@
 :host {
-  --default-elements-gap: 16px;
+  --default-elements-gap: 20px;
+  --scrollbar-padding: 0 0 16px;
+  --container-gap: 15px;
+}
+
+.scroll-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--container-gap);
 }
 
 .scroll-wrapper {
@@ -16,7 +24,6 @@
 .scroll-buttons {
   display: flex;
   justify-content: flex-end;
-  margin: 20px;
   gap: 20px;
 }
 
@@ -24,13 +31,10 @@
   display: flex;
   gap: var(--default-elements-gap);
 
-  padding: 0 0 16px;
+  padding: var(--scrollbar-padding);
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scroll-behavior: smooth;
-}
-
-.media-scroller {
   scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
 }
 
