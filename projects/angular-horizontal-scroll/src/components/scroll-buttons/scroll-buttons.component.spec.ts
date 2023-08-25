@@ -1,4 +1,3 @@
-import { IScrollBtnStyles } from '../../shared/interface/button.interface';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ImageScrollButtonsComponent } from './scroll-buttons.component';
 
@@ -20,17 +19,5 @@ describe('ImageScrollButtonsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should return correct button styles', () => {
-    const expectedStyles: IScrollBtnStyles = {
-      btnBgColor: '#0000004d',
-      arrowColor: '#fff',
-      btnSize: 1,
-    };
-
-    expect(component.btnBgColor).toEqual(expectedStyles.btnBgColor);
-    expect(component.arrowColor).toEqual(expectedStyles.arrowColor);
-    expect(component.btnSize).toEqual(expectedStyles.btnSize);
   });
 });

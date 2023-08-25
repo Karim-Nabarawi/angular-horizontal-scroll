@@ -4,7 +4,7 @@
     headerTitleTemplate="Arrow top with scrollbar"
     [scrollButtonPosition]="'top right'"
     [showScrollbar]="true"
-    [customStyles]="{ containerGap: 0 }"
+    [containerStyles]="{ containerGap: 0 }"
   >
     <ng-template ngFor let-data [ngForOf]="example1">
       <div class="box" tabindex="0">
@@ -22,7 +22,8 @@
   <horizontal-scroll
     headerTitleTemplate="Arrow center with different button color"
     scrollAmount="full"
-    [customStyles]="example2Theme"
+    [containerStyles]="example2Theme"
+    [buttonStyles]="example2ThemeBtn"
   >
     <ng-template ngFor let-data [ngForOf]="example2">
       <div class="box" tabindex="0">
@@ -41,7 +42,7 @@
     headerTitleTemplate="Custom button"
     [scrollButtonPosition]="'top right'"
     [scrollButtonTemplate]="buttonTemplateOutlet"
-    [customStyles]="example3Theme"
+    [containerStyles]="example3Theme"
   >
     <ng-template ngFor let-data [ngForOf]="example3">
       <div class="box" tabindex="0">
@@ -60,7 +61,7 @@
     headerTitleTemplate="Arrow Center"
     scrollAmount="full"
     [headerTitleTemplate]="titleTemplateOutlet"
-    [customStyles]="example4Theme"
+    [containerStyles]="example4Theme"
   >
     <ng-template ngFor let-data [ngForOf]="example4">
       <div class="box" tabindex="0">

@@ -1,13 +1,11 @@
-import { IScrollBtnStyles, IScrollBtnStylesDefault } from './button.interface';
+import { ButtonStyles, ButtonStylesDefault } from './button.interface';
 /**
  * @description
- * Represents the main styles for the horizontal scroll component.
- * Extends the {@link IScrollBtnStyles} type to inherit button styles.
+ * Represents the main styles for the horizontal scroll container.
  *
- * @see {@link IMainStylesDefault} for the default style values.
- * @see {@link IScrollBtnStyles} for button style properties.
+ * @see {@link ContainerStylesDefault} for the default style values.
  */
-export interface IMainStyles extends IScrollBtnStyles {
+export interface ContainerStyles {
   /**
    * The gap between elements within the component.
    */
@@ -20,11 +18,16 @@ export interface IMainStyles extends IScrollBtnStyles {
    * The gap between header and container.
    */
   containerGap: number;
+
+  /**
+   * The inline styles of the Container
+   */
+  inlineStyle: string;
 }
 
-export const IMainStylesDefault: IMainStyles = {
-  ...IScrollBtnStylesDefault,
+export const ContainerStylesDefault: ContainerStyles = {
   elementsGap: 16,
   firstAndLastElementGap: 16,
   containerGap: 0,
+  inlineStyle: '',
 };

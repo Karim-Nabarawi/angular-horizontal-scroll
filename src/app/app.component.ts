@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IMainStyles } from 'angular-horizontal-scroll';
+import { ButtonStyles, ContainerStyles } from 'angular-horizontal-scroll';
 import { generateRandomElement } from 'src/shared/utils/random';
 
 @Component({
@@ -10,20 +10,23 @@ import { generateRandomElement } from 'src/shared/utils/random';
 export class AppComponent {
   title = 'horizontal-scroll-example';
 
-  example2Theme: Partial<IMainStyles> = {
-    btnSize: 18,
-    btnBgColor: 'rgb(17, 157, 200)',
+  example2Theme: Partial<ContainerStyles> = {
     elementsGap: 25,
     firstAndLastElementGap: 16,
   };
 
-  example3Theme: Partial<IMainStyles> = {
+  example2ThemeBtn: Partial<ButtonStyles> = {
+    btnSize: 18,
+    btnBgColor: 'rgb(17, 157, 200)',
+  };
+
+  example3Theme: Partial<ContainerStyles> = {
     elementsGap: 50,
     firstAndLastElementGap: 16,
     containerGap: 0,
   };
 
-  example4Theme: Partial<IMainStyles> = {
+  example4Theme: Partial<ContainerStyles> = {
     elementsGap: 100,
     firstAndLastElementGap: 16,
   };

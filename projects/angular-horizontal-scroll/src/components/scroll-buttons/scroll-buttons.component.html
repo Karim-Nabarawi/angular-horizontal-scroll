@@ -22,7 +22,7 @@
       [ngTemplateOutlet]="defaultButtonTemplate"
       [ngTemplateOutletContext]="{
         $implicit: -1,
-        style: 'transform: scaleX(-1)'
+        style: 'transform: scaleX(-1);' + btnStyles.inlineStyle
       }"
     >
     </ng-container>
@@ -52,6 +52,7 @@
       [ngTemplateOutlet]="defaultButtonTemplate"
       [ngTemplateOutletContext]="{
         $implicit: 1,
+        style: btnStyles.inlineStyle
       }"
     >
     </ng-container>
