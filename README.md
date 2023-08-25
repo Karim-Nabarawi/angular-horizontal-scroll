@@ -1,21 +1,18 @@
-# Angular Image Scroller Component
+## 📜 Angular Horizontal Scroller
 
-This Angular component provides a scrolling gallery of images with navigation buttons.
+Provide an angular componenet for a scrolling container horizontal.
 
-# Demo
+## 🔗 Demo
 
 [Live Example](https://karim-nabarawi.github.io/angular-horizontal-scroll/)
 
-## Getting Started
+## 📦 Install
 
-1. Clone the repository or copy the relevant files into your Angular project.
-2. Install the necessary dependencies:
+```bash
+npm install angular-horizontal-scroll
+```
 
-   ```bash
-   npm install angular-horizontal-scroll
-   ```
-
-# Usage
+## ⚙️ Usage
 
 1. Import the `AngularHorizontalScrollModule` or `AngularHorizontalScrollComponent` in your module or standalone component:
 
@@ -45,25 +42,25 @@ This Angular component provides a scrolling gallery of images with navigation bu
    import { IMainStyles } from "angular-horizontal-scroll";
    ```
 
-# API
+## ✨ API
 
-## Component Parameters
+### ⌨️ Component Parameters
 
-| Property               | Type                            | Default  | Description                                                  |
-| ---------------------- | ------------------------------- | -------- | ------------------------------------------------------------ |
-| `customStyles`         | [custom styles](#custom-styles) | -        | Style for component                                          |
-| `headerTitleTemplate`  | string \| TemplateRef<void>     | ""       | The title for the container                                  |
-| `onLeftBtnClick`       | ()=>void                        | ()=>{}   | Callback function triggered when the left button is clicked  |
-| `onRightBtnClick`      | ()=>void                        | ()=>{}   | Callback function triggered when the rigth button is clicked |
-| `onScroll`             | ()=>void                        | ()=>{}   | Callback function triggered on scroll                        |
-| `scrollAmount`         | 'auto' \| 'full' \| number      | 'auto'   | Control the scroll amount.                                   |
-| `scrollButtonPosition` | 'center' \| 'top right'         | 'center' | The placement of scrolls buttons                             |
-| `scrollButtonTemplate` | TemplateRef<void> \| undefined  | -        | Custom scroll button                                         |
-| `showScrollbar`        | boolean                         | false    | Option to show scrollbar                                     |
+| Property               | Type                           | Default  | Description                                                  |
+| ---------------------- | ------------------------------ | -------- | ------------------------------------------------------------ |
+| `customStyles`         | [IMainStyles](#custom-styles)  | -        | Style for component                                          |
+| `headerTitleTemplate`  | string \| TemplateRef<void>    | ""       | The title for the container                                  |
+| `onLeftBtnClick`       | ()=>void                       | ()=>{}   | Callback function triggered when the left button is clicked  |
+| `onRightBtnClick`      | ()=>void                       | ()=>{}   | Callback function triggered when the rigth button is clicked |
+| `onScroll`             | ()=>void                       | ()=>{}   | Callback function triggered on scroll                        |
+| `scrollAmount`         | 'auto' \| 'full' \| number     | 'auto'   | Control the scroll amount.                                   |
+| `scrollButtonPosition` | 'center' \| 'top right'        | 'center' | The placement of scrolls buttons                             |
+| `scrollButtonTemplate` | TemplateRef<void> \| undefined | -        | Custom scroll button                                         |
+| `showScrollbar`        | boolean                        | false    | Option to show scrollbar                                     |
 
-## Custom Styles
+### 🎨 Custom Styles
 
-### Main Styles
+#### Main Styles
 
 | Property                 | Type   | Default | Description                                                          |
 | ------------------------ | ------ | ------- | -------------------------------------------------------------------- |
@@ -71,7 +68,7 @@ This Angular component provides a scrolling gallery of images with navigation bu
 | `firstAndLastElementGap` | number | 16      | set the gap between the first and last element and container in `px` |
 | `containerGap`           | number | 16      | Set the gap between header and container in `px`                     |
 
-### Button Styles
+#### Button Styles
 
 | Property     | Type   | Default     | Description                            |
 | ------------ | ------ | ----------- | -------------------------------------- |
@@ -79,6 +76,6 @@ This Angular component provides a scrolling gallery of images with navigation bu
 | `btnBgColor` | string | '#0000004d' | Set the background color of the button |
 | `btnSize`    | number | 16          | Set the size of the button in `px`     |
 
-# Contributing
+## 🤝 Contributing
 
 Contributions are welcome! If you find any issues or would like to add new features, feel free to open a pull request.
