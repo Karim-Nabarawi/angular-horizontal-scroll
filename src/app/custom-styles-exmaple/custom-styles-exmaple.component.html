@@ -1,0 +1,141 @@
+<horizontal-scroll
+  headerTitleTemplate="Custom"
+  [scrollAmount]="scrollAmount"
+  [scrollButtonPosition]="scrollButtonPosition"
+  [showScrollbar]="showScrollbar"
+  [customStyles]="mainStyles"
+>
+  <ng-template ngFor let-data [ngForOf]="example5">
+    <div class="box" tabindex="0">
+      <span
+        class="emoji"
+        [style.--hover-color]="data.color"
+        [style.--hover-rotate]="rotate(data.rotate)"
+        >{{ data.emoji }}</span
+      >
+    </div>
+  </ng-template>
+</horizontal-scroll>
+
+<div class="controls-wrapper">
+  <section>
+    <h3>Controls</h3>
+    <div class="container">
+      <p>Button position <code>scrollButtonPosition</code> :</p>
+
+      <div class="input-radio">
+        <input
+          type="radio"
+          id="btnPostionCenter"
+          name="btnPostion"
+          value="center"
+          [(ngModel)]="scrollButtonPosition"
+        />
+        <label for="btnPostionCenter"> center </label>
+      </div>
+
+      <div class="input-radio">
+        <input
+          type="radio"
+          id="btnPostionTopRight"
+          name="btnPostion"
+          value="top right"
+          [(ngModel)]="scrollButtonPosition"
+        />
+        <label for="btnPostionTopRight"> top right </label>
+      </div>
+    </div>
+
+    <div class="container">
+      <p>Scroll amount <code>scrollButtonPosition</code> :</p>
+
+      <div class="input-radio">
+        <input
+          type="radio"
+          id="scrollAmountAuto"
+          name="scrollAmount"
+          value="auto"
+          (ngModelChange)="updateScrollAmount('auto')"
+          [(ngModel)]="scrollAmountSelector"
+        />
+        <label for="scrollAmountAuto"> auto </label>
+      </div>
+
+      <div class="input-radio">
+        <input
+          type="radio"
+          id="scrollAmountFull"
+          name="scrollAmount"
+          value="full"
+          (ngModelChange)="updateScrollAmount('full')"
+          [(ngModel)]="scrollAmountSelector"
+        />
+        <label for="scrollAmountFull"> full </label>
+      </div>
+
+      <div class="input-radio">
+        <input
+          type="radio"
+          id="scrollAmountNumber"
+          name="scrollAmount"
+          value="number"
+          (ngModelChange)="updateScrollAmount(200)"
+          [(ngModel)]="scrollAmountSelector"
+        />
+        <label for="scrollAmountNumber" class="input-radio">
+          control size
+
+          <div *ngIf="scrollAmountSelector === 'number'">
+            <input type="number" [(ngModel)]="scrollAmount" />
+            px
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="container">
+      <label for="showScrollbar"
+        >Show scroll bar <code>showScrollbar</code>:
+      </label>
+      <input
+        type="checkbox"
+        id="showScrollbar"
+        type="checkbox"
+        [(ngModel)]="showScrollbar"
+      />
+    </div>
+  </section>
+  <section>
+    <h3>Styles</h3>
+    <div class="container">
+      <p>Gap between header and container <code>containerGap</code>:</p>
+      <input type="number" [(ngModel)]="containerGap" />
+      <p>px</p>
+    </div>
+    <div class="container">
+      <p>Gap between each element <code>elementsGap</code>:</p>
+      <input type="number" [(ngModel)]="elementsGap" />
+      <p>px</p>
+    </div>
+    <div class="container">
+      <p>
+        Gap between first and last element and container edges
+        <code>firstAndLastElementGap</code>:
+      </p>
+      <input type="number" [(ngModel)]="firstAndLastElementGap" />
+      <p>px</p>
+    </div>
+    <div class="container">
+      <p>Button background color <code>btnBgColor</code>:</p>
+      <input type="text" [(ngModel)]="btnBgColor" />
+    </div>
+    <div class="container">
+      <p>Arrow color <code>arrowColor</code>:</p>
+      <input type="text" [(ngModel)]="arrowColor" />
+    </div>
+    <div class="container">
+      <p>Button size <code>btnSize</code>:</p>
+      <input type="number" [(ngModel)]="btnSize" />
+      <p>px</p>
+    </div>
+  </section>
+</div>

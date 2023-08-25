@@ -1,5 +1,7 @@
-h1 {
-  padding: 20px;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .media-element {
@@ -20,37 +22,15 @@ h1 {
   object-fit: cover;
 }
 
-.box {
-  margin-top: 20px !important;
-  flex: 0 0 120px;
-  width: 120px;
-  height: 100px;
-  background: orange;
-  background-color: orange;
-  margin: 0 10px 0 5px;
-  margin-top: 0px;
-  margin-left: 5px;
-  transition: 0.4s;
-  border-radius: 10px;
-  background-color: #f6f4f4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: #6c6c6c;
-  &:hover {
-    transform: scale(1.1);
-    background: #ffffff;
-    color: #eb4452;
-    z-index: 2;
-    box-shadow: 0 0 10px 2px #e6e6e6;
-    cursor: pointer;
-    svg {
-      fill: #eb4452;
-      stroke: #eb4452;
-    }
-  }
-  svg {
-    fill: #e0e0e0;
-  }
+.date {
+  background: #fe921f;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 12px;
+  letter-spacing: 1px;
+  padding: 10px 15px 8px;
+  text-transform: uppercase;
+  border-radius: 5px;
 }

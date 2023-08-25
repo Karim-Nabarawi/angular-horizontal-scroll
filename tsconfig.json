@@ -3,8 +3,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "angular-vertical-scroll": [
-        "projects/angular-vertical-scroll/src/public-api"
+      "angular-horizontal-scroll": [
+        "projects/angular-horizontal-scroll/src/public-api"
       ]
     },
     "baseUrl": "./",

@@ -17,33 +17,33 @@ import {
 } from '../shared/interface/main.interface';
 import { IScrollBtnStyles } from '../shared/interface/button.interface';
 /**
- * Represents the vertical scroll component's input properties.
+ * Represents the horizontal scroll component's input properties.
  *
- * @see {@link AngularVerticalScrollComponent} for the main component.
+ * @see {@link AngularHorizontalScrollComponent} for the main component.
  * @usageNotes
- * This component provides vertical scrolling functionality for content. You can customize its appearance
- * and behavior using the input properties provided by {@link AngularVerticalScrollInput}.
+ * This component provides horizontal scrolling functionality for content. You can customize its appearance
+ * and behavior using the input properties provided by {@link AngularHorizontalScrollInput}.
  *
  * Usage example:
  * ```html
- * <vertical-scroll
+ * <horizontal-scroll
  *   [scrollAmount]="100"
  *   [headerTitleTemplate]="customHeaderTemplate"
  *   [scrollButtonTemplate]="customButtonTemplate"
  *   [scrollButtonPosition]="'top right'"
  *   [showScrollbar]="true"
  *   [customStyles]="customStylesObject"
- * ></vertical-scroll>
+ * ></horizontal-scroll>
  * ```
  */
 @Component({
-  selector: 'vertical-scroll',
+  selector: 'horizontal-scroll',
   standalone: true,
   imports: [CommonModule, ImageScrollButtonsComponent],
-  templateUrl: './angular-vertical-scroll.component.html',
-  styleUrls: ['./angular-vertical-scroll.component.scss'],
+  templateUrl: './angular-horizontal-scroll.component.html',
+  styleUrls: ['./angular-horizontal-scroll.component.scss'],
 })
-export class AngularVerticalScrollComponent {
+export class AngularHorizontalScrollComponent {
   @ViewChild('widgetsContent', { static: false }) widgetsContent!: ElementRef;
 
   /**
@@ -51,10 +51,11 @@ export class AngularVerticalScrollComponent {
    * The amount to scroll when the user interacts with the component.
    *
    * @default 'auto'
+   *
    * @usageNotes
-   * 'auto' is calculated based on first element size,
-   * 'full' is calculated based on full content width except one element,
-   * number is value which scroll change in px
+   * - 'auto': Calculated based on the first element size.
+   * - 'full': Calculated based on full content width except one element.
+   * - number: Scroll change in pixels.
    */
   @Input() scrollAmount: number | 'auto' | 'full' = 'auto';
   /**
@@ -73,7 +74,9 @@ export class AngularVerticalScrollComponent {
   /**
    * @description
    * The position of the scroll buttons.
-   * Can be 'center' to place them in the center, or 'top right' to place them at the top right corner.
+   * @usageNotes
+   * - 'center': Place them in the center.
+   * - 'top right': Place them at the top right corner.
    * @default 'center'
    */
   @Input() scrollButtonPosition: 'center' | 'top right' = 'center';
@@ -96,10 +99,19 @@ export class AngularVerticalScrollComponent {
       ...value,
     };
 
-    //default firstElementLeftMargin to be same as elements gap when not set for equal spacing
-    this.mainStyles.firstElementLeftMargin = value.firstElementLeftMargin
-      ? value.firstElementLeftMargin
+    //default firstAndLastElementGap to be same as elements gap when not set for equal spacing
+    this.mainStyles.firstAndLastElementGap = value.firstAndLastElementGap
+      ? value.firstAndLastElementGap
       : this.mainStyles.elementsGap;
+
+    if (this.widgetsContent) {
+      this.widgetsContent.nativeElement.firstChild.style[
+        'margin-left'
+      ] = `${this.mainStyles.firstAndLastElementGap}px`;
+      this.widgetsContent.nativeElement.lastElementChild.style[
+        'margin-right'
+      ] = `${this.mainStyles.firstAndLastElementGap}px`;
+    }
   }
 
   mainStyles: IMainStyles = IMainStylesDefault;
@@ -109,6 +121,12 @@ export class AngularVerticalScrollComponent {
 
   @HostBinding('style.--default-elements-gap') get elementsGap() {
     return `${this.mainStyles.elementsGap}px`;
+  }
+  @HostBinding('style.--scrollbar-padding') get scrollbarPadding() {
+    return this.showScrollbar ? '0 0 16px' : '0px';
+  }
+  @HostBinding('style.--container-gap') get containerGap() {
+    return `${this.mainStyles.containerGap}px`;
   }
 
   constructor(private cdRef: ChangeDetectorRef) {}
@@ -152,7 +170,7 @@ export class AngularVerticalScrollComponent {
     if (this.scrollAmount === 'auto') {
       return (
         this.widgetsContent.nativeElement.childNodes[1].offsetLeft -
-        this.mainStyles.firstElementLeftMargin
+        this.mainStyles.firstAndLastElementGap
       );
     } else if (this.scrollAmount === 'full') {
       return (
@@ -160,10 +178,12 @@ export class AngularVerticalScrollComponent {
         this.widgetsContent.nativeElement.childNodes[1].offsetLeft
       );
     }
+    console.log(this.scrollAmount);
     return this.scrollAmount;
   }
 
   checkOverflow() {
+    console.log(this.widgetsContent);
     if (this.widgetsContent) {
       const element = this.widgetsContent.nativeElement;
       this.hasOverflow =
@@ -171,7 +191,10 @@ export class AngularVerticalScrollComponent {
         element.offsetWidth < element.scrollWidth;
       this.widgetsContent.nativeElement.firstChild.style[
         'margin-left'
-      ] = `${this.mainStyles.firstElementLeftMargin}px`;
+      ] = `${this.mainStyles.firstAndLastElementGap}px`;
+      this.widgetsContent.nativeElement.lastElementChild.style[
+        'margin-right'
+      ] = `${this.mainStyles.firstAndLastElementGap}px`;
     }
   }
 

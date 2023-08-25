@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  gap: 10px;
+}
+
+.input-radio {
+  display: flex;
+  gap: 5px;
+}
+
+code {
+  background-color: #393030;
+  border-radius: 3px;
+  font-family: courier, monospace;
+  padding: 0 3px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+section,
+.controls-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.controls-wrapper {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #558bf1;
+  color: white;
+}
