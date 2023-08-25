@@ -17,7 +17,7 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
 # Usage
 
-1. Import the `AngularhorizontalScrollModule` or `AngularhorizontalScrollComponent` in your module or standalone component:
+1. Import the `AngularHorizontalScrollModule` or `AngularHorizontalScrollComponent` in your module or standalone component:
 
    **Module:**
 
@@ -49,23 +49,27 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
 ## Component Parameters
 
-| Property               | Type                            | Default  | Description                      |
-| ---------------------- | ------------------------------- | -------- | -------------------------------- |
-| `customStyles`         | [custom styles](#custom-styles) | -        | Style for component              |
-| `headerTitleTemplate`  | string \| TemplateRef<void>     | ""       | The title for the container      |
-| `scrollAmount`         | 'auto' \| 'full' \| number      | 'auto'   | Control the scroll amount.       |
-| `scrollButtonPosition` | 'center' \| 'top right'         | 'center' | The placement of scrolls buttons |
-| `scrollButtonTemplate` | TemplateRef<void> \| undefined  | -        | Custom scroll button             |
-| `showScrollbar`        | boolean                         | false    | Option to show scrollbar         |
+| Property               | Type                            | Default  | Description                                                  |
+| ---------------------- | ------------------------------- | -------- | ------------------------------------------------------------ |
+| `customStyles`         | [custom styles](#custom-styles) | -        | Style for component                                          |
+| `headerTitleTemplate`  | string \| TemplateRef<void>     | ""       | The title for the container                                  |
+| `onLeftBtnClick`       | ()=>void                        | ()=>{}   | Callback function triggered when the left button is clicked  |
+| `onRightBtnClick`      | ()=>void                        | ()=>{}   | Callback function triggered when the rigth button is clicked |
+| `onScroll`             | ()=>void                        | ()=>{}   | Callback function triggered on scroll                        |
+| `scrollAmount`         | 'auto' \| 'full' \| number      | 'auto'   | Control the scroll amount.                                   |
+| `scrollButtonPosition` | 'center' \| 'top right'         | 'center' | The placement of scrolls buttons                             |
+| `scrollButtonTemplate` | TemplateRef<void> \| undefined  | -        | Custom scroll button                                         |
+| `showScrollbar`        | boolean                         | false    | Option to show scrollbar                                     |
 
 ## Custom Styles
 
 ### Main Styles
 
-| Property                 | Type   | Default | Description                                     |
-| ------------------------ | ------ | ------- | ----------------------------------------------- |
-| `elementsGap`            | number | 16      | Set the gap between elements                    |
-| `firstAndLastElementGap` | number | 16      | set `margin-left` for the first element in `px` |
+| Property                 | Type   | Default | Description                                                          |
+| ------------------------ | ------ | ------- | -------------------------------------------------------------------- |
+| `elementsGap`            | number | 16      | Set the gap between elements within the component in `px`            |
+| `firstAndLastElementGap` | number | 16      | set the gap between the first and last element and container in `px` |
+| `containerGap`           | number | 16      | Set the gap between header and container in `px`                     |
 
 ### Button Styles
 
@@ -73,7 +77,7 @@ This Angular component provides a scrolling gallery of images with navigation bu
 | ------------ | ------ | ----------- | -------------------------------------- |
 | `arrowColor` | string | '#fff'      | Set the color of the arrow             |
 | `btnBgColor` | string | '#0000004d' | Set the background color of the button |
-| `btnSize`    | number | 1           | Set the scale of the button            |
+| `btnSize`    | number | 16          | Set the size of the button in `px`     |
 
 # Contributing
 

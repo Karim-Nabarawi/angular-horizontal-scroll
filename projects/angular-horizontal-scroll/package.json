@@ -1,6 +1,6 @@
 {
   "name": "angular-horizontal-scroll",
-  "version": "0.0.5",
+  "version": "0.0.2",
   "peerDependencies": {
     "@angular/common": "^16.2.0",
     "@angular/core": "^16.2.0"
@@ -11,7 +11,8 @@
   "keywords": [
     "angular",
     "angular-component",
-    "horizontal"
+    "horizontal",
+    "scroll"
   ],
   "sideEffects": false
 }

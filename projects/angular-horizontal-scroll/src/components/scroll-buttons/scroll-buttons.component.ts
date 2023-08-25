@@ -21,6 +21,19 @@ export class ImageScrollButtonsComponent {
 
   @Input() scrollButtonTemplate!: TemplateRef<void>;
 
+  /**
+   *  Callback function triggered when the right button is clicked.
+   * @type {() => void}
+   * @default () => {}
+   */
+  @Input() onRightBtnClick: () => void = () => {};
+  /**
+   * Callback function triggered when the left button is clicked.
+   * @type {() => void}
+   * @default () => {}
+   */
+  @Input() onLeftBtnClick: () => void = () => {};
+
   // button styles
   @Input() btnStyles: IScrollBtnStyles = IScrollBtnStylesDefault;
 
@@ -35,7 +48,11 @@ export class ImageScrollButtonsComponent {
   }
 
   scroll(direction: 1 | -1) {
-    console.log(direction);
+    if (direction === 1) {
+      this.onRightBtnClick();
+    } else {
+      this.onLeftBtnClick();
+    }
     this.widgetsContent.scrollLeft += this.scrollAmount * direction;
   }
 }
