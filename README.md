@@ -1,4 +1,4 @@
-# Angular Horizontal Scroller
+# 📜 Angular Horizontal Scroller
 
 Provide an angular componenet for a scrolling container horizontal.
 
