@@ -18,7 +18,7 @@
       [scrollButtonTemplate]="scrollButtonTemplate"
       [onLeftBtnClick]="onLeftBtnClick"
       [onRightBtnClick]="onRightBtnClick"
-      [btnStyles]="mainStyles"
+      [btnStyles]="buttonsStyle"
       position="top right"
       class="scroll-buttons"
       *ngIf="hasOverflow && scrollButtonPosition === 'top right'"
@@ -30,6 +30,7 @@
       #widgetsContent
       class="media-scroller"
       [ngClass]="{ 'hide-scrollbar': !showScrollbar }"
+      [style]="mainStyles.inlineStyle"
       (scroll)="scroll($event)"
     >
       <ng-content></ng-content>
@@ -42,7 +43,7 @@
       [scrollButtonTemplate]="scrollButtonTemplate"
       [onLeftBtnClick]="onLeftBtnClick"
       [onRightBtnClick]="onRightBtnClick"
-      [btnStyles]="mainStyles"
+      [btnStyles]="buttonsStyle"
       position="center"
       *ngIf="hasOverflow && scrollButtonPosition === 'center'"
     ></app-image-scroll-buttons>

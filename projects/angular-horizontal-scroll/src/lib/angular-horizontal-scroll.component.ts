@@ -11,11 +11,13 @@ import {
 } from '@angular/core';
 
 import { ImageScrollButtonsComponent } from '../components/scroll-buttons/scroll-buttons.component';
+
 import {
-  IMainStyles,
-  IMainStylesDefault,
-} from '../shared/interface/main.interface';
-import { IScrollBtnStyles } from '../shared/interface/button.interface';
+  ButtonStyles,
+  ButtonStylesDefault,
+  ContainerStyles,
+  ContainerStylesDefault,
+} from '../shared/interface';
 /**
  * Represents the horizontal scroll component's input properties.
  *
@@ -32,7 +34,8 @@ import { IScrollBtnStyles } from '../shared/interface/button.interface';
  *   [scrollButtonTemplate]="customButtonTemplate"
  *   [scrollButtonPosition]="'top right'"
  *   [showScrollbar]="true"
- *   [customStyles]="customStylesObject"
+ *   [buttonStyles]="ButtonStyles"
+ *   [containerStyles]="ContainerStyles"
  * ></horizontal-scroll>
  * ```
  */
@@ -105,13 +108,26 @@ export class AngularHorizontalScrollComponent {
 
   /**
    * @description
-   * Custom styles to apply to the scroll component.
-   * @see {@link IMainStyles} for available style properties.
+   * Custom styles for buttons.
+   * @see {@link ButtonStyles} for available style properties.
    */
 
-  @Input() set customStyles(value: Partial<IMainStyles>) {
+  @Input() set buttonStyles(value: Partial<ButtonStyles>) {
+    this.buttonsStyle = {
+      ...ButtonStylesDefault,
+      ...value,
+    };
+  }
+
+  /**
+   * @description
+   * Custom styles for the container.
+   * @see {@link ContainerStyles} for available style properties.
+   */
+
+  @Input() set containerStyles(value: Partial<ContainerStyles>) {
     this.mainStyles = {
-      ...IMainStylesDefault,
+      ...ContainerStylesDefault,
       ...value,
     };
 
@@ -130,7 +146,8 @@ export class AngularHorizontalScrollComponent {
     }
   }
 
-  mainStyles: IMainStyles = IMainStylesDefault;
+  mainStyles: ContainerStyles = ContainerStylesDefault;
+  buttonsStyle: ButtonStyles = ButtonStylesDefault;
 
   hasOverflow = false;
   overflowValue: 'left' | 'both' | 'right' = 'left';
@@ -150,10 +167,6 @@ export class AngularHorizontalScrollComponent {
   ngAfterViewInit() {
     this.checkOverflow();
     this.cdRef.detectChanges();
-  }
-
-  get buttonStyles(): IScrollBtnStyles {
-    return this.mainStyles as IScrollBtnStyles;
   }
 
   // Check if the contentTemplate is a string or TemplateRef

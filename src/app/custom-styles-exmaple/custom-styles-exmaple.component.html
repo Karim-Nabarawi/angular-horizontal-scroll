@@ -3,7 +3,8 @@
   [scrollAmount]="scrollAmount"
   [scrollButtonPosition]="scrollButtonPosition"
   [showScrollbar]="showScrollbar"
-  [customStyles]="mainStyles"
+  [containerStyles]="containerStyles"
+  [buttonStyles]="buttonStyles"
 >
   <ng-template ngFor let-data [ngForOf]="example5">
     <div class="box" tabindex="0">
@@ -104,8 +105,10 @@
       />
     </div>
   </section>
+  <br />
   <section>
     <h3>Styles</h3>
+    <h4>Container:</h4>
     <div class="container">
       <p>Gap between header and container <code>containerGap</code>:</p>
       <input type="number" [(ngModel)]="containerGap" />
@@ -125,6 +128,19 @@
       <p>px</p>
     </div>
     <div class="container">
+      <p>
+        Inline Styles
+        <code>inlineStyle</code>:
+      </p>
+      <textarea
+        [(ngModel)]="containerInlineStyle"
+        rows="8"
+        cols="50"
+      ></textarea>
+    </div>
+    <br />
+    <h4>Buttons:</h4>
+    <div class="container">
       <p>Button background color <code>btnBgColor</code>:</p>
       <input type="text" [(ngModel)]="btnBgColor" />
     </div>
@@ -136,6 +152,13 @@
       <p>Button size <code>btnSize</code>:</p>
       <input type="number" [(ngModel)]="btnSize" />
       <p>px</p>
+    </div>
+    <div class="container">
+      <p>
+        Inline Styles
+        <code>inlineStyle</code>:
+      </p>
+      <textarea [(ngModel)]="buttonInlineStyle" rows="8" cols="50"></textarea>
     </div>
   </section>
 </div>

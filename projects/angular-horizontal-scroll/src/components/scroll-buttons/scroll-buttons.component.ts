@@ -1,8 +1,8 @@
 import { Component, HostBinding, Input, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  IScrollBtnStyles,
-  IScrollBtnStylesDefault,
+  ButtonStyles,
+  ButtonStylesDefault,
 } from '../../shared/interface/button.interface';
 
 @Component({
@@ -35,7 +35,7 @@ export class ImageScrollButtonsComponent {
   @Input() onLeftBtnClick: () => void = () => {};
 
   // button styles
-  @Input() btnStyles: IScrollBtnStyles = IScrollBtnStylesDefault;
+  @Input() btnStyles: ButtonStyles = ButtonStylesDefault;
 
   @HostBinding('style.--default-btn-bg-color') get btnBgColor() {
     return this.btnStyles.btnBgColor;

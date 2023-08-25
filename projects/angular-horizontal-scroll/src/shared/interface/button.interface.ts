@@ -2,10 +2,10 @@
  * @description
  * Represents the button styles for the Horizontal scroll component.
  *
- * @see {@link IScrollBtnStylesDefault} for the default style values.
+ * @see {@link ButtonStylesDefault} for the default style values.
  */
 
-export interface IScrollBtnStyles {
+export interface ButtonStyles {
   /**
    * The background color of the button.
    */
@@ -20,10 +20,15 @@ export interface IScrollBtnStyles {
    * The scale factor of the button.
    */
   btnSize: number;
+  /**
+   * The inline styles of the button
+   */
+  inlineStyle: string;
 }
 
-export const IScrollBtnStylesDefault: IScrollBtnStyles = {
+export const ButtonStylesDefault: ButtonStyles = {
   btnBgColor: '#0000004d',
   arrowColor: '#fff',
   btnSize: 16,
+  inlineStyle: '',
 };
