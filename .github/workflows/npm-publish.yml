@@ -1,6 +1,7 @@
 name: NPM Package Publish
 on:
-  push:
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -39,18 +40,15 @@ jobs:
           name: package-files
           path: dist/angular-horizontal-scroll
 
-      - name: Publish package
-        run: |
-          echo "Changing to the desired directory..."
-          cd dist/angular-horizontal-scroll
-          echo "Listing all files in the directory:"
-          ls -1
+      - name: Change to build directory
+        run: cd dist/angular-horizontal-scroll
 
-    #   - uses: actions/setup-node@v3
-    #     with:
-    #       node-version: 16
-    #       registry-url: "https://registry.npmjs.org/"
-    #   - run: npm ci
-    #   - run: npm publish
-    #     env:
-    #       NODE_AUTH_TOKEN: "${{secrets.npm_token}}"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: "https://registry.npmjs.org/"
+
+      - name: Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: "${{secrets.npm_token}}"
