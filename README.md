@@ -49,14 +49,17 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
 ## Component Parameters
 
-| Property               | Type                            | Default  | Description                      |
-| ---------------------- | ------------------------------- | -------- | -------------------------------- |
-| `customStyles`         | [custom styles](#custom-styles) | -        | Style for component              |
-| `headerTitleTemplate`  | string \| TemplateRef<void>     | ""       | The title for the container      |
-| `scrollAmount`         | 'auto' \| 'full' \| number      | 'auto'   | Control the scroll amount.       |
-| `scrollButtonPosition` | 'center' \| 'top right'         | 'center' | The placement of scrolls buttons |
-| `scrollButtonTemplate` | TemplateRef<void> \| undefined  | -        | Custom scroll button             |
-| `showScrollbar`        | boolean                         | false    | Option to show scrollbar         |
+| Property               | Type                            | Default  | Description                                                  |
+| ---------------------- | ------------------------------- | -------- | ------------------------------------------------------------ |
+| `customStyles`         | [custom styles](#custom-styles) | -        | Style for component                                          |
+| `headerTitleTemplate`  | string \| TemplateRef<void>     | ""       | The title for the container                                  |
+| `onLeftBtnClick`       | ()=>void                        | ()=>{}   | Callback function triggered when the left button is clicked  |
+| `onRightBtnClick`      | ()=>void                        | ()=>{}   | Callback function triggered when the rigth button is clicked |
+| `onScroll`             | ()=>void                        | ()=>{}   | Callback function triggered on scroll                        |
+| `scrollAmount`         | 'auto' \| 'full' \| number      | 'auto'   | Control the scroll amount.                                   |
+| `scrollButtonPosition` | 'center' \| 'top right'         | 'center' | The placement of scrolls buttons                             |
+| `scrollButtonTemplate` | TemplateRef<void> \| undefined  | -        | Custom scroll button                                         |
+| `showScrollbar`        | boolean                         | false    | Option to show scrollbar                                     |
 
 ## Custom Styles
 

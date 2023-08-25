@@ -47,11 +47,27 @@ export class AngularHorizontalScrollComponent {
   @ViewChild('widgetsContent', { static: false }) widgetsContent!: ElementRef;
 
   /**
-   * @description
-   * The amount to scroll when the user interacts with the component.
-   *
+   *  Callback function triggered on scroll.
+   * @type {() => void}
+   * @default () => {}
+   */
+  @Input() onScroll: () => void = () => {};
+  /**
+   *  Callback function triggered when the right button is clicked.
+   * @type {() => void}
+   * @default () => {}
+   */
+  @Input() onRightBtnClick: () => void = () => {};
+  /**
+   * Callback function triggered when the left button is clicked.
+   * @type {() => void}
+   * @default () => {}
+   */
+  @Input() onLeftBtnClick: () => void = () => {};
+
+  /**
+   * @description The amount to scroll when the user interacts with the component.
    * @default 'auto'
-   *
    * @usageNotes
    * - 'auto': Calculated based on the first element size.
    * - 'full': Calculated based on full content width except one element.
@@ -75,8 +91,8 @@ export class AngularHorizontalScrollComponent {
    * @description
    * The position of the scroll buttons.
    * @usageNotes
-   * - 'center': Place them in the center.
-   * - 'top right': Place them at the top right corner.
+   * - 'center': Place the scroll buttons in the center.
+   * - 'top right': Place the scroll buttons at the top right corner.
    * @default 'center'
    */
   @Input() scrollButtonPosition: 'center' | 'top right' = 'center';
@@ -149,7 +165,8 @@ export class AngularHorizontalScrollComponent {
     return this.headerTitleTemplate as TemplateRef<void>;
   }
 
-  onScroll(event: Event): void {
+  scroll(event: Event): void {
+    this.onScroll();
     this.updateOverflowValue();
   }
 
@@ -178,12 +195,10 @@ export class AngularHorizontalScrollComponent {
         this.widgetsContent.nativeElement.childNodes[1].offsetLeft
       );
     }
-    console.log(this.scrollAmount);
     return this.scrollAmount;
   }
 
   checkOverflow() {
-    console.log(this.widgetsContent);
     if (this.widgetsContent) {
       const element = this.widgetsContent.nativeElement;
       this.hasOverflow =
