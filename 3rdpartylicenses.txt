@@ -4,10 +4,13 @@ MIT
 @angular/core
 MIT
 
+@angular/forms
+MIT
+
 @angular/platform-browser
 MIT
 
-angular-vertical-scroll
+angular-horizontal-scroll
 
 rxjs
 Apache-2.0
