@@ -34,6 +34,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: "https://registry.npmjs.org/"
+
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
@@ -43,12 +49,9 @@ jobs:
       - name: Change to build directory
         run: cd dist/angular-horizontal-scroll
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: "https://registry.npmjs.org/"
-
       - name: Publish to npm
-        run: npm publish
+        run: |
+          cd dist/angular-horizontal-scroll
+          npm publish
         env:
           NODE_AUTH_TOKEN: "${{secrets.npm_token}}"
