@@ -42,7 +42,7 @@ npm install angular-horizontal-scroll
    import { IMainStyles } from "angular-horizontal-scroll";
    ```
 
-# API
+# ✨ API
 
 ## ⌨️ Component Parameters
 
@@ -76,6 +76,6 @@ npm install angular-horizontal-scroll
 | `btnBgColor` | string | '#0000004d' | Set the background color of the button |
 | `btnSize`    | number | 16          | Set the size of the button in `px`     |
 
-# Contributing
+# 🤝 Contributing
 
 Contributions are welcome! If you find any issues or would like to add new features, feel free to open a pull request.
