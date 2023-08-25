@@ -1,21 +1,18 @@
-# Angular Image Scroller Component
+# Angular Horizontal Scroller
 
-This Angular component provides a scrolling gallery of images with navigation buttons.
+Provide an angular componenet for a scrolling container horizontal.
 
-# Demo
+# 🔗 Demo
 
 [Live Example](https://karim-nabarawi.github.io/angular-horizontal-scroll/)
 
-## Getting Started
+# 📦 Install
 
-1. Clone the repository or copy the relevant files into your Angular project.
-2. Install the necessary dependencies:
+```bash
+npm install angular-horizontal-scroll
+```
 
-   ```bash
-   npm install angular-horizontal-scroll
-   ```
-
-# Usage
+# ⚙️ Usage
 
 1. Import the `AngularHorizontalScrollModule` or `AngularHorizontalScrollComponent` in your module or standalone component:
 
@@ -47,11 +44,11 @@ This Angular component provides a scrolling gallery of images with navigation bu
 
 # API
 
-## Component Parameters
+## ⌨️ Component Parameters
 
 | Property               | Type                            | Default  | Description                                                  |
 | ---------------------- | ------------------------------- | -------- | ------------------------------------------------------------ |
-| `customStyles`         | [custom styles](#custom-styles) | -        | Style for component                                          |
+| `customStyles`         | [`IMainStyles`](#custom-styles) | -        | Style for component                                          |
 | `headerTitleTemplate`  | string \| TemplateRef<void>     | ""       | The title for the container                                  |
 | `onLeftBtnClick`       | ()=>void                        | ()=>{}   | Callback function triggered when the left button is clicked  |
 | `onRightBtnClick`      | ()=>void                        | ()=>{}   | Callback function triggered when the rigth button is clicked |
@@ -61,7 +58,7 @@ This Angular component provides a scrolling gallery of images with navigation bu
 | `scrollButtonTemplate` | TemplateRef<void> \| undefined  | -        | Custom scroll button                                         |
 | `showScrollbar`        | boolean                         | false    | Option to show scrollbar                                     |
 
-## Custom Styles
+## 🎨 Custom Styles
 
 ### Main Styles
 
