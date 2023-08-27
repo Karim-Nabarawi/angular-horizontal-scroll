@@ -8,8 +8,8 @@ describe('AngularhorizontalScrollComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AngularHorizontalScrollComponent],
-    });
+    imports: [AngularHorizontalScrollComponent],
+});
     fixture = TestBed.createComponent(AngularHorizontalScrollComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
