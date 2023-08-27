@@ -131,11 +131,6 @@ export class AngularHorizontalScrollComponent {
       ...value,
     };
 
-    //default firstAndLastElementGap to be same as elements gap when not set for equal spacing
-    this.mainStyles.firstAndLastElementGap = value.firstAndLastElementGap
-      ? value.firstAndLastElementGap
-      : this.mainStyles.elementsGap;
-
     if (this.widgetsContent) {
       this.widgetsContent.nativeElement.firstChild.style[
         'margin-left'

@@ -1,7 +1,25 @@
+.examples-section,
+.header {
+  padding: 0px 20px;
+  h2 {
+    font-weight: 500;
+  }
+  p {
+    padding-left: 20px;
+  }
+}
+
 .wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.example-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 .media-element {
@@ -20,17 +38,4 @@
   inline-size: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-}
-
-.date {
-  background: #fe921f;
-  color: #ffffff;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 12px;
-  letter-spacing: 1px;
-  padding: 10px 15px 8px;
-  text-transform: uppercase;
-  border-radius: 5px;
 }

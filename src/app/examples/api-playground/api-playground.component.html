@@ -1,0 +1,171 @@
+<app-example-holder
+  explanation="You can try and customize your container"
+  [code]="code"
+>
+  <div class="example">
+    <horizontal-scroll
+      headerTitleTemplate="API Playground"
+      [scrollAmount]="scrollAmount"
+      [scrollButtonPosition]="scrollButtonPosition"
+      [showScrollbar]="showScrollbar"
+      [containerStyles]="containerStyles"
+      [buttonStyles]="buttonStyles"
+    >
+      <ng-template ngFor let-data [ngForOf]="randomEmojis">
+        <div class="box" tabindex="0">
+          <span
+            class="emoji"
+            [style.--hover-color]="data.color"
+            [style.--hover-rotate]="data.rotate"
+            >{{ data.emoji }}</span
+          >
+        </div>
+      </ng-template>
+    </horizontal-scroll>
+  </div>
+
+  <div class="controls-wrapper">
+    <section>
+      <h3>Controls</h3>
+      <div>
+        <p>Button position:</p>
+
+        <div class="container">
+          <div class="input-radio">
+            <input
+              type="radio"
+              id="btnPostionCenter"
+              name="btnPostion"
+              value="center"
+              [(ngModel)]="scrollButtonPosition"
+            />
+            <label for="btnPostionCenter"> center </label>
+          </div>
+
+          <div class="input-radio">
+            <input
+              type="radio"
+              id="btnPostionTopRight"
+              name="btnPostion"
+              value="top right"
+              [(ngModel)]="scrollButtonPosition"
+            />
+            <label for="btnPostionTopRight"> top right </label>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p>Scroll amount:</p>
+
+        <div class="container">
+          <div class="input-radio">
+            <input
+              type="radio"
+              id="scrollAmountAuto"
+              name="scrollAmount"
+              value="auto"
+              (ngModelChange)="updateScrollAmount('auto')"
+              [(ngModel)]="scrollAmountSelector"
+            />
+            <label for="scrollAmountAuto"> auto </label>
+          </div>
+
+          <div class="input-radio">
+            <input
+              type="radio"
+              id="scrollAmountFull"
+              name="scrollAmount"
+              value="full"
+              (ngModelChange)="updateScrollAmount('full')"
+              [(ngModel)]="scrollAmountSelector"
+            />
+            <label for="scrollAmountFull"> full </label>
+          </div>
+
+          <div class="input-radio">
+            <input
+              type="radio"
+              id="scrollAmountNumber"
+              name="scrollAmount"
+              value="number"
+              (ngModelChange)="updateScrollAmount(200)"
+              [(ngModel)]="scrollAmountSelector"
+            />
+            <label for="scrollAmountNumber" class="input-radio">
+              control size
+
+              <div *ngIf="scrollAmountSelector === 'number'">
+                <input type="number" [(ngModel)]="scrollAmount" />
+                px
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <label for="showScrollbar">Show scroll bar:</label>
+        <input
+          type="checkbox"
+          id="showScrollbar"
+          type="checkbox"
+          [(ngModel)]="showScrollbar"
+        />
+      </div>
+    </section>
+    <section>
+      <h3>Container Styles</h3>
+      <div>
+        <p>Container gap:</p>
+        <div style="display: flex">
+          <input type="number" [(ngModel)]="containerGap" />
+          <p>px</p>
+        </div>
+      </div>
+      <div>
+        <p>Elements gap:</p>
+        <div style="display: flex">
+          <input type="number" [(ngModel)]="elementsGap" />
+          <p>px</p>
+        </div>
+      </div>
+      <div>
+        <p>first and last element and container edges gap:</p>
+        <div style="display: flex">
+          <input type="number" [(ngModel)]="firstAndLastElementGap" />
+          <p>px</p>
+        </div>
+      </div>
+      <div>
+        <p>Inline Styles:</p>
+        <textarea
+          [(ngModel)]="containerInlineStyle"
+          rows="4"
+          cols="30"
+        ></textarea>
+      </div>
+    </section>
+    <section>
+      <h4>Buttons Styles</h4>
+      <div>
+        <p>Button background color:</p>
+        <input type="text" [(ngModel)]="btnBgColor" />
+      </div>
+      <div>
+        <p>Arrow color:</p>
+        <input type="text" [(ngModel)]="arrowColor" />
+      </div>
+      <div>
+        <p>Button size:</p>
+        <div style="display: flex">
+          <input type="number" [(ngModel)]="btnSize" />
+          <p>px</p>
+        </div>
+      </div>
+      <div>
+        <p>Inline Styles:</p>
+        <textarea [(ngModel)]="buttonInlineStyle" rows="4" cols="30"></textarea>
+      </div>
+    </section>
+  </div>
+</app-example-holder>

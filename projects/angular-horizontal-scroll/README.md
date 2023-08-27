@@ -65,7 +65,7 @@ npm install angular-horizontal-scroll
 
 | Property                 | Type   | Default | Description                                                          |
 | ------------------------ | ------ | ------- | -------------------------------------------------------------------- |
-| `containerGap`           | number | 16      | Set the gap between header and container in `px`                     |
+| `containerGap`           | number | 0       | Set the gap between header and container in `px`                     |
 | `elementsGap`            | number | 16      | Set the gap between elements within the component in `px`            |
 | `firstAndLastElementGap` | number | 16      | Set the gap between the first and last element and container in `px` |
 | `inlineStyle`            | string | ""      | Set the inline styles for container                                  |

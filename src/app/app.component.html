@@ -1,91 +1,29 @@
-<div class="wrapper">
-  <!-- Example 1 Arrow top with scrollbar -->
-  <horizontal-scroll
-    headerTitleTemplate="Arrow top with scrollbar"
-    [scrollButtonPosition]="'top right'"
-    [showScrollbar]="true"
-    [containerStyles]="{ containerGap: 0 }"
-  >
-    <ng-template ngFor let-data [ngForOf]="example1">
-      <div class="box" tabindex="0">
-        <span
-          class="emoji"
-          [style.--hover-color]="data.color"
-          [style.--hover-rotate]="rotate(data.rotate)"
-          >{{ data.emoji }}</span
-        >
-      </div>
-    </ng-template>
-  </horizontal-scroll>
-
-  <!-- Example 2 Arrow center with different button color -->
-  <horizontal-scroll
-    headerTitleTemplate="Arrow center with different button color"
-    scrollAmount="full"
-    [containerStyles]="example2Theme"
-    [buttonStyles]="example2ThemeBtn"
-  >
-    <ng-template ngFor let-data [ngForOf]="example2">
-      <div class="box" tabindex="0">
-        <span
-          class="emoji"
-          [style.--hover-color]="data.color"
-          [style.--hover-rotate]="rotate(data.rotate)"
-          >{{ data.emoji }}</span
-        >
-      </div>
-    </ng-template>
-  </horizontal-scroll>
-
-  <!-- Example 3 Custom button -->
-  <horizontal-scroll
-    headerTitleTemplate="Custom button"
-    [scrollButtonPosition]="'top right'"
-    [scrollButtonTemplate]="buttonTemplateOutlet"
-    [containerStyles]="example3Theme"
-  >
-    <ng-template ngFor let-data [ngForOf]="example3">
-      <div class="box" tabindex="0">
-        <span
-          class="emoji"
-          [style.--hover-color]="data.color"
-          [style.--hover-rotate]="rotate(data.rotate)"
-          >{{ data.emoji }}</span
-        >
-      </div>
-    </ng-template>
-  </horizontal-scroll>
-
-  <!-- Example 4 Custom Header -->
-  <horizontal-scroll
-    headerTitleTemplate="Arrow Center"
-    scrollAmount="full"
-    [headerTitleTemplate]="titleTemplateOutlet"
-    [containerStyles]="example4Theme"
-  >
-    <ng-template ngFor let-data [ngForOf]="example4">
-      <div class="box" tabindex="0">
-        <span
-          class="emoji"
-          [style.--hover-color]="data.color"
-          [style.--hover-rotate]="rotate(data.rotate)"
-          >{{ data.emoji }}</span
-        >
-      </div>
-    </ng-template>
-  </horizontal-scroll>
-
-  <!-- Example 5 build your own -->
-  <app-custom-styles-exmaple></app-custom-styles-exmaple>
+<div class="header">
+  <h2>📜 Angular Horizontal Scroller</h2>
+  <p>Provide an angular componenet for a scrolling container horizontal.</p>
 </div>
+<br />
 
-<ng-template #buttonTemplateOutlet>
-  <span style="font-size: 32px">😜</span>
-</ng-template>
+<app-how-to-use-section />
+<section class="examples-section">
+  <h2>Examples</h2>
+  <div class="wrapper">
+    <div class="example-container">
+      <app-default-example />
 
-<ng-template #titleTemplateOutlet>
-  <div style="display: flex; gap: 10px; align-items: center">
-    <h1 style="color: #2265e3">Custom Header</h1>
-    <h3 class="date">{{ today | date : "yyyy-MM-dd" }}</h3>
+      <app-button-position-example />
+
+      <app-scrollbar-example />
+    </div>
+
+    <div class="example-container">
+      <app-custom-button-example />
+
+      <app-custom-header-example />
+
+      <app-custom-styles-example />
+    </div>
   </div>
-</ng-template>
+
+  <app-api-playground></app-api-playground>
+</section>

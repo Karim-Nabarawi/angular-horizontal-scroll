@@ -15,7 +15,7 @@ export const generateRandomElement = (arraySize = 20) => {
     randomEmojis.push({
       emoji: emojis[randomIndex],
       color: generateRandomColor(),
-      rotate: generateRandomNumber(),
+      rotate: generateRandomNumber() + 'deg',
     });
   }
   return randomEmojis;
