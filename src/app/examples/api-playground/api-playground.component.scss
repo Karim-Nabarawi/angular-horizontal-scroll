@@ -49,11 +49,10 @@ section,
 
 .controls-wrapper {
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
   background-color: #558bf1;
   color: white;
   display: grid;
-  margin: 0px 20px 10px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 

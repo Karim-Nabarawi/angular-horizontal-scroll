@@ -7,15 +7,21 @@ import {
 } from 'angular-horizontal-scroll';
 import { generateRandomElement } from 'src/shared/utils/random';
 import { FormsModule } from '@angular/forms';
+import { ExampleHolderComponent } from 'src/app/example-holder/example-holder.component';
 
 @Component({
-  selector: 'app-custom-styles-exmaple',
+  selector: 'app-api-playground',
   standalone: true,
-  imports: [CommonModule, FormsModule, AngularHorizontalScrollComponent],
-  templateUrl: './custom-styles-exmaple.component.html',
-  styleUrls: ['./custom-styles-exmaple.component.scss'],
+  imports: [
+    CommonModule,
+    FormsModule,
+    AngularHorizontalScrollComponent,
+    ExampleHolderComponent,
+  ],
+  templateUrl: './api-playground.component.html',
+  styleUrls: ['./api-playground.component.scss'],
 })
-export class CustomStylesExmapleComponent {
+export class ApiPlaygroundComponent {
   scrollButtonPosition: 'center' | 'top right' = 'top right';
   scrollAmount: number | 'auto' | 'full' = 'auto';
   scrollAmountSelector: 'number' | 'auto' | 'full' = 'auto';
