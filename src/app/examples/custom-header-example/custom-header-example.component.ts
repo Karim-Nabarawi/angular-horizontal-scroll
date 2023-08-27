@@ -13,7 +13,10 @@ import { generateRandomElement } from 'src/shared/utils/random';
     ExampleHolderComponent,
   ],
   template: `
-    <app-example-holder explanation="Custom header template can be used">
+    <app-example-holder
+      explanation="Custom header template can be used"
+      [code]="code"
+    >
       <horizontal-scroll
         headerTitleTemplate="Arrow Center"
         scrollAmount="full"
@@ -62,4 +65,136 @@ export class CustomHeaderExampleComponent {
   get today() {
     return new Date();
   }
+
+  code = `
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AngularHorizontalScrollComponent } from 'angular-horizontal-scroll';
+
+@Component({
+  selector: 'app-example',
+  standalone: true,
+  imports: [CommonModule, AngularHorizontalScrollComponent],
+  template: \`
+    <horizontal-scroll
+      headerTitleTemplate="Arrow Center"
+      scrollAmount="full"
+      [headerTitleTemplate]="titleTemplateOutlet"
+    >
+      <ng-template ngFor let-data [ngForOf]="exampleData">
+        <div class="box" tabindex="0">
+          <span
+            class="emoji"
+            [style.--hover-color]="data.color"
+            [style.--hover-rotate]="data.rotate"
+            >{{ data.emoji }}</span
+          >
+        </div>
+      </ng-template>
+    </horizontal-scroll>
+
+    <ng-template #titleTemplateOutlet>
+      <div style="display: flex; gap: 10px; align-items: center">
+        <h1 style="color: #2265e3">Custom header</h1>
+        <h3 class="date">{{ today | date : 'yyyy-MM-dd' }}</h3>
+      </div>
+    </ng-template>
+  \`,
+  styles: [
+   \`
+      .emoji {
+        font-size: 20px;
+        transform: rotate(0deg);
+      }
+
+      .box {
+        margin: 10px 0px;
+        flex: 0 0 120px;
+        width: 120px;
+        height: 100px;
+        transition: 0.4s;
+        border-radius: 10px;
+        background-color: #f6f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #6c6c6c;
+        transition: 0.3s;
+      }
+
+      .box:hover {
+        transform: scale(1.1);
+        background: #ffffff;
+        z-index: 2;
+        box-shadow: 0 0 10px 2px #e6e6e6;
+        cursor: pointer;
+      }
+
+      .box:hover .emoji {
+        color: var(--hover-color);
+        font-size: 25px;
+        transform: rotate(var(--hover-rotate));
+      }
+
+      .date {
+        background: #fe921f;
+        color: #ffffff;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 12px;
+        letter-spacing: 1px;
+        padding: 10px 15px 8px;
+        text-transform: uppercase;
+        border-radius: 5px;
+      }
+    \`,
+  ],
+})
+export class DefaultExampleComponent {
+  exampleData = this.generateRandomElement();
+
+  get today() {
+    return new Date();
+  }
+
+  generateRandomElement(arraySize = 20) {
+    const emojis = [
+      '(っ＾▿＾)',
+      '(>‿◠)✌',
+      '(╥﹏╥)',
+      'ಥ_ಥ',
+      '(≖_≖ )',
+      "(ง︡'-'︠)ง",
+      '💪(◡̀_◡́҂)',
+    ];
+    const randomEmojis = [];
+    for (let i = 0; i < arraySize; i++) {
+      const randomIndex = Math.floor(Math.random() * emojis.length);
+      randomEmojis.push({
+        emoji: emojis[randomIndex],
+        color: this.generateRandomColor(),
+        rotate: this.generateRandomNumber() + 'deg',
+      });
+    }
+    return randomEmojis;
+  }
+
+  generateRandomNumber(min = -20, max = 20) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  generateRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+
+    return color;
+  }
+}
+`;
 }

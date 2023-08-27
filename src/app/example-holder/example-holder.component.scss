@@ -13,3 +13,47 @@
 .explanation {
   padding: 10px;
 }
+
+.actions {
+  border-top: 1px dashed rgba(5, 5, 5, 0.06);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  svg {
+    fill: rgba(5, 5, 5, 0.2);
+    width: 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s;
+
+    &:hover {
+      fill: rgba(5, 5, 5, 0.4);
+      transition: all 0.3s;
+    }
+  }
+}
+
+.code-wrapper {
+  padding-left: 10px;
+  padding-bottom: 10px;
+  code {
+    white-space: pre;
+  }
+}
+
+.copyed {
+  animation: myfirst 1s 1;
+}
+
+@keyframes myfirst {
+  0% {
+    fill: rgba(5, 5, 5, 0.4);
+  }
+  50% {
+    fill: green;
+  }
+  100% {
+    fill: rgba(5, 5, 5, 0.4);
+  }
+}
