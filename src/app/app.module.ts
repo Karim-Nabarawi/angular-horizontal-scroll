@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AngularHorizontalScrollComponent } from 'angular-horizontal-scroll';
 import { CustomStylesExmapleComponent } from './custom-styles-exmaple/custom-styles-exmaple.component';
+import { ExampleHolderComponent } from './example-holder/example-holder.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -11,6 +12,7 @@ import { CustomStylesExmapleComponent } from './custom-styles-exmaple/custom-sty
     BrowserModule,
     AngularHorizontalScrollComponent,
     CustomStylesExmapleComponent,
+    ExampleHolderComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

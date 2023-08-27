@@ -31,7 +31,7 @@ export class CustomStylesExmapleComponent {
   arrowColor = '#fff';
   btnSize = 16;
 
-  example5 = generateRandomElement();
+  randomEmojis = generateRandomElement(50);
 
   get containerStyles(): Partial<ContainerStyles> {
     return {
