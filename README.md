@@ -1,6 +1,6 @@
 ## 📜 Angular Horizontal Scroller
 
-Provide an angular componenet for a scrolling container horizontal.
+Provide an angular component for a scrolling container horizontal.
 
 ## 🔗 Demo
 
@@ -50,10 +50,10 @@ npm install angular-horizontal-scroll
 | ---------------------- | -------------------------------------- | -------- | ------------------------------------------------------------ |
 | `containerStyles`      | [`ContainerStyles`](#container-styles) | -        | Styles for container                                         |
 | `buttonStyles`         | [`ButtonStyles`](#button-styles)       | -        | Styles for buttons                                           |
-| `headerTitleTemplate`  | string \| TemplateRef<void>            | ""       | The title for the container                                  |
-| `onLeftBtnClick`       | ()=>void                               | ()=>{}   | Callback function triggered when the left button is clicked  |
-| `onRightBtnClick`      | ()=>void                               | ()=>{}   | Callback function triggered when the rigth button is clicked |
-| `onScroll`             | ()=>void                               | ()=>{}   | Callback function triggered on scroll                        |
+| `headerTitleTemplate`  | string \| TemplateRef<void>            | -        | The title for the container                                  |
+| `onLeftBtnClick`       | ()=>void                               | -        | Callback function triggered when the left button is clicked  |
+| `onRightBtnClick`      | ()=>void                               | -        | Callback function triggered when the rigth button is clicked |
+| `onScroll`             | ()=>void                               | -        | Callback function triggered on scroll                        |
 | `scrollAmount`         | 'auto' \| 'full' \| number             | 'auto'   | Control the scroll amount.                                   |
 | `scrollButtonPosition` | 'center' \| 'top right'                | 'center' | The placement of scrolls buttons                             |
 | `scrollButtonTemplate` | TemplateRef<void> \| undefined         | -        | Custom scroll button                                         |
