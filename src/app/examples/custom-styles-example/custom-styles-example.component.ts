@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  AngularHorizontalScrollComponent,
+  AngularHorizontalScroll,
   ButtonStyles,
   ContainerStyles,
 } from 'angular-horizontal-scroll';
@@ -11,11 +11,7 @@ import { generateRandomElement } from 'src/shared/utils/random';
 @Component({
   selector: 'app-custom-styles-example',
   standalone: true,
-  imports: [
-    CommonModule,
-    AngularHorizontalScrollComponent,
-    ExampleHolderComponent,
-  ],
+  imports: [CommonModule, AngularHorizontalScroll, ExampleHolderComponent],
   template: `
     <app-example-holder
       explanation="Container and button styles can be adjusted"
@@ -58,7 +54,7 @@ export class CustomStylesExampleComponent {
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  AngularHorizontalScrollComponent,
+  AngularHorizontalScroll,
   ButtonStyles,
   ContainerStyles,
 } from 'angular-horizontal-scroll';
@@ -66,7 +62,7 @@ import {
 @Component({
   selector: 'app-example',
   standalone: true,
-  imports: [CommonModule, AngularHorizontalScrollComponent],
+  imports: [CommonModule, AngularHorizontalScroll],
   template: \`
     <horizontal-scroll
       headerTitleTemplate="Custom styles"
@@ -124,7 +120,7 @@ import {
     \`,
   ],
 })
-export class DefaultExampleComponent {
+export class ExampleComponent {
   exampleData = this.generateRandomElement();
 
   customContainerStyles: Partial<ContainerStyles> = {

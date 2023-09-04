@@ -1,4 +1,11 @@
-import { Component, HostBinding, Input, TemplateRef } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  Output,
+  TemplateRef,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   ButtonStyles,
@@ -13,6 +20,20 @@ import {
   styleUrls: ['./scroll-buttons.component.scss'],
 })
 export class ImageScrollButtonsComponent {
+  /**
+   * EventEmitter that emits an event when the right button is clicked.
+   *
+   * @type {EventEmitter<void>}
+   */
+  @Output() onRightBtnClick: EventEmitter<void> = new EventEmitter<void>();
+
+  /**
+   * EventEmitter that emits an event when the left button is clicked.
+   *
+   * @type {EventEmitter<void>}
+   */
+  @Output() onLeftBtnClick: EventEmitter<void> = new EventEmitter<void>();
+
   @Input({ required: true }) widgetsContent!: HTMLDivElement;
   @Input({ required: true }) scrollAmount = 0;
 
@@ -20,19 +41,6 @@ export class ImageScrollButtonsComponent {
   @Input({ required: true }) position: 'center' | 'top right' = 'center';
 
   @Input() scrollButtonTemplate!: TemplateRef<void>;
-
-  /**
-   *  Callback function triggered when the right button is clicked.
-   * @type {() => void}
-   * @default () => {}
-   */
-  @Input() onRightBtnClick: () => void = () => {};
-  /**
-   * Callback function triggered when the left button is clicked.
-   * @type {() => void}
-   * @default () => {}
-   */
-  @Input() onLeftBtnClick: () => void = () => {};
 
   // button styles
   @Input() btnStyles: ButtonStyles = ButtonStylesDefault;
@@ -49,9 +57,9 @@ export class ImageScrollButtonsComponent {
 
   scroll(direction: 1 | -1) {
     if (direction === 1) {
-      this.onRightBtnClick();
+      this.onRightBtnClick.emit();
     } else {
-      this.onLeftBtnClick();
+      this.onLeftBtnClick.emit();
     }
     this.widgetsContent.scrollLeft += this.scrollAmount * direction;
   }

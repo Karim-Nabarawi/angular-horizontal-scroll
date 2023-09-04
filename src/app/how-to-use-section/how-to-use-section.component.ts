@@ -16,7 +16,7 @@ export class HowToUseSectionComponent {
     'import { AngularHorizontalScrollModule } from "angular-horizontal-scroll";';
 
   code3 =
-    'import { AngularHorizontalScrollComponent } from "angular-horizontal-scroll";';
+    'import { AngularHorizontalScroll } from "angular-horizontal-scroll";';
   code4 = `<horizontal-scroll>
   <!-- Your content here -->
 </horizontal-scroll>`;

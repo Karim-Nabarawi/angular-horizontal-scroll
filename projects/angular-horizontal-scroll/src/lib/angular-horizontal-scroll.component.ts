@@ -8,6 +8,8 @@ import {
   Input,
   TemplateRef,
   ViewChild,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 
 import { ImageScrollButtonsComponent } from '../components/scroll-buttons/scroll-buttons.component';
@@ -18,10 +20,11 @@ import {
   ContainerStyles,
   ContainerStylesDefault,
 } from '../shared/interface';
+
 /**
  * Represents the horizontal scroll component's input properties.
  *
- * @see {@link AngularHorizontalScrollComponent} for the main component.
+ * @see {@link AngularHorizontalScroll} for the main component.
  * @usageNotes
  * This component provides horizontal scrolling functionality for content. You can customize its appearance
  * and behavior using the input properties provided by {@link AngularHorizontalScrollInput}.
@@ -46,27 +49,29 @@ import {
   templateUrl: './angular-horizontal-scroll.component.html',
   styleUrls: ['./angular-horizontal-scroll.component.scss'],
 })
-export class AngularHorizontalScrollComponent {
+export class AngularHorizontalScroll {
   @ViewChild('widgetsContent', { static: false }) widgetsContent!: ElementRef;
 
   /**
-   *  Callback function triggered on scroll.
-   * @type {() => void}
-   * @default () => {}
+   * EventEmitter that emits an event when the user scrolls.
+   *
+   * @type {EventEmitter<void>}
    */
-  @Input() onScroll: () => void = () => {};
+  @Output() onScroll: EventEmitter<void> = new EventEmitter<void>();
+
   /**
-   *  Callback function triggered when the right button is clicked.
-   * @type {() => void}
-   * @default () => {}
+   * EventEmitter that emits an event when the right button is clicked.
+   *
+   * @type {EventEmitter<void>}
    */
-  @Input() onRightBtnClick: () => void = () => {};
+  @Output() onRightBtnClick: EventEmitter<void> = new EventEmitter<void>();
+
   /**
-   * Callback function triggered when the left button is clicked.
-   * @type {() => void}
-   * @default () => {}
+   * EventEmitter that emits an event when the left button is clicked.
+   *
+   * @type {EventEmitter<void>}
    */
-  @Input() onLeftBtnClick: () => void = () => {};
+  @Output() onLeftBtnClick: EventEmitter<void> = new EventEmitter<void>();
 
   /**
    * @description The amount to scroll when the user interacts with the component.
@@ -173,9 +178,17 @@ export class AngularHorizontalScrollComponent {
     return this.headerTitleTemplate as TemplateRef<void>;
   }
 
-  scroll(event: Event): void {
-    this.onScroll();
+  scroll(): void {
+    this.onScroll.emit();
     this.updateOverflowValue();
+  }
+
+  onBtnClick(btn: 'left' | 'right'): void {
+    if (btn === 'left') {
+      this.onLeftBtnClick.emit();
+    } else if (btn === 'right') {
+      this.onRightBtnClick.emit();
+    }
   }
 
   updateOverflowValue() {

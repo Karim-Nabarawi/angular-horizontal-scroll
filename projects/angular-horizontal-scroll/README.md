@@ -14,18 +14,10 @@ npm install angular-horizontal-scroll
 
 ## ⚙️ Usage
 
-1. Import the `AngularHorizontalScrollModule` or `AngularHorizontalScrollComponent` in your module or standalone component:
-
-   **Module:**
+1. Import the `AngularHorizontalScroll` in your module or standalone component:
 
    ```typescript
-   import { AngularHorizontalScrollModule } from "angular-horizontal-scroll";
-   ```
-
-   **Standalone:**
-
-   ```typescript
-   import { AngularHorizontalScrollComponent } from "angular-horizontal-scroll";
+   import { AngularHorizontalScroll } from "angular-horizontal-scroll";
    ```
 
 2. Include your content within the `horizontal-scroll` tags:
@@ -46,18 +38,18 @@ npm install angular-horizontal-scroll
 
 ### ⌨️ Component Parameters
 
-| Property               | Type                                   | Default  | Description                                                  |
-| ---------------------- | -------------------------------------- | -------- | ------------------------------------------------------------ |
-| `containerStyles`      | [`ContainerStyles`](#container-styles) | -        | Styles for container                                         |
-| `buttonStyles`         | [`ButtonStyles`](#button-styles)       | -        | Styles for buttons                                           |
-| `headerTitleTemplate`  | string \| TemplateRef<void>            | -        | The title for the container                                  |
-| `onLeftBtnClick`       | ()=>void                               | -        | Callback function triggered when the left button is clicked  |
-| `onRightBtnClick`      | ()=>void                               | -        | Callback function triggered when the rigth button is clicked |
-| `onScroll`             | ()=>void                               | -        | Callback function triggered on scroll                        |
-| `scrollAmount`         | 'auto' \| 'full' \| number             | 'auto'   | Control the scroll amount.                                   |
-| `scrollButtonPosition` | 'center' \| 'top right'                | 'center' | The placement of scrolls buttons                             |
-| `scrollButtonTemplate` | TemplateRef<void> \| undefined         | -        | Custom scroll button                                         |
-| `showScrollbar`        | boolean                                | false    | Option to show scrollbar                                     |
+| Param                    | Type                                   | Default  | Description                      |
+| ------------------------ | -------------------------------------- | -------- | -------------------------------- |
+| `[containerStyles]`      | [`ContainerStyles`](#container-styles) | -        | Styles for container             |
+| `[buttonStyles]`         | [`ButtonStyles`](#button-styles)       | -        | Styles for buttons               |
+| `[headerTitleTemplate]`  | string \| TemplateRef<void>            | -        | The title for the container      |
+| `(onLeftBtnClick)`       | EventEmitter<void>                     | -        | Left button click callback       |
+| `(onRightBtnClick)`      | EventEmitter<void>                     | -        | Right button click callback      |
+| `(onScroll)`             | EventEmitter<void>                     | -        | Scroll callback                  |
+| `[scrollAmount]`         | 'auto' \| 'full' \| number             | 'auto'   | Control the scroll amount.       |
+| `[scrollButtonPosition]` | 'center' \| 'top right'                | 'center' | The placement of scrolls buttons |
+| `[scrollButtonTemplate]` | TemplateRef<void> \| undefined         | -        | Custom scroll button             |
+| `[showScrollbar]`        | boolean                                | false    | Option to show scrollbar         |
 
 ## 🎨 Custom Styles
 
