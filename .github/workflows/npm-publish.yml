@@ -49,9 +49,17 @@ jobs:
       - name: Change to build directory
         run: cd dist/angular-horizontal-scroll
 
-      - name: Publish to npm
+      - name: Echo github.ref_name
         run: |
-          cd dist/angular-horizontal-scroll
-          npm publish
+          echo "GitHub Ref Name ${{ github.ref_name }}"
+          echo "${GITHUB_REF##*/}"
+
+      - name: Conditional npm publish
+        run: |
+          if [ "${{ github.ref_name }}" == "refs/tags/latest" ]; then
+            npm publish
+          else
+            npm publish --tag "${{ github.ref_name }}"
+          fi
         env:
           NODE_AUTH_TOKEN: "${{secrets.npm_token}}"
