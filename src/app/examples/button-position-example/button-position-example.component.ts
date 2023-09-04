@@ -2,16 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExampleHolderComponent } from '../../example-holder/example-holder.component';
 import { generateRandomElement } from 'src/shared/utils/random';
-import { AngularHorizontalScrollComponent } from 'angular-horizontal-scroll';
+import { AngularHorizontalScroll } from 'angular-horizontal-scroll';
 
 @Component({
   selector: 'app-button-position-example',
   standalone: true,
-  imports: [
-    CommonModule,
-    AngularHorizontalScrollComponent,
-    ExampleHolderComponent,
-  ],
+  imports: [CommonModule, AngularHorizontalScroll, ExampleHolderComponent],
   template: `
     <app-example-holder
       explanation="Buttons positions can be adjusted to top right"
@@ -41,12 +37,12 @@ export class ButtonPositionExampleComponent {
   code = `
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AngularHorizontalScrollComponent } from 'angular-horizontal-scroll';
+import { AngularHorizontalScroll } from 'angular-horizontal-scroll';
 
 @Component({
   selector: 'app-example',
   standalone: true,
-  imports: [CommonModule, AngularHorizontalScrollComponent],
+  imports: [CommonModule, AngularHorizontalScroll],
   template: \`
     <horizontal-scroll
       headerTitleTemplate="Buttons top right"
@@ -103,7 +99,7 @@ import { AngularHorizontalScrollComponent } from 'angular-horizontal-scroll';
     \`,
   ],
 })
-export class DefaultExampleComponent {
+export class ExampleComponent {
   exampleData = this.generateRandomElement();
 
   generateRandomElement(arraySize = 20) {

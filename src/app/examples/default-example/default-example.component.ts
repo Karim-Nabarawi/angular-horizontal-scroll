@@ -1,20 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AngularHorizontalScrollComponent } from 'angular-horizontal-scroll';
+import { AngularHorizontalScroll } from 'angular-horizontal-scroll';
 import { ExampleHolderComponent } from '../../example-holder/example-holder.component';
 import { generateRandomElement } from 'src/shared/utils/random';
 
 @Component({
   selector: 'app-default-example',
   standalone: true,
-  imports: [
-    CommonModule,
-    AngularHorizontalScrollComponent,
-    ExampleHolderComponent,
-  ],
+  imports: [CommonModule, AngularHorizontalScroll, ExampleHolderComponent],
   template: `
     <app-example-holder explanation="Default behaviour" [code]="code">
-      <horizontal-scroll headerTitleTemplate="Arrow top with scrollbar">
+      <horizontal-scroll>
         <ng-template ngFor let-data [ngForOf]="exampleData">
           <div class="box" tabindex="0">
             <span
@@ -34,12 +30,12 @@ export class DefaultExampleComponent {
   code: string = `
   import { Component } from '@angular/core';
   import { CommonModule } from '@angular/common';
-  import { AngularHorizontalScrollComponent } from 'angular-horizontal-scroll';
+  import { AngularHorizontalScroll } from 'angular-horizontal-scroll';
   
   @Component({
     selector: 'app-example',
     standalone: true,
-    imports: [CommonModule, AngularHorizontalScrollComponent],
+    imports: [CommonModule, AngularHorizontalScroll],
     template: \`
       <horizontal-scroll headerTitleTemplate="Arrow top with scrollbar">
         <ng-template ngFor let-data [ngForOf]="exampleData">
@@ -93,7 +89,7 @@ export class DefaultExampleComponent {
       \`,
     ],
   })
-  export class DefaultExampleComponent {
+  export class ExampleComponent {
     exampleData = this.generateRandomElement();
   
     generateRandomElement(arraySize = 20) {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  AngularHorizontalScrollComponent,
+  AngularHorizontalScroll,
   ButtonStyles,
   ContainerStyles,
 } from 'angular-horizontal-scroll';
@@ -15,7 +15,7 @@ import { ExampleHolderComponent } from 'src/app/example-holder/example-holder.co
   imports: [
     CommonModule,
     FormsModule,
-    AngularHorizontalScrollComponent,
+    AngularHorizontalScroll,
     ExampleHolderComponent,
   ],
   templateUrl: './api-playground.component.html',
@@ -65,7 +65,7 @@ export class ApiPlaygroundComponent {
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  AngularHorizontalScrollComponent,
+  AngularHorizontalScroll,
   ButtonStyles,
   ContainerStyles,
 } from 'angular-horizontal-scroll';
@@ -73,7 +73,7 @@ import {
 @Component({
   selector: 'app-example',
   standalone: true,
-  imports: [CommonModule, AngularHorizontalScrollComponent],
+  imports: [CommonModule, AngularHorizontalScroll],
   template: \`
     <horizontal-scroll
       headerTitleTemplate="API Playground"
@@ -134,7 +134,7 @@ import {
     \`,
   ],
 })
-export class DefaultExampleComponent {
+export class ExampleComponent {
   exampleData = this.generateRandomElement();
 
   scrollButtonPosition: 'center' | 'top right' = 'top right';
