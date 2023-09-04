@@ -1,16 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HighlightModule } from 'ngx-highlightjs';
 
 @Component({
   selector: 'app-example-holder',
   standalone: true,
-  imports: [CommonModule, HighlightModule],
+  imports: [CommonModule],
   templateUrl: './example-holder.component.html',
   styleUrls: ['./example-holder.component.scss'],
 })
 export class ExampleHolderComponent {
-  @Input({ required: true }) explanation: string = '';
+  @Input() explanation: string = '';
   @Input() code: string = '';
 
   displayCode = false;

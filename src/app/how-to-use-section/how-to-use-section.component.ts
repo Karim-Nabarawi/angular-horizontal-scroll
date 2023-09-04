@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HighlightModule } from 'ngx-highlightjs';
-
 @Component({
   selector: 'app-how-to-use-section',
   standalone: true,
-  imports: [CommonModule, HighlightModule],
+  imports: [CommonModule],
   templateUrl: './how-to-use-section.component.html',
   styleUrls: ['./how-to-use-section.component.scss'],
 })

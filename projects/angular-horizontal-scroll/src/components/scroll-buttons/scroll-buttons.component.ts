@@ -34,11 +34,11 @@ export class ImageScrollButtonsComponent {
    */
   @Output() onLeftBtnClick: EventEmitter<void> = new EventEmitter<void>();
 
-  @Input({ required: true }) widgetsContent!: HTMLDivElement;
-  @Input({ required: true }) scrollAmount = 0;
+  @Input() widgetsContent!: HTMLDivElement;
+  @Input() scrollAmount = 0;
 
-  @Input({ required: true }) buttonDisplay: 'left' | 'both' | 'right' = 'left';
-  @Input({ required: true }) position: 'center' | 'top right' = 'center';
+  @Input() buttonDisplay: 'left' | 'both' | 'right' = 'left';
+  @Input() position: 'center' | 'top right' = 'center';
 
   @Input() scrollButtonTemplate!: TemplateRef<void>;
 
