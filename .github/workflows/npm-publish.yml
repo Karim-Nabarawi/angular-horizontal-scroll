@@ -46,6 +46,15 @@ jobs:
           name: package-files
           path: dist/angular-horizontal-scroll
 
+      - name: List Files
+        run: ls
+
+      - name: Change to build directory
+        run: cd dist/angular-horizontal-scroll
+
+      - name: List Files
+        run: ls
+
       - name: Conditional npm publish
         run: |
           cd dist/angular-horizontal-scroll
