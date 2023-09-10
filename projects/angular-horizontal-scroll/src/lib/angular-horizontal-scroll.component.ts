@@ -136,14 +136,8 @@ export class AngularHorizontalScroll {
       ...value,
     };
 
-    if (this.widgetsContent) {
-      this.widgetsContent.nativeElement.firstChild.style[
-        'margin-left'
-      ] = `${this.mainStyles.firstAndLastElementGap}px`;
-      this.widgetsContent.nativeElement.lastElementChild.style[
-        'margin-right'
-      ] = `${this.mainStyles.firstAndLastElementGap}px`;
-    }
+    this.checkOverflow();
+    this.cdRef.detectChanges();
   }
 
   mainStyles: ContainerStyles = ContainerStylesDefault;
@@ -160,6 +154,9 @@ export class AngularHorizontalScroll {
   }
   @HostBinding('style.--container-gap') get containerGap() {
     return `${this.mainStyles.containerGap}px`;
+  }
+  @HostBinding('style.--flex-direction') get containerDirection() {
+    return this.mainStyles.reverseDirection ? 'row-reverse' : 'row';
   }
 
   constructor(private cdRef: ChangeDetectorRef) {}
@@ -184,20 +181,17 @@ export class AngularHorizontalScroll {
   }
 
   onBtnClick(btn: 'left' | 'right'): void {
-    if (btn === 'left') {
-      this.onLeftBtnClick.emit();
-    } else if (btn === 'right') {
-      this.onRightBtnClick.emit();
-    }
+    btn === 'left' ? this.onLeftBtnClick.emit() : this.onRightBtnClick.emit();
   }
 
   updateOverflowValue() {
+    const direction = this.mainStyles.reverseDirection ? -1 : 1;
     const elemnt = this.widgetsContent.nativeElement;
-    const scrollAmount = elemnt.scrollLeft + elemnt.offsetWidth;
+    const scrollAmount = elemnt.scrollLeft + elemnt.offsetWidth * direction;
     const maxScrollAmount = elemnt.scrollWidth;
     if (elemnt.scrollLeft === 0) {
       this.overflowValue = 'left';
-    } else if (scrollAmount === maxScrollAmount) {
+    } else if (Math.abs(scrollAmount) === maxScrollAmount) {
       this.overflowValue = 'right';
     } else {
       this.overflowValue = 'both';
@@ -207,30 +201,43 @@ export class AngularHorizontalScroll {
   get getScrollAmount(): number {
     if (this.scrollAmount === 'auto') {
       return (
-        this.widgetsContent.nativeElement.childNodes[1].offsetLeft -
-        this.mainStyles.firstAndLastElementGap
+        this.widgetsContent.nativeElement.childNodes[0].offsetWidth +
+        this.mainStyles.elementsGap
       );
     } else if (this.scrollAmount === 'full') {
-      return (
-        this.widgetsContent.nativeElement.offsetWidth -
-        this.widgetsContent.nativeElement.childNodes[1].offsetLeft
-      );
+      return this.widgetsContent.nativeElement.offsetWidth;
     }
     return this.scrollAmount;
   }
 
   checkOverflow() {
-    if (this.widgetsContent) {
-      const element = this.widgetsContent.nativeElement;
-      this.hasOverflow =
-        element.offsetHeight < element.scrollHeight ||
-        element.offsetWidth < element.scrollWidth;
-      this.widgetsContent.nativeElement.firstChild.style[
-        'margin-left'
-      ] = `${this.mainStyles.firstAndLastElementGap}px`;
-      this.widgetsContent.nativeElement.lastElementChild.style[
-        'margin-right'
-      ] = `${this.mainStyles.firstAndLastElementGap}px`;
+    if (!this.widgetsContent) return;
+
+    const { nativeElement: element } = this.widgetsContent;
+    const { firstAndLastElementGap, reverseDirection } = this.mainStyles;
+
+    // Check for overflow
+    this.hasOverflow =
+      element.offsetHeight < element.scrollHeight ||
+      element.offsetWidth < element.scrollWidth;
+
+    // Set margins for first and last elements
+    const firstChildStyle = element.firstChild.style;
+    const lastChildStyle = element.lastElementChild.style;
+
+    const primaryMargin = `${firstAndLastElementGap}px`;
+    const secondaryMargin = '0px';
+
+    if (reverseDirection) {
+      firstChildStyle['margin-right'] = primaryMargin;
+      lastChildStyle['margin-left'] = primaryMargin;
+      firstChildStyle['margin-left'] = secondaryMargin;
+      lastChildStyle['margin-right'] = secondaryMargin;
+    } else {
+      firstChildStyle['margin-left'] = primaryMargin;
+      lastChildStyle['margin-right'] = primaryMargin;
+      firstChildStyle['margin-right'] = secondaryMargin;
+      lastChildStyle['margin-left'] = secondaryMargin;
     }
   }
 

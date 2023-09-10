@@ -14,7 +14,7 @@ import { generateRandomElement } from 'src/shared/utils/random';
   >
     <horizontal-scroll headerTitleTemplate="Scrollbar" [showScrollbar]="true">
       <ng-template ngFor let-data [ngForOf]="scrollbarData">
-        <div class="box" tabindex="0">
+        <div class="box">
           <span
             class="emoji"
             [style.--hover-color]="data.color"
@@ -41,7 +41,7 @@ import { AngularHorizontalScroll } from 'angular-horizontal-scroll';
   template: \`
     <horizontal-scroll headerTitleTemplate="Scrollbar" [showScrollbar]="true">
       <ng-template ngFor let-data [ngForOf]="exampleData">
-        <div class="box" tabindex="0">
+        <div class="box" >
           <span
             class="emoji"
             [style.--hover-color]="data.color"
