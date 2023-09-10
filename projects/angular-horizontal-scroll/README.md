@@ -55,12 +55,13 @@ npm install angular-horizontal-scroll
 
 ### Container Styles
 
-| Property                 | Type   | Default | Description                                                          |
-| ------------------------ | ------ | ------- | -------------------------------------------------------------------- |
-| `containerGap`           | number | 0       | Set the gap between header and container in `px`                     |
-| `elementsGap`            | number | 16      | Set the gap between elements within the component in `px`            |
-| `firstAndLastElementGap` | number | 16      | Set the gap between the first and last element and container in `px` |
-| `inlineStyle`            | string | ""      | Set the inline styles for container                                  |
+| Property                 | Type    | Default | Description                                                          |
+| ------------------------ | ------- | ------- | -------------------------------------------------------------------- |
+| `containerGap`           | number  | 0       | Set the gap between header and container in `px`                     |
+| `elementsGap`            | number  | 16      | Set the gap between elements within the component in `px`            |
+| `firstAndLastElementGap` | number  | 16      | Set the gap between the first and last element and container in `px` |
+| `reverseDirection`       | boolean | false   | Reverse direction of elements displayed                              |
+| `inlineStyle`            | string  | ""      | Set the inline styles for container                                  |
 
 ### Button Styles
 
@@ -70,6 +71,10 @@ npm install angular-horizontal-scroll
 | `btnBgColor`  | string | '#0000004d' | Set the background color of the button |
 | `btnSize`     | number | 16          | Set the size of the button in `px`     |
 | `inlineStyle` | string | ""          | Set the inline styles for buttons      |
+
+## 📄 Changelog
+
+[see Latest change](https://github.com/Karim-Nabarawi/angular-horizontal-scroll/blob/main/CHANGELOG.md)
 
 ## 🤝 Contributing
 

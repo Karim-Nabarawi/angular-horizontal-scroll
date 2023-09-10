@@ -7,6 +7,7 @@ import { ScrollbarExampleComponent } from './examples/scrollbar-example/scrollba
 import { ButtonPositionExampleComponent } from './examples/button-position-example/button-position-example.component';
 import { DefaultExampleComponent } from './examples/default-example/default-example.component';
 import { HowToUseSectionComponent } from './how-to-use-section/how-to-use-section.component';
+import { ReverseExampleComponent } from './examples/reverse-example/reverse-example.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { HowToUseSectionComponent } from './how-to-use-section/how-to-use-sectio
     DefaultExampleComponent,
     ButtonPositionExampleComponent,
     ScrollbarExampleComponent,
+    ReverseExampleComponent,
     CustomButtonExampleComponent,
     CustomHeaderExampleComponent,
     CustomStylesExampleComponent,

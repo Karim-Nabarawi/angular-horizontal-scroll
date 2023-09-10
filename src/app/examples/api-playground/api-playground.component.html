@@ -12,7 +12,7 @@
       [buttonStyles]="buttonStyles"
     >
       <ng-template ngFor let-data [ngForOf]="randomEmojis">
-        <div class="box" tabindex="0">
+        <div class="box">
           <span
             class="emoji"
             [style.--hover-color]="data.color"
@@ -112,6 +112,15 @@
           [(ngModel)]="showScrollbar"
         />
       </div>
+      <div class="container">
+        <label for="reverseDirection">Reverse direction:</label>
+        <input
+          type="checkbox"
+          id="reverseDirection"
+          type="checkbox"
+          [(ngModel)]="reverseDirection"
+        />
+      </div>
     </section>
     <section>
       <h3>Container Styles</h3>
@@ -138,11 +147,7 @@
       </div>
       <div>
         <p>Inline Styles:</p>
-        <textarea
-          [(ngModel)]="containerInlineStyle"
-          rows="4"
-          cols="30"
-        ></textarea>
+        <textarea [(ngModel)]="containerInlineStyle" rows="4"></textarea>
       </div>
     </section>
     <section>
@@ -164,7 +169,7 @@
       </div>
       <div>
         <p>Inline Styles:</p>
-        <textarea [(ngModel)]="buttonInlineStyle" rows="4" cols="30"></textarea>
+        <textarea [(ngModel)]="buttonInlineStyle" rows="4"></textarea>
       </div>
     </section>
   </div>

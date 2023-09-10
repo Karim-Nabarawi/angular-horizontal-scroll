@@ -39,6 +39,7 @@ export class ImageScrollButtonsComponent {
 
   @Input() buttonDisplay: 'left' | 'both' | 'right' = 'left';
   @Input() position: 'center' | 'top right' = 'center';
+  @Input() reverseDirection: boolean = false;
 
   @Input() scrollButtonTemplate!: TemplateRef<void>;
 
@@ -62,5 +63,15 @@ export class ImageScrollButtonsComponent {
       this.onLeftBtnClick.emit();
     }
     this.widgetsContent.scrollLeft += this.scrollAmount * direction;
+  }
+
+  shouldHideBtn(btnType: 'right' | 'left') {
+    if (this.buttonDisplay === 'both') {
+      return false;
+    }
+    const check = btnType === this.buttonDisplay;
+    return (
+      (check && !this.reverseDirection) || (!check && this.reverseDirection)
+    );
   }
 }

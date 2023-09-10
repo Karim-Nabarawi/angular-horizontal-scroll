@@ -5,27 +5,33 @@ import { ExampleHolderComponent } from '../../example-holder/example-holder.comp
 import { generateRandomElement } from 'src/shared/utils/random';
 
 @Component({
-  selector: 'app-default-example',
+  selector: 'app-reverse-example',
   standalone: true,
   imports: [CommonModule, AngularHorizontalScroll, ExampleHolderComponent],
-  template: `
-    <app-example-holder explanation="Default behaviour" [code]="code">
-      <horizontal-scroll>
-        <ng-template ngFor let-data [ngForOf]="exampleData">
-          <div class="box">
-            <span
-              class="emoji"
-              [style.--hover-color]="data.color"
-              [style.--hover-rotate]="data.rotate"
-              >{{ data.emoji }}</span
-            >
-          </div>
-        </ng-template>
-      </horizontal-scroll>
-    </app-example-holder>
-  `,
+  template: `<app-example-holder
+    explanation="Reverse the direction of the container"
+    [code]="code"
+  >
+    <horizontal-scroll
+      headerTitleTemplate="Reverse direction"
+      [containerStyles]="{
+          reverseDirection: true,
+        }"
+    >
+      <ng-template ngFor let-data [ngForOf]="exampleData">
+        <div class="box">
+          <span
+            class="emoji"
+            [style.--hover-color]="data.color"
+            [style.--hover-rotate]="data.rotate"
+            >{{ data.emoji }}</span
+          >
+        </div>
+      </ng-template>
+    </horizontal-scroll>
+  </app-example-holder>`,
 })
-export class DefaultExampleComponent {
+export class ReverseExampleComponent {
   exampleData = generateRandomElement();
   code: string = `
   import { Component } from '@angular/core';
@@ -37,7 +43,12 @@ export class DefaultExampleComponent {
     standalone: true,
     imports: [CommonModule, AngularHorizontalScroll],
     template: \`
-      <horizontal-scroll>
+      <horizontal-scroll
+      headerTitleTemplate="Reverse direction"
+      [containerStyles]="{
+          reverseDirection: true,
+        }"
+      >
         <ng-template ngFor let-data [ngForOf]="exampleData">
           <div class="box" >
             <span

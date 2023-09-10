@@ -30,12 +30,13 @@ export class ApiPlaygroundComponent {
   containerGap = 0;
   elementsGap = 16;
   firstAndLastElementGap = 16;
+  reverseDirection = false;
   containerInlineStyle = '';
-  buttonInlineStyle = '';
 
   btnBgColor = '#0000004d';
   arrowColor = '#fff';
   btnSize = 16;
+  buttonInlineStyle = '';
 
   randomEmojis = generateRandomElement(50);
 
@@ -44,6 +45,7 @@ export class ApiPlaygroundComponent {
       containerGap: this.containerGap,
       elementsGap: this.elementsGap,
       firstAndLastElementGap: this.firstAndLastElementGap,
+      reverseDirection: this.reverseDirection,
       inlineStyle: this.containerInlineStyle,
     };
   }
@@ -84,7 +86,7 @@ import {
       [buttonStyles]="buttonStyles"
     >
       <ng-template ngFor let-data [ngForOf]="exampleData">
-        <div class="box" tabindex="0">
+        <div class="box" >
           <span
             class="emoji"
             [style.--hover-color]="data.color"
@@ -145,12 +147,13 @@ export class ExampleComponent {
   containerGap = 0;
   elementsGap = 16;
   firstAndLastElementGap = 16;
+  reverseDirection = false;
   containerInlineStyle = '';
-  buttonInlineStyle = '';
 
   btnBgColor = '#0000004d';
   arrowColor = '#fff';
   btnSize = 16;
+  buttonInlineStyle = '';
 
   get containerStyles(): Partial<ContainerStyles> {
     return {
