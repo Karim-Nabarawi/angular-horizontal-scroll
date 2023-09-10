@@ -8,6 +8,8 @@
   z-index: 1000;
   cursor: pointer;
   user-select: none;
+  opacity: 1;
+  transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
 .default-btn {
@@ -62,11 +64,6 @@
 
 .left-btn {
   left: 0;
-}
-
-.show-btn {
-  opacity: 1;
-  transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
 .hide-btn {

@@ -18,6 +18,10 @@ export interface ContainerStyles {
    * The gap between header and container.
    */
   containerGap: number;
+  /**
+   * The direction in which the items will be displayed
+   */
+  reverseDirection: boolean;
 
   /**
    * The inline styles of the Container
@@ -29,5 +33,6 @@ export const ContainerStylesDefault: ContainerStyles = {
   elementsGap: 16,
   firstAndLastElementGap: 16,
   containerGap: 0,
+  reverseDirection: false,
   inlineStyle: '',
 };

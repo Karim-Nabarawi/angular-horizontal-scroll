@@ -55,12 +55,13 @@ npm install angular-horizontal-scroll
 
 ### Container Styles
 
-| Property                 | Type   | Default | Description                                                          |
-| ------------------------ | ------ | ------- | -------------------------------------------------------------------- |
-| `containerGap`           | number | 0       | Set the gap between header and container in `px`                     |
-| `elementsGap`            | number | 16      | Set the gap between elements within the component in `px`            |
-| `firstAndLastElementGap` | number | 16      | Set the gap between the first and last element and container in `px` |
-| `inlineStyle`            | string | ""      | Set the inline styles for container                                  |
+| Property                 | Type    | Default | Description                                                          |
+| ------------------------ | ------- | ------- | -------------------------------------------------------------------- |
+| `containerGap`           | number  | 0       | Set the gap between header and container in `px`                     |
+| `elementsGap`            | number  | 16      | Set the gap between elements within the component in `px`            |
+| `firstAndLastElementGap` | number  | 16      | Set the gap between the first and last element and container in `px` |
+| `reverseDirection`       | boolean | false   | Reverse direction of elements displayed                              |
+| `inlineStyle`            | string  | ""      | Set the inline styles for container                                  |
 
 ### Button Styles
 

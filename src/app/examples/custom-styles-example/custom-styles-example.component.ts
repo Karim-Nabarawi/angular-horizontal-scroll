@@ -23,7 +23,7 @@ import { generateRandomElement } from 'src/shared/utils/random';
         [containerStyles]="customContainerStyles"
       >
         <ng-template ngFor let-data [ngForOf]="exampleData">
-          <div class="box" tabindex="0">
+          <div class="box">
             <span
               class="emoji"
               [style.--hover-color]="data.color"
@@ -70,7 +70,7 @@ import {
       [containerStyles]="customContainerStyles"
     >
       <ng-template ngFor let-data [ngForOf]="exampleData">
-        <div class="box" tabindex="0">
+        <div class="box" >
           <span
             class="emoji"
             [style.--hover-color]="data.color"

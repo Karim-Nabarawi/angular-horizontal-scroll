@@ -2,6 +2,7 @@
   --default-elements-gap: 20px;
   --scrollbar-padding: 0 0 16px;
   --container-gap: 15px;
+  --flex-direction: row;
 }
 
 .scroll-container {
@@ -29,6 +30,7 @@
 
 .media-scroller {
   display: flex;
+  flex-direction: var(--flex-direction);
   gap: var(--default-elements-gap);
 
   padding: var(--scrollbar-padding);

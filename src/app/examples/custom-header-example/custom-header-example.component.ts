@@ -19,7 +19,7 @@ import { generateRandomElement } from 'src/shared/utils/random';
         [headerTitleTemplate]="titleTemplateOutlet"
       >
         <ng-template ngFor let-data [ngForOf]="exampleData">
-          <div class="box" tabindex="0">
+          <div class="box">
             <span
               class="emoji"
               [style.--hover-color]="data.color"
@@ -78,7 +78,7 @@ import { AngularHorizontalScroll } from 'angular-horizontal-scroll';
       [headerTitleTemplate]="titleTemplateOutlet"
     >
       <ng-template ngFor let-data [ngForOf]="exampleData">
-        <div class="box" tabindex="0">
+        <div class="box" >
           <span
             class="emoji"
             [style.--hover-color]="data.color"

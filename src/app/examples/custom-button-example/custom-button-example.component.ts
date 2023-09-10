@@ -20,7 +20,7 @@ import { generateRandomElement } from 'src/shared/utils/random';
         [scrollButtonTemplate]="buttonTemplateOutlet"
       >
         <ng-template ngFor let-data [ngForOf]="exampleData">
-          <div class="box" tabindex="0">
+          <div class="box">
             <span
               class="emoji"
               [style.--hover-color]="data.color"
@@ -56,7 +56,7 @@ import { AngularHorizontalScroll } from 'angular-horizontal-scroll';
       [scrollButtonTemplate]="buttonTemplateOutlet"
     >
       <ng-template ngFor let-data [ngForOf]="exampleData">
-        <div class="box" tabindex="0">
+        <div class="box" >
           <span
             class="emoji"
             [style.--hover-color]="data.color"
