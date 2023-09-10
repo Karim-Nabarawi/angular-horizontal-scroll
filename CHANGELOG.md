@@ -6,4 +6,4 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-- **Reverse Direction Toggle:** Added `reverseDirection` (boolean) to `ContainerStyles` to control the direction of elements displayed ([0dda9c5](https://github.com/Karim-Nabarawi/angular-horizontal-scroll/commit/0dda9c515d1ba120be686a07a3c5fd4c58e81d1b)).
+- **Reverse Direction Toggle:** Added `reverseDirection` (boolean) to `ContainerStyles` to control the direction of elements displayed ([54e5567](https://github.com/Karim-Nabarawi/angular-horizontal-scroll/commit/54e55674cd8e25439c339a044ade68fcb8915334)).
