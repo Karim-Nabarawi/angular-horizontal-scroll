@@ -18,7 +18,7 @@ import { AngularHorizontalScroll } from 'angular-horizontal-scroll';
         [scrollButtonPosition]="'top right'"
       >
         <ng-template ngFor let-data [ngForOf]="btnPositionData">
-          <div class="box" tabindex="0">
+          <div class="box">
             <span
               class="emoji"
               [style.--hover-color]="data.color"
@@ -49,7 +49,7 @@ import { AngularHorizontalScroll } from 'angular-horizontal-scroll';
       [scrollButtonPosition]="'top right'"
     >
       <ng-template ngFor let-data [ngForOf]="exampleData">
-        <div class="box" tabindex="0">
+        <div class="box" >
           <span
             class="emoji"
             [style.--hover-color]="data.color"

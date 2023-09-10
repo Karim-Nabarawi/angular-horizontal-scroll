@@ -12,13 +12,14 @@
     </ng-template>
 
     <app-image-scroll-buttons
+      [scrollButtonTemplate]="scrollButtonTemplate"
       [widgetsContent]="widgetsContent"
       [scrollAmount]="getScrollAmount"
       [buttonDisplay]="overflowValue"
-      [scrollButtonTemplate]="scrollButtonTemplate"
+      [reverseDirection]="mainStyles.reverseDirection"
+      [btnStyles]="buttonsStyle"
       (onLeftBtnClick)="onBtnClick('left')"
       (onRightBtnClick)="onBtnClick('right')"
-      [btnStyles]="buttonsStyle"
       position="top right"
       class="scroll-buttons"
       *ngIf="hasOverflow && scrollButtonPosition === 'top right'"
@@ -37,13 +38,14 @@
     </div>
 
     <app-image-scroll-buttons
+      [scrollButtonTemplate]="scrollButtonTemplate"
       [widgetsContent]="widgetsContent"
       [scrollAmount]="getScrollAmount"
       [buttonDisplay]="overflowValue"
-      [scrollButtonTemplate]="scrollButtonTemplate"
+      [reverseDirection]="mainStyles.reverseDirection"
+      [btnStyles]="buttonsStyle"
       (onLeftBtnClick)="onBtnClick('left')"
       (onRightBtnClick)="onBtnClick('right')"
-      [btnStyles]="buttonsStyle"
       position="center"
       *ngIf="hasOverflow && scrollButtonPosition === 'center'"
     ></app-image-scroll-buttons>
