@@ -74,7 +74,7 @@ npm install angular-horizontal-scroll
 
 ## 📄 Changelog
 
-[see Latest change](https://github.com/Karim-Nabarawi/angular-horizontal-scroll/blob/main/CHANGELOG.md)
+[see Latest change](https://github.com/Karim-Nabarawi/angular-horizontal-scroll/blob/add_reverse_toggle_for_version_15/CHANGELOG.md)
 
 ## 🤝 Contributing
 
