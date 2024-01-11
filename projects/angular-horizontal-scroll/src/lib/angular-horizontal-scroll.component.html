@@ -5,25 +5,9 @@
       <h1>{{ headerTitleTemplate }}</h1>
     </ng-container>
 
-    <ng-template #templateOutlet>
-      <div>
-        <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
-      </div>
-    </ng-template>
-
-    <app-image-scroll-buttons
-      [scrollButtonTemplate]="scrollButtonTemplate"
-      [widgetsContent]="widgetsContent"
-      [scrollAmount]="getScrollAmount"
-      [buttonDisplay]="overflowValue"
-      [reverseDirection]="mainStyles.reverseDirection"
-      [btnStyles]="buttonsStyle"
-      (onLeftBtnClick)="onBtnClick('left')"
-      (onRightBtnClick)="onBtnClick('right')"
-      position="top right"
-      class="scroll-buttons"
-      *ngIf="hasOverflow && scrollButtonPosition === 'top right'"
-    ></app-image-scroll-buttons>
+    <ng-container
+      *ngTemplateOutlet="scrollButtons; context: { $implicit: 'top right' }"
+    ></ng-container>
   </div>
 
   <div class="scroll-wrapper">
@@ -37,17 +21,31 @@
       <ng-content></ng-content>
     </div>
 
-    <app-image-scroll-buttons
-      [scrollButtonTemplate]="scrollButtonTemplate"
-      [widgetsContent]="widgetsContent"
-      [scrollAmount]="getScrollAmount"
-      [buttonDisplay]="overflowValue"
-      [reverseDirection]="mainStyles.reverseDirection"
-      [btnStyles]="buttonsStyle"
-      (onLeftBtnClick)="onBtnClick('left')"
-      (onRightBtnClick)="onBtnClick('right')"
-      position="center"
-      *ngIf="hasOverflow && scrollButtonPosition === 'center'"
-    ></app-image-scroll-buttons>
+    <ng-container
+      *ngTemplateOutlet="scrollButtons; context: { $implicit: 'center' }"
+    ></ng-container>
   </div>
 </div>
+
+<!-- Templates -->
+<ng-template #templateOutlet>
+  <div>
+    <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #scrollButtons let-position>
+  <app-image-scroll-buttons
+    [scrollButtonTemplate]="scrollButtonTemplate"
+    [widgetsContent]="widgetsContent"
+    [scrollAmount]="getScrollAmount"
+    [buttonDisplay]="overflowValue"
+    [reverseDirection]="mainStyles.reverseDirection"
+    [btnStyles]="buttonsStyle"
+    (onLeftBtnClick)="onBtnClick('left')"
+    (onRightBtnClick)="onBtnClick('right')"
+    [position]="position"
+    [ngClass]="{ 'scroll-buttons': position === 'top right' }"
+    *ngIf="hasOverflow && scrollButtonPosition === position"
+  ></app-image-scroll-buttons>
+</ng-template>

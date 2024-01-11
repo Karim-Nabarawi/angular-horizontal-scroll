@@ -10,6 +10,7 @@ import {
   ViewChild,
   Output,
   EventEmitter,
+  AfterViewChecked,
 } from '@angular/core';
 
 import { ImageScrollButtonsComponent } from '../components/scroll-buttons/scroll-buttons.component';
@@ -49,7 +50,7 @@ import {
   templateUrl: './angular-horizontal-scroll.component.html',
   styleUrls: ['./angular-horizontal-scroll.component.scss'],
 })
-export class AngularHorizontalScroll {
+export class AngularHorizontalScroll implements AfterViewChecked {
   @ViewChild('widgetsContent', { static: false }) widgetsContent!: ElementRef;
 
   /**
@@ -161,7 +162,7 @@ export class AngularHorizontalScroll {
 
   constructor(private cdRef: ChangeDetectorRef) {}
 
-  ngAfterViewInit() {
+  ngAfterViewChecked() {
     this.checkOverflow();
     this.cdRef.detectChanges();
   }
@@ -186,10 +187,10 @@ export class AngularHorizontalScroll {
 
   updateOverflowValue() {
     const direction = this.mainStyles.reverseDirection ? -1 : 1;
-    const elemnt = this.widgetsContent.nativeElement;
-    const scrollAmount = elemnt.scrollLeft + elemnt.offsetWidth * direction;
-    const maxScrollAmount = elemnt.scrollWidth;
-    if (elemnt.scrollLeft === 0) {
+    const element = this.widgetsContent.nativeElement;
+    const scrollAmount = element.scrollLeft + element.offsetWidth * direction;
+    const maxScrollAmount = element.scrollWidth;
+    if (element.scrollLeft === 0) {
       this.overflowValue = 'left';
     } else if (Math.abs(scrollAmount) === maxScrollAmount) {
       this.overflowValue = 'right';
