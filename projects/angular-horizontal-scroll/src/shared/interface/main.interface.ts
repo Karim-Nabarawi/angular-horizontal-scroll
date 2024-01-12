@@ -1,5 +1,5 @@
-import { ButtonStyles, ButtonStylesDefault } from './button.interface';
 /**
+ * @deprecated use `ContainerTheme` interface instead
  * @description
  * Represents the main styles for the horizontal scroll container.
  *

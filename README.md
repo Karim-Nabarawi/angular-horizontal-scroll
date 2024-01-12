@@ -28,32 +28,31 @@ npm install angular-horizontal-scroll
    </horizontal-scroll>
    ```
 
-3. Customize the component's appearance by adjusting the `containerStyles` API.
+3. Customize the component's appearance by adjusting the `ScrollTheme` API.
 
    ```typescript
-   import { ContainerStyles } from "angular-horizontal-scroll";
+   import { ScrollTheme } from "angular-horizontal-scroll";
    ```
 
 ## ✨ API
 
 ### ⌨️ Component Parameters
 
-| Param                    | Type                                   | Default  | Description                      |
-| ------------------------ | -------------------------------------- | -------- | -------------------------------- |
-| `[containerStyles]`      | [`ContainerStyles`](#container-styles) | -        | Styles for container             |
-| `[buttonStyles]`         | [`ButtonStyles`](#button-styles)       | -        | Styles for buttons               |
-| `[headerTitleTemplate]`  | string \| TemplateRef<void>            | -        | The title for the container      |
-| `(onLeftBtnClick)`       | EventEmitter<void>                     | -        | Left button click callback       |
-| `(onRightBtnClick)`      | EventEmitter<void>                     | -        | Right button click callback      |
-| `(onScroll)`             | EventEmitter<void>                     | -        | Scroll callback                  |
-| `[scrollAmount]`         | 'auto' \| 'full' \| number             | 'auto'   | Control the scroll amount.       |
-| `[scrollButtonPosition]` | 'center' \| 'top right'                | 'center' | The placement of scrolls buttons |
-| `[scrollButtonTemplate]` | TemplateRef<void> \| undefined         | -        | Custom scroll button             |
-| `[showScrollbar]`        | boolean                                | false    | Option to show scrollbar         |
+| Param                    | Type                           | Default  | Description                      |
+| ------------------------ | ------------------------------ | -------- | -------------------------------- |
+| `[theme]`                | [`ContainerStyles`](#Theme)    | -        | Styles for container             |
+| `[headerTitleTemplate]`  | string \| TemplateRef<void>    | -        | The title for the container      |
+| `(onLeftBtnClick)`       | EventEmitter<void>             | -        | Left button click callback       |
+| `(onRightBtnClick)`      | EventEmitter<void>             | -        | Right button click callback      |
+| `(onScroll)`             | EventEmitter<void>             | -        | Scroll callback                  |
+| `[scrollAmount]`         | 'auto' \| 'full' \| number     | 'auto'   | Control the scroll amount.       |
+| `[scrollButtonPosition]` | 'center' \| 'top right'        | 'center' | The placement of scrolls buttons |
+| `[scrollButtonTemplate]` | TemplateRef<void> \| undefined | -        | Custom scroll button             |
+| `[showScrollbar]`        | boolean                        | false    | Option to show scrollbar         |
 
-## 🎨 Custom Styles
+## 🎨 Theme
 
-### Container Styles
+### Theme.container
 
 | Property                 | Type    | Default | Description                                                          |
 | ------------------------ | ------- | ------- | -------------------------------------------------------------------- |
@@ -63,7 +62,7 @@ npm install angular-horizontal-scroll
 | `reverseDirection`       | boolean | false   | Reverse direction of elements displayed                              |
 | `inlineStyle`            | string  | ""      | Set the inline styles for container                                  |
 
-### Button Styles
+### Theme.button
 
 | Property      | Type   | Default     | Description                            |
 | ------------- | ------ | ----------- | -------------------------------------- |
@@ -71,10 +70,6 @@ npm install angular-horizontal-scroll
 | `btnBgColor`  | string | '#0000004d' | Set the background color of the button |
 | `btnSize`     | number | 16          | Set the size of the button in `px`     |
 | `inlineStyle` | string | ""          | Set the inline styles for buttons      |
-
-## 📄 Changelog
-
-[see Latest change](https://github.com/Karim-Nabarawi/angular-horizontal-scroll/blob/add_reverse_toggle_for_version_15/CHANGELOG.md)
 
 ## 🤝 Contributing
 

@@ -18,5 +18,10 @@
     "horizontal",
     "scroll"
   ],
+  "bugs": {
+    "url": "https://github.com/Karim-Nabarawi/angular-horizontal-scroll/issues",
+    "email": "k.nabarawi@gmail.com"
+  },
+  "license": "MIT",
   "sideEffects": false
 }

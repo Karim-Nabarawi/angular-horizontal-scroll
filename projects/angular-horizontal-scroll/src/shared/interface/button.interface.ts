@@ -1,4 +1,5 @@
 /**
+ * @deprecated use `ButtonTheme` interface instead
  * @description
  * Represents the button styles for the Horizontal scroll component.
  *

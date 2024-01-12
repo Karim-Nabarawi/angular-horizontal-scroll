@@ -17,9 +17,9 @@ import { ImageScrollButtonsComponent } from '../components/scroll-buttons/scroll
 
 import {
   ButtonStyles,
-  ButtonStylesDefault,
   ContainerStyles,
-  ContainerStylesDefault,
+  ScrollTheme,
+  ScrollThemeDefault,
 } from '../shared/interface';
 
 /**
@@ -38,8 +38,7 @@ import {
  *   [scrollButtonTemplate]="customButtonTemplate"
  *   [scrollButtonPosition]="'top right'"
  *   [showScrollbar]="true"
- *   [buttonStyles]="ButtonStyles"
- *   [containerStyles]="ContainerStyles"
+ *   [theme]="theme"
  * ></horizontal-scroll>
  * ```
  */
@@ -113,51 +112,57 @@ export class AngularHorizontalScroll implements AfterViewChecked {
   @Input() showScrollbar: boolean = false;
 
   /**
+   * @deprecated use `theme` input instead
    * @description
    * Custom styles for buttons.
    * @see {@link ButtonStyles} for available style properties.
    */
 
   @Input() set buttonStyles(value: Partial<ButtonStyles>) {
-    this.buttonsStyle = {
-      ...ButtonStylesDefault,
-      ...value,
-    };
+    this.themeStyles.button = { ...ScrollThemeDefault.button, ...value };
   }
 
   /**
+   * @deprecated use `theme` input instead
    * @description
    * Custom styles for the container.
    * @see {@link ContainerStyles} for available style properties.
    */
 
   @Input() set containerStyles(value: Partial<ContainerStyles>) {
-    this.mainStyles = {
-      ...ContainerStylesDefault,
-      ...value,
-    };
-
-    this.checkOverflow();
-    this.cdRef.detectChanges();
+    this.themeStyles.container = { ...ScrollThemeDefault.container, ...value };
   }
 
-  mainStyles: ContainerStyles = ContainerStylesDefault;
-  buttonsStyle: ButtonStyles = ButtonStylesDefault;
+  @Input() set theme(value: Partial<ScrollTheme>) {
+    this.themeStyles = {
+      container: {
+        ...ScrollThemeDefault.container,
+        ...value.container,
+      },
+      button: {
+        ...ScrollThemeDefault.button,
+        ...value.button,
+      },
+    };
+  }
+
+  themeStyles: ScrollTheme = ScrollThemeDefault;
 
   hasOverflow = false;
   overflowValue: 'left' | 'both' | 'right' = 'left';
 
   @HostBinding('style.--default-elements-gap') get elementsGap() {
-    return `${this.mainStyles.elementsGap}px`;
+    return `${this.themeStyles.container.elementsGap}px`;
   }
   @HostBinding('style.--scrollbar-padding') get scrollbarPadding() {
     return this.showScrollbar ? '0 0 16px' : '0px';
   }
   @HostBinding('style.--container-gap') get containerGap() {
-    return `${this.mainStyles.containerGap}px`;
+    console.log(this.themeStyles.container.containerGap);
+    return `${this.themeStyles.container.containerGap}px`;
   }
   @HostBinding('style.--flex-direction') get containerDirection() {
-    return this.mainStyles.reverseDirection ? 'row-reverse' : 'row';
+    return this.themeStyles.container.reverseDirection ? 'row-reverse' : 'row';
   }
 
   constructor(private cdRef: ChangeDetectorRef) {}
@@ -186,7 +191,7 @@ export class AngularHorizontalScroll implements AfterViewChecked {
   }
 
   updateOverflowValue() {
-    const direction = this.mainStyles.reverseDirection ? -1 : 1;
+    const direction = this.themeStyles.container.reverseDirection ? -1 : 1;
     const element = this.widgetsContent.nativeElement;
     const scrollAmount = element.scrollLeft + element.offsetWidth * direction;
     const maxScrollAmount = element.scrollWidth;
@@ -203,7 +208,7 @@ export class AngularHorizontalScroll implements AfterViewChecked {
     if (this.scrollAmount === 'auto') {
       return (
         this.widgetsContent.nativeElement.childNodes[0].offsetWidth +
-        this.mainStyles.elementsGap
+        this.themeStyles.container.elementsGap
       );
     } else if (this.scrollAmount === 'full') {
       return this.widgetsContent.nativeElement.offsetWidth;
@@ -215,7 +220,8 @@ export class AngularHorizontalScroll implements AfterViewChecked {
     if (!this.widgetsContent) return;
 
     const { nativeElement: element } = this.widgetsContent;
-    const { firstAndLastElementGap, reverseDirection } = this.mainStyles;
+    const { firstAndLastElementGap, reverseDirection } =
+      this.themeStyles.container;
 
     // Check for overflow
     this.hasOverflow =
