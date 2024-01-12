@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AngularHorizontalScroll,
-  ButtonStyles,
-  ContainerStyles,
+  ScrollTheme,
 } from 'angular-horizontal-scroll';
 import { ExampleHolderComponent } from '../../example-holder/example-holder.component';
 import { generateRandomElement } from 'src/shared/utils/random';
@@ -17,11 +16,7 @@ import { generateRandomElement } from 'src/shared/utils/random';
       explanation="Container and button styles can be adjusted"
       [code]="code"
     >
-      <horizontal-scroll
-        headerTitleTemplate="Custom styles"
-        [buttonStyles]="customBtnStyles"
-        [containerStyles]="customContainerStyles"
-      >
+      <horizontal-scroll headerTitleTemplate="Custom styles" [theme]="theme">
         <ng-template ngFor let-data [ngForOf]="exampleData">
           <div class="box">
             <span
@@ -39,15 +34,16 @@ import { generateRandomElement } from 'src/shared/utils/random';
 export class CustomStylesExampleComponent {
   exampleData = generateRandomElement();
 
-  customContainerStyles: Partial<ContainerStyles> = {
-    elementsGap: 50,
-    containerGap: 20,
-    firstAndLastElementGap: 16,
-  };
-
-  customBtnStyles: Partial<ButtonStyles> = {
-    btnSize: 18,
-    btnBgColor: 'rgb(17, 157, 200)',
+  theme: ScrollTheme = {
+    container: {
+      elementsGap: 50,
+      containerGap: 20,
+      firstAndLastElementGap: 16,
+    },
+    button: {
+      btnSize: 18,
+      btnBgColor: 'rgb(17, 157, 200)',
+    },
   };
 
   code = `
@@ -55,8 +51,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AngularHorizontalScroll,
-  ButtonStyles,
-  ContainerStyles,
+  ScrollTheme
 } from 'angular-horizontal-scroll';
 
 @Component({
@@ -64,11 +59,7 @@ import {
   standalone: true,
   imports: [CommonModule, AngularHorizontalScroll],
   template: \`
-    <horizontal-scroll
-      headerTitleTemplate="Custom styles"
-      [buttonStyles]="customBtnStyles"
-      [containerStyles]="customContainerStyles"
-    >
+    <horizontal-scroll headerTitleTemplate="Custom styles" [theme]="theme">
       <ng-template ngFor let-data [ngForOf]="exampleData">
         <div class="box" >
           <span
@@ -123,15 +114,16 @@ import {
 export class ExampleComponent {
   exampleData = this.generateRandomElement();
 
-  customContainerStyles: Partial<ContainerStyles> = {
-    elementsGap: 50,
-    containerGap: 20,
-    firstAndLastElementGap: 16,
-  };
-
-  customBtnStyles: Partial<ButtonStyles> = {
-    btnSize: 18,
-    btnBgColor: 'rgb(17, 157, 200)',
+  theme: ScrollTheme = {
+    container: {
+      elementsGap: 50,
+      containerGap: 20,
+      firstAndLastElementGap: 16,
+    },
+    button: {
+      btnSize: 18,
+      btnBgColor: 'rgb(17, 157, 200)',
+    },
   };
 
   generateRandomElement(arraySize = 20) {

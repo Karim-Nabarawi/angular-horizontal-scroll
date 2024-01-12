@@ -15,7 +15,7 @@
       #widgetsContent
       class="media-scroller"
       [ngClass]="{ 'hide-scrollbar': !showScrollbar }"
-      [style]="mainStyles.inlineStyle"
+      [style]="themeStyles.container.inlineStyle"
       (scroll)="scroll()"
     >
       <ng-content></ng-content>
@@ -40,8 +40,8 @@
     [widgetsContent]="widgetsContent"
     [scrollAmount]="getScrollAmount"
     [buttonDisplay]="overflowValue"
-    [reverseDirection]="mainStyles.reverseDirection"
-    [btnStyles]="buttonsStyle"
+    [reverseDirection]="!!themeStyles.container.reverseDirection"
+    [btnStyles]="themeStyles.button"
     (onLeftBtnClick)="onBtnClick('left')"
     (onRightBtnClick)="onBtnClick('right')"
     [position]="position"

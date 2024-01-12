@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AngularHorizontalScroll,
-  ButtonStyles,
-  ContainerStyles,
+  ScrollTheme,
 } from 'angular-horizontal-scroll';
 import { generateRandomElement } from 'src/shared/utils/random';
 import { FormsModule } from '@angular/forms';
@@ -40,22 +39,21 @@ export class ApiPlaygroundComponent {
 
   randomEmojis = generateRandomElement(50);
 
-  get containerStyles(): Partial<ContainerStyles> {
+  get theme(): Partial<ScrollTheme> {
     return {
-      containerGap: this.containerGap,
-      elementsGap: this.elementsGap,
-      firstAndLastElementGap: this.firstAndLastElementGap,
-      reverseDirection: this.reverseDirection,
-      inlineStyle: this.containerInlineStyle,
-    };
-  }
-
-  get buttonStyles(): Partial<ButtonStyles> {
-    return {
-      btnBgColor: this.btnBgColor,
-      arrowColor: this.arrowColor,
-      btnSize: this.btnSize,
-      inlineStyle: this.buttonInlineStyle,
+      container: {
+        containerGap: this.containerGap,
+        elementsGap: this.elementsGap,
+        firstAndLastElementGap: this.firstAndLastElementGap,
+        reverseDirection: this.reverseDirection,
+        inlineStyle: this.containerInlineStyle,
+      },
+      button: {
+        btnBgColor: this.btnBgColor,
+        arrowColor: this.arrowColor,
+        btnSize: this.btnSize,
+        inlineStyle: this.buttonInlineStyle,
+      },
     };
   }
 
@@ -68,8 +66,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AngularHorizontalScroll,
-  ButtonStyles,
-  ContainerStyles,
+  ScrollTheme
 } from 'angular-horizontal-scroll';
 
 @Component({
@@ -82,8 +79,7 @@ import {
       [scrollAmount]="scrollAmount"
       [scrollButtonPosition]="scrollButtonPosition"
       [showScrollbar]="showScrollbar"
-      [containerStyles]="containerStyles"
-      [buttonStyles]="buttonStyles"
+      [theme]="theme"
     >
       <ng-template ngFor let-data [ngForOf]="exampleData">
         <div class="box" >
@@ -155,22 +151,22 @@ export class ExampleComponent {
   btnSize = 16;
   buttonInlineStyle = '';
 
-  get containerStyles(): Partial<ContainerStyles> {
+  get theme(): Partial<ScrollTheme> {
     return {
-      containerGap: this.containerGap,
+      container: {
+        containerGap: this.containerGap,
       elementsGap: this.elementsGap,
       firstAndLastElementGap: this.firstAndLastElementGap,
+      reverseDirection: this.reverseDirection,
       inlineStyle: this.containerInlineStyle,
-    };
-  }
-
-  get buttonStyles(): Partial<ButtonStyles> {
-    return {
-      btnBgColor: this.btnBgColor,
+      },
+      button:{
+        btnBgColor: this.btnBgColor,
       arrowColor: this.arrowColor,
       btnSize: this.btnSize,
       inlineStyle: this.buttonInlineStyle,
-    };
+      }
+    }
   }
 
   generateRandomElement(arraySize = 20) {

@@ -14,8 +14,8 @@ import { generateRandomElement } from 'src/shared/utils/random';
   >
     <horizontal-scroll
       headerTitleTemplate="Reverse direction"
-      [containerStyles]="{
-          reverseDirection: true,
+      [theme]="{
+         container: { reverseDirection: true,}
         }"
     >
       <ng-template ngFor let-data [ngForOf]="exampleData">
@@ -45,9 +45,9 @@ export class ReverseExampleComponent {
     template: \`
       <horizontal-scroll
       headerTitleTemplate="Reverse direction"
-      [containerStyles]="{
-          reverseDirection: true,
-        }"
+      [theme]="{
+        container: { reverseDirection: true,}
+       }"
       >
         <ng-template ngFor let-data [ngForOf]="exampleData">
           <div class="box" >

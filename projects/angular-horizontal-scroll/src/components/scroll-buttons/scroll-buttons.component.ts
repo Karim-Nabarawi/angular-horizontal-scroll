@@ -7,10 +7,8 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  ButtonStyles,
-  ButtonStylesDefault,
-} from '../../shared/interface/button.interface';
+import { ButtonStylesDefault } from '../../shared/interface/button.interface';
+import { ButtonTheme } from '../../shared/interface';
 
 @Component({
   selector: 'app-image-scroll-buttons',
@@ -44,7 +42,7 @@ export class ImageScrollButtonsComponent {
   @Input() scrollButtonTemplate!: TemplateRef<void>;
 
   // button styles
-  @Input() btnStyles: ButtonStyles = ButtonStylesDefault;
+  @Input() btnStyles: ButtonTheme = ButtonStylesDefault;
 
   @HostBinding('style.--default-btn-bg-color') get btnBgColor() {
     return this.btnStyles.btnBgColor;

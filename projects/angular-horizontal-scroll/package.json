@@ -1,6 +1,6 @@
 {
   "name": "angular-horizontal-scroll",
-  "version": "15.2.0",
+  "version": "15.3.0",
   "peerDependencies": {
     "@angular/common": "^15.0.0",
     "@angular/core": " ^15.0.0 "
@@ -18,5 +18,10 @@
     "horizontal",
     "scroll"
   ],
+  "bugs": {
+    "url": "https://github.com/Karim-Nabarawi/angular-horizontal-scroll/issues",
+    "email": "k.nabarawi@gmail.com"
+  },
+  "license": "MIT",
   "sideEffects": false
 }
