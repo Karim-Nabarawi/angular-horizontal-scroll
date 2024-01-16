@@ -12,6 +12,13 @@ Provide an angular component for a scrolling container horizontal.
 npm install angular-horizontal-scroll
 ```
 
+**For other angular versions:**
+
+| Version | Tag                                                                                          |
+| :-----: | -------------------------------------------------------------------------------------------- |
+|   16    | <pre lang="bash">npm install angular-horizontal-scroll@v16-lts</pre>                         |
+|   15    | <pre lang="bash">npm install angular-horizontal-scroll@v15-lts&nbsp;&nbsp;&nbsp;&nbsp;</pre> |
+
 ## ⚙️ Usage
 
 1. Import the `AngularHorizontalScroll` in your module or standalone component:

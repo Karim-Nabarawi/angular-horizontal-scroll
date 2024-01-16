@@ -1,0 +1,31 @@
+<section>
+  <h3>Container Styles</h3>
+
+  <app-input
+    label="Container gap:"
+    type="number"
+    [(value)]="controls.containerGap"
+    (valueChange)="emitControls()"
+  />
+  <app-input
+    label="Elements gap:"
+    type="number"
+    [(value)]="controls.elementsGap"
+    (valueChange)="emitControls()"
+  />
+  <app-input
+    label="Edges margin:"
+    type="number"
+    [(value)]="controls.firstAndLastElementGap"
+    (valueChange)="emitControls()"
+  />
+
+  <div>
+    <p>Inline Styles:</p>
+    <textarea
+      [(ngModel)]="controls.containerInlineStyle"
+      (ngModelChange)="emitControls()"
+      rows="4"
+    ></textarea>
+  </div>
+</section>

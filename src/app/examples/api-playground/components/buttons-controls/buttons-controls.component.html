@@ -1,0 +1,27 @@
+<section>
+  <h4>Buttons Controls</h4>
+  <app-input
+    label="Button background color:"
+    [(value)]="controls.btnBgColor"
+    (valueChange)="emitControls()"
+  />
+  <app-input
+    label="Arrow color:"
+    [(value)]="controls.arrowColor"
+    (valueChange)="emitControls()"
+  />
+  <app-input
+    label="Button size:"
+    type="number"
+    [(value)]="controls.btnSize"
+    (valueChange)="emitControls()"
+  />
+  <div>
+    <p>Inline Styles:</p>
+    <textarea
+      [(ngModel)]="controls.buttonInlineStyle"
+      (ngModelChange)="emitControls()"
+      rows="4"
+    ></textarea>
+  </div>
+</section>

@@ -13,21 +13,21 @@ import { generateRandomElement } from 'src/shared/utils/random';
     [code]="code"
   >
     <horizontal-scroll headerTitleTemplate="Scrollbar" [showScrollbar]="true">
-      <ng-template ngFor let-data [ngForOf]="scrollbarData">
-        <div class="box">
-          <span
-            class="emoji"
-            [style.--hover-color]="data.color"
-            [style.--hover-rotate]="data.rotate"
-            >{{ data.emoji }}</span
-          >
-        </div>
-      </ng-template>
+      @for (data of exampleData; track $index) {
+      <div class="box">
+        <span
+          class="emoji"
+          [style.--hover-color]="data.color"
+          [style.--hover-rotate]="data.rotate"
+          >{{ data.emoji }}</span
+        >
+      </div>
+      }
     </horizontal-scroll>
   </app-example-holder>`,
 })
 export class ScrollbarExampleComponent {
-  scrollbarData = generateRandomElement();
+  exampleData = generateRandomElement();
 
   code = `
 import { Component } from '@angular/core';
@@ -40,16 +40,16 @@ import { AngularHorizontalScroll } from 'angular-horizontal-scroll';
   imports: [CommonModule, AngularHorizontalScroll],
   template: \`
     <horizontal-scroll headerTitleTemplate="Scrollbar" [showScrollbar]="true">
-      <ng-template ngFor let-data [ngForOf]="exampleData">
-        <div class="box" >
-          <span
-            class="emoji"
-            [style.--hover-color]="data.color"
-            [style.--hover-rotate]="data.rotate"
-            >{{ data.emoji }}</span
-          >
-        </div>
-      </ng-template>
+      @for (data of exampleData; track $index) {
+      <div class="box">
+        <span
+          class="emoji"
+          [style.--hover-color]="data.color"
+          [style.--hover-rotate]="data.rotate"
+          >{{ data.emoji }}</span
+        >
+      </div>
+      }
     </horizontal-scroll>
   \`,
   styles: [

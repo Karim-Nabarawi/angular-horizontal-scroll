@@ -1,13 +1,17 @@
 <div class="scroll-container">
   <div class="scroll-header">
     <!-- Check the type of contentTemplate -->
-    <ng-container *ngIf="isStringTemplate; else templateOutlet">
-      <h1>{{ headerTitleTemplate }}</h1>
-    </ng-container>
-
+    @if(isStringTemplate){
+    <h1>{{ headerTitleTemplate }}</h1>
+    } @else {
+    <div>
+      <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+    </div>
+    } @if(hasOverflow && scrollButtonPosition === 'top right'){
     <ng-container
       *ngTemplateOutlet="scrollButtons; context: { $implicit: 'top right' }"
     ></ng-container>
+    }
   </div>
 
   <div class="scroll-wrapper">
@@ -21,18 +25,15 @@
       <ng-content></ng-content>
     </div>
 
+    @if(hasOverflow && scrollButtonPosition === 'center'){
     <ng-container
       *ngTemplateOutlet="scrollButtons; context: { $implicit: 'center' }"
     ></ng-container>
+    }
   </div>
 </div>
 
 <!-- Templates -->
-<ng-template #templateOutlet>
-  <div>
-    <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
-  </div>
-</ng-template>
 
 <ng-template #scrollButtons let-position>
   <app-image-scroll-buttons
@@ -46,6 +47,5 @@
     (onRightBtnClick)="onBtnClick('right')"
     [position]="position"
     [ngClass]="{ 'scroll-buttons': position === 'top right' }"
-    *ngIf="hasOverflow && scrollButtonPosition === position"
   ></app-image-scroll-buttons>
 </ng-template>

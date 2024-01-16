@@ -1,0 +1,103 @@
+<section>
+  <h3>Main Controls</h3>
+  <div>
+    <p>Button position:</p>
+    <div class="container">
+      <div class="input-radio">
+        <input
+          type="radio"
+          id="btnPostionCenter"
+          name="btnPostion"
+          value="center"
+          [(ngModel)]="scrollButtonPosition"
+          (ngModelChange)="inputChange()"
+        />
+        <label for="btnPostionCenter"> center </label>
+      </div>
+
+      <div class="input-radio">
+        <input
+          type="radio"
+          id="btnPostionTopRight"
+          name="btnPostion"
+          value="top right"
+          [(ngModel)]="scrollButtonPosition"
+          (ngModelChange)="inputChange()"
+        />
+        <label for="btnPostionTopRight"> top right </label>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <p>Scroll amount:</p>
+
+    <div class="container">
+      <div class="input-radio">
+        <input
+          type="radio"
+          id="scrollAmountAuto"
+          name="scrollAmount"
+          value="auto"
+          (ngModelChange)="updateScrollAmount('auto')"
+          [(ngModel)]="scrollAmountSelector"
+        />
+        <label for="scrollAmountAuto"> auto </label>
+      </div>
+
+      <div class="input-radio">
+        <input
+          type="radio"
+          id="scrollAmountFull"
+          name="scrollAmount"
+          value="full"
+          (ngModelChange)="updateScrollAmount('full')"
+          [(ngModel)]="scrollAmountSelector"
+        />
+        <label for="scrollAmountFull"> full </label>
+      </div>
+
+      <div class="input-radio">
+        <input
+          type="radio"
+          id="scrollAmountNumber"
+          name="scrollAmount"
+          value="number"
+          (ngModelChange)="updateScrollAmount(200)"
+          [(ngModel)]="scrollAmountSelector"
+        />
+        <label for="scrollAmountNumber" class="input-radio">
+          control size
+        </label>
+      </div>
+    </div>
+    @if(scrollAmountSelector === 'number'){
+    <div style="display: flex">
+      <input type="number" [(ngModel)]="scrollAmount" />
+      <p>px</p>
+    </div>
+    }
+  </div>
+
+  <div class="container">
+    <label for="showScrollbar">Show scroll bar:</label>
+    <input
+      type="checkbox"
+      id="showScrollbar"
+      type="checkbox"
+      [(ngModel)]="showScrollbar"
+      (ngModelChange)="inputChange()"
+    />
+  </div>
+
+  <div class="container">
+    <label for="reverseDirection">Reverse direction:</label>
+    <input
+      type="checkbox"
+      id="reverseDirection"
+      type="checkbox"
+      [(ngModel)]="reverseDirection"
+      (ngModelChange)="inputChange()"
+    />
+  </div>
+</section>

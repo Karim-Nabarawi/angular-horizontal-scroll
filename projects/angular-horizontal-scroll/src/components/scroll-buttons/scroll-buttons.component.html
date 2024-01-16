@@ -5,27 +5,25 @@
     'hide-btn': shouldHideBtn('left'),
   }"
 >
-  <div [ngSwitch]="scrollButtonTemplate !== undefined">
-    <ng-container
-      *ngSwitchCase="true"
-      [ngTemplateOutlet]="buttonTemplateOut"
-      [ngTemplateOutletContext]="{
-        $implicit: -1,
-        style: 'transform: scaleX(-1)'
-      }"
-    >
-    </ng-container>
-
-    <ng-container
-      *ngSwitchDefault
-      [ngTemplateOutlet]="defaultButtonTemplate"
-      [ngTemplateOutletContext]="{
-        $implicit: -1,
-        style: 'transform: scaleX(-1);' + btnStyles.inlineStyle
-      }"
-    >
-    </ng-container>
-  </div>
+  @if (scrollButtonTemplate) {
+  <ng-container
+    [ngTemplateOutlet]="buttonTemplateOut"
+    [ngTemplateOutletContext]="{
+      $implicit: -1,
+      style: 'transform: scaleX(-1)'
+    }"
+  >
+  </ng-container>
+  } @else {
+  <ng-container
+    [ngTemplateOutlet]="defaultButtonTemplate"
+    [ngTemplateOutletContext]="{
+      $implicit: -1,
+      style: 'transform: scaleX(-1);' + btnStyles.inlineStyle
+    }"
+  >
+  </ng-container>
+  }
 </div>
 
 <div
@@ -35,26 +33,24 @@
     'hide-btn': shouldHideBtn('right'),
   }"
 >
-  <div [ngSwitch]="scrollButtonTemplate !== undefined">
-    <ng-container
-      *ngSwitchCase="true"
-      [ngTemplateOutlet]="buttonTemplateOut"
-      [ngTemplateOutletContext]="{
-        $implicit: 1,
-      }"
-    >
-    </ng-container>
-
-    <ng-container
-      *ngSwitchDefault
-      [ngTemplateOutlet]="defaultButtonTemplate"
-      [ngTemplateOutletContext]="{
-        $implicit: 1,
-        style: btnStyles.inlineStyle
-      }"
-    >
-    </ng-container>
-  </div>
+  @if (scrollButtonTemplate) {
+  <ng-container
+    [ngTemplateOutlet]="buttonTemplateOut"
+    [ngTemplateOutletContext]="{
+      $implicit: 1,
+    }"
+  >
+  </ng-container>
+  } @else {
+  <ng-container
+    [ngTemplateOutlet]="defaultButtonTemplate"
+    [ngTemplateOutletContext]="{
+      $implicit: 1,
+      style: btnStyles.inlineStyle
+    }"
+  >
+  </ng-container>
+  }
 </div>
 
 <ng-template #defaultButtonTemplate let-direction let-style="style">
