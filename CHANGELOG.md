@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Feature
 
-- **License:** added MIT license ([ca501a1](https://github.com/Karim-Nabarawi/angular-horizontal-scroll/commit/ca501a190a0c3ad89cd7eeccd758343d43424d31)).
+- **License:** added MIT license ([ab30dc5](https://github.com/Karim-Nabarawi/angular-horizontal-scroll/commit/ab30dc58d7142d8525db958a4a2f2483bd119a78)).
 
 ## [16.2.0](https://github.com/Karim-Nabarawi/angular-horizontal-scroll/compare/v16.1.0...v16.2.0) (2024-01-11)
 
