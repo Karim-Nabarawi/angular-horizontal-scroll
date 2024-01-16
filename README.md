@@ -9,8 +9,15 @@ Provide an angular component for a scrolling container horizontal.
 ## 📦 Install
 
 ```bash
-npm install angular-horizontal-scroll
+npm install angular-horizontal-scroll@v16-lts
 ```
+
+**For other angular versions:**
+
+| Version | Tag                                                                                          |
+| :-----: | -------------------------------------------------------------------------------------------- |
+|   17    | <pre lang="bash">npm install angular-horizontal-scroll</pre>                                 |
+|   15    | <pre lang="bash">npm install angular-horizontal-scroll@v15-lts&nbsp;&nbsp;&nbsp;&nbsp;</pre> |
 
 ## ⚙️ Usage
 
