@@ -1,0 +1,7 @@
+<div>
+  <p>{{ label }}</p>
+  <div style="display: flex">
+    <input [type]="type" [(ngModel)]="value" (ngModelChange)="onChange()" />
+    <p>px</p>
+  </div>
+</div>

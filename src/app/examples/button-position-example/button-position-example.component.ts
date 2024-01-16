@@ -17,22 +17,22 @@ import { AngularHorizontalScroll } from 'angular-horizontal-scroll';
         headerTitleTemplate="Buttons top right"
         [scrollButtonPosition]="'top right'"
       >
-        <ng-template ngFor let-data [ngForOf]="btnPositionData">
-          <div class="box">
-            <span
-              class="emoji"
-              [style.--hover-color]="data.color"
-              [style.--hover-rotate]="data.rotate"
-              >{{ data.emoji }}</span
-            >
-          </div>
-        </ng-template>
+        @for (data of randomEmojis; track $index) {
+        <div class="box">
+          <span
+            class="emoji"
+            [style.--hover-color]="data.color"
+            [style.--hover-rotate]="data.rotate"
+            >{{ data.emoji }}</span
+          >
+        </div>
+        }
       </horizontal-scroll>
     </app-example-holder>
   `,
 })
 export class ButtonPositionExampleComponent {
-  btnPositionData = generateRandomElement();
+  randomEmojis = generateRandomElement();
 
   code = `
 import { Component } from '@angular/core';
@@ -48,16 +48,16 @@ import { AngularHorizontalScroll } from 'angular-horizontal-scroll';
       headerTitleTemplate="Buttons top right"
       [scrollButtonPosition]="'top right'"
     >
-      <ng-template ngFor let-data [ngForOf]="exampleData">
-        <div class="box" >
-          <span
-            class="emoji"
-            [style.--hover-color]="data.color"
-            [style.--hover-rotate]="data.rotate"
-            >{{ data.emoji }}</span
-          >
-        </div>
-      </ng-template>
+      @for (data of exampleData; track $index) {
+      <div class="box">
+        <span
+          class="emoji"
+          [style.--hover-color]="data.color"
+          [style.--hover-rotate]="data.rotate"
+          >{{ data.emoji }}</span
+        >
+      </div>
+      }
     </horizontal-scroll>
   \`,
   styles: [

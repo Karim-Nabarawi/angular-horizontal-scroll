@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [17.0.0](https://github.com/Karim-Nabarawi/angular-horizontal-scroll/compare/vv16.2.1...v17.0.0) (2023-09-10)
+
+### Features
+
+- **Angular 17:** Added support for angular 17 ([79d023c](https://github.com/Karim-Nabarawi/angular-horizontal-scroll/commit/79d023c87282e0059467144f921d41ca453eaaff)).
+
 ## [16.2.1](https://github.com/Karim-Nabarawi/angular-horizontal-scroll/compare/v16.2.0...v16.2.1) (2024-01-16)
 
 ### Feature
